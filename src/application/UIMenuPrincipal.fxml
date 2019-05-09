@@ -5,13 +5,13 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CMenuPrincipal">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="718.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CMenuPrincipal">
    <children>
       <Button mnemonicParsing="false" prefHeight="200.0" prefWidth="300.0" text="Empresas">
          <graphic>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../ICONOS/icono-empresa-png-6.png" />
+                  <Image url="@../../../../../Desktop/DAW1/PROYECTO/ICONOS/icono-empresa-png-6.png" />
                </image>
             </ImageView>
          </graphic>
@@ -20,7 +20,7 @@
          <graphic>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../ICONOS/Escuela.png" />
+                  <Image url="@../../../../../Desktop/DAW1/PROYECTO/ICONOS/Escuela.png" />
                </image>
             </ImageView>
          </graphic>
@@ -29,7 +29,7 @@
          <graphic>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../ICONOS/Tutor.png" />
+                  <Image url="@../../../../../Desktop/DAW1/PROYECTO/ICONOS/Tutor.png" />
                </image>
             </ImageView>
          </graphic>
@@ -38,7 +38,7 @@
          <graphic>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../ICONOS/Alumno2.png" />
+                  <Image url="@../../../../../Desktop/DAW1/PROYECTO/ICONOS/Alumno2.png" />
                </image>
             </ImageView>
          </graphic>
@@ -46,27 +46,28 @@
       <Button alignment="BOTTOM_CENTER" contentDisplay="RIGHT" layoutX="300.0" layoutY="400.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="300.0" text="Practicas" />
       <ImageView fitHeight="89.0" fitWidth="89.0" layoutX="308.0" layoutY="455.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../ICONOS/icono-empresa-png-6.png" />
+            <Image url="@../../../../../Desktop/DAW1/PROYECTO/ICONOS/icono-empresa-png-6.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="95.0" fitWidth="89.0" layoutX="495.0" layoutY="455.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../ICONOS/Alumno2.png" />
+            <Image url="@../../../../../Desktop/DAW1/PROYECTO/ICONOS/Alumno2.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="89.0" fitWidth="92.0" layoutX="406.0" layoutY="455.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../ICONOS/dosFlechas.png" />
+            <Image url="@../../../../../Desktop/DAW1/PROYECTO/ICONOS/dosFlechas.png" />
          </image>
       </ImageView>
       <Button fx:id="Ciclo" layoutY="399.0" mnemonicParsing="false" onAction="#nuevaVentana" prefHeight="200.0" prefWidth="300.0" text="Ciclos">
          <graphic>
             <ImageView fitHeight="125.0" fitWidth="170.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../ICONOS/Ciclo2.png" />
+                  <Image url="@../../../../../Desktop/DAW1/PROYECTO/ICONOS/Ciclo2.png" />
                </image>
             </ImageView>
          </graphic>
       </Button>
+      <Button layoutY="599.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="600.0" text="Generar Anexos" />
    </children>
 </AnchorPane>
