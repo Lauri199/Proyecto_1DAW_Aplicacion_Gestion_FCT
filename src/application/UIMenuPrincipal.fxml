@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CMenuPrincipal">
+   <children>
+      <Button mnemonicParsing="false" prefHeight="200.0" prefWidth="300.0" text="Empresas">
+         <graphic>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ICONOS/icono-empresa-png-6.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="300.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="300.0" text="Centro">
+         <graphic>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ICONOS/Escuela.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutY="200.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="300.0" text="Tutores">
+         <graphic>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ICONOS/Tutor.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="300.0" layoutY="200.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="300.0" text="Alumnos">
+         <graphic>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ICONOS/Alumno2.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button alignment="BOTTOM_CENTER" contentDisplay="RIGHT" layoutX="300.0" layoutY="400.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="300.0" text="Practicas" />
+      <ImageView fitHeight="89.0" fitWidth="89.0" layoutX="308.0" layoutY="455.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../ICONOS/icono-empresa-png-6.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="95.0" fitWidth="89.0" layoutX="495.0" layoutY="455.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../ICONOS/Alumno2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="89.0" fitWidth="92.0" layoutX="406.0" layoutY="455.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../ICONOS/dosFlechas.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="Ciclo" layoutY="399.0" mnemonicParsing="false" onAction="#nuevaVentana" prefHeight="200.0" prefWidth="300.0" text="Ciclos">
+         <graphic>
+            <ImageView fitHeight="125.0" fitWidth="170.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ICONOS/Ciclo2.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CMenuCiclo">
+   <children>
+      <TableView fx:id="Tabla" layoutX="87.0" layoutY="54.0" prefHeight="200.0" prefWidth="227.0">
+         <columns>
+            <TableColumn fx:id="Clave_Ciclo" prefWidth="75.0" text="Clave Ciclo" />
+            <TableColumn fx:id="Nombre" prefWidth="89.60003662109375" text="Nombre Ciclo" />
+            <TableColumn fx:id="Fam_Prof" prefWidth="60.79998779296875" text="Familia Profesional" />
+            <TableColumn fx:id="Num_Cursos" prefWidth="75.0" text="Num Cursos" />
+            <TableColumn fx:id="Period_Pract" prefWidth="75.0" text="Period Pract" />
+            <TableColumn fx:id="Cap_terminales" prefWidth="75.0" text="Capacidades terminales" />
+            <TableColumn fx:id="Act_Form" prefWidth="75.0" text="Actividades Activo Formativas" />
+            <TableColumn fx:id="Criterio" prefWidth="75.0" text="Criterios de Evaluacion" />
+            <TableColumn fx:id="Cod_Centro" prefWidth="75.0" text="Cod Centro" />
+         </columns>
+      </TableView>
+      <Button layoutX="167.0" layoutY="306.0" mnemonicParsing="false" text="Modificar" />
+      <Button layoutX="87.0" layoutY="306.0" mnemonicParsing="false" text="Nuevo" />
+      <Button layoutX="264.0" layoutY="306.0" mnemonicParsing="false" text="Borrar" />
+      <Button fx:id="Actualizar" layoutX="167.0" layoutY="345.0" mnemonicParsing="false" onAction="#ActualizaTabla" text="Actualizar" />
+   </children>
+</AnchorPane>

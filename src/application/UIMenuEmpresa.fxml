@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView layoutX="77.0" layoutY="63.0" prefHeight="200.0" prefWidth="245.0">
+         <columns>
+            <TableColumn prefWidth="91.20001220703125" text="Num Convenio" />
+            <TableColumn prefWidth="45.60003662109375" text="NIF" />
+            <TableColumn prefWidth="108.79998779296875" text="Nombre Empresa" />
+            <TableColumn prefWidth="56.00006103515625" text="Representante" />
+            <TableColumn prefWidth="75.0" text="Localidad" />
+            <TableColumn prefWidth="75.0" text="Provincia" />
+            <TableColumn prefWidth="75.0" text="Pais" />
+            <TableColumn prefWidth="75.0" text="Calle" />
+            <TableColumn prefWidth="75.0" text="CP" />
+            <TableColumn prefWidth="75.0" text="CIF" />
+            <TableColumn prefWidth="75.0" text="Telf" />
+            <TableColumn prefWidth="75.0" text="Fax" />
+            <TableColumn prefWidth="75.0" text="Ciudad Firma" />
+            <TableColumn prefWidth="75.0" text="Fecha firma" />
+         </columns>
+      </TableView>
+      <Button layoutX="167.0" layoutY="313.0" mnemonicParsing="false" text="Modificar" />
+      <Button layoutX="87.0" layoutY="313.0" mnemonicParsing="false" text="Nuevo" />
+      <Button layoutX="264.0" layoutY="313.0" mnemonicParsing="false" text="Borrar" />
+   </children>
+</AnchorPane>
