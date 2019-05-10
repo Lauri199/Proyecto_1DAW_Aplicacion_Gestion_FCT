@@ -2,86 +2,145 @@ package application;
 
 public class Ciclo {
 	
-	String Clave_Ciclo;
-	String Nom_Ciclo;
-	String Familia_prof;
-	int Num_cursos;
-	String Period_Pract;
-	String Capac_term;
-	String Act_Form;
-	String Criterios_eva;
-	int Cod_Centro;
+	String clave_ciclo;
+	String nom_ciclo;
+	String familia_prof;
+	String num_cursos;
+	String period_pract;
+	String capac_term;
+	String act_form;
+	String criterios_eva;
+	String programa_formativo;
+	String cod_centro;
 	
 	
-	public Ciclo(String clave_Ciclo, String nom_Ciclo, String familia_prof, int num_cursos, String period_Pract,
-			String capac_term, String act_Form, String criterios_eva, int cod_Centro) {
+	public Ciclo(String clave_ciclo, String nom_ciclo, String familia_prof, String num_cursos, String period_pract,
+			String capac_term, String act_form, String criterios_eva, String programa_formativo, String cod_centro) {
 		super();
-		Clave_Ciclo = clave_Ciclo;
-		Nom_Ciclo = nom_Ciclo;
-		Familia_prof = familia_prof;
-		Num_cursos = num_cursos;
-		Period_Pract = period_Pract;
-		Capac_term = capac_term;
-		Act_Form = act_Form;
-		Criterios_eva = criterios_eva;
-		Cod_Centro = cod_Centro;
+		this.clave_ciclo = clave_ciclo;
+		this.nom_ciclo = nom_ciclo;
+		this.familia_prof = familia_prof;
+		this.num_cursos = num_cursos;
+		this.period_pract = period_pract;
+		this.capac_term = capac_term;
+		this.act_form = act_form;
+		this.criterios_eva = criterios_eva;
+		this.programa_formativo = programa_formativo;
+		this.cod_centro = cod_centro;
 	}
-	
-	
-	public String getClave_Ciclo() {
-		return Clave_Ciclo;
+
+
+	public String getClave_ciclo() {
+		return clave_ciclo;
 	}
-	public void setClave_Ciclo(String clave_Ciclo) {
-		Clave_Ciclo = clave_Ciclo;
+
+
+	public void setClave_ciclo(String clave_ciclo) {
+		this.clave_ciclo = clave_ciclo;
 	}
-	public String getNom_Ciclo() {
-		return Nom_Ciclo;
+
+
+	public String getNom_ciclo() {
+		return nom_ciclo;
 	}
-	public void setNom_Ciclo(String nom_Ciclo) {
-		Nom_Ciclo = nom_Ciclo;
+
+
+	public void setNom_ciclo(String nom_ciclo) {
+		this.nom_ciclo = nom_ciclo;
 	}
+
+
 	public String getFamilia_prof() {
-		return Familia_prof;
+		return familia_prof;
 	}
+
+
 	public void setFamilia_prof(String familia_prof) {
-		Familia_prof = familia_prof;
+		this.familia_prof = familia_prof;
 	}
-	public int getNum_cursos() {
-		return Num_cursos;
+
+
+	public String getNum_cursos() {
+		return num_cursos;
 	}
-	public void setNum_cursos(int num_cursos) {
-		Num_cursos = num_cursos;
+
+
+	public void setNum_cursos(String num_cursos) {
+		this.num_cursos = num_cursos;
 	}
-	public String getPeriod_Pract() {
-		return Period_Pract;
+
+
+	public String getPeriod_pract() {
+		return period_pract;
 	}
-	public void setPeriod_Pract(String period_Pract) {
-		Period_Pract = period_Pract;
+
+
+	public void setPeriod_pract(String period_pract) {
+		this.period_pract = period_pract;
 	}
+
+
 	public String getCapac_term() {
-		return Capac_term;
+		return capac_term;
 	}
+
+
 	public void setCapac_term(String capac_term) {
-		Capac_term = capac_term;
+		this.capac_term = capac_term;
 	}
-	public String getAct_Form() {
-		return Act_Form;
+
+
+	public String getAct_form() {
+		return act_form;
 	}
-	public void setAct_Form(String act_Form) {
-		Act_Form = act_Form;
+
+
+	public void setAct_form(String act_form) {
+		this.act_form = act_form;
 	}
+
+
 	public String getCriterios_eva() {
-		return Criterios_eva;
+		return criterios_eva;
 	}
+
+
 	public void setCriterios_eva(String criterios_eva) {
-		Criterios_eva = criterios_eva;
+		this.criterios_eva = criterios_eva;
 	}
-	public int getCod_Centro() {
-		return Cod_Centro;
+
+
+	public String getPrograma_formativo() {
+		return programa_formativo;
 	}
-	public void setCod_Centro(int cod_Centro) {
-		Cod_Centro = cod_Centro;
+
+
+	public void setPrograma_formativo(String programa_formativo) {
+		this.programa_formativo = programa_formativo;
 	}
+
+
+	public String getCod_centro() {
+		return cod_centro;
+	}
+
+
+	public void setCod_centro(String cod_centro) {
+		this.cod_centro = cod_centro;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 

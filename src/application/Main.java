@@ -46,9 +46,13 @@ public class Main extends Application {
         }
    }
 
-    public void mostrarMenuCiclos() {
+
+
+
+    public void mostrarMenuCiclo() {
+
         try {
-        	System.out.println("Metodo mostrarVentanaSecundaria");
+        	System.out.println("Metodo mostrarMenuCiclo");
             FXMLLoader loader = new FXMLLoader(Main.class.getResource("UIMenuCiclos.fxml"));
             AnchorPane ventanaDos = (AnchorPane) loader.load();
             Stage ventana = new Stage();
@@ -67,6 +71,7 @@ public class Main extends Application {
         }
     }
     
+
     public void mostrarContactoCiclos() {
         try {
         	System.out.println("Metodo mostrarVentanaSecundaria");
@@ -79,6 +84,24 @@ public class Main extends Application {
             ventana.setScene(scene);
 
             CMenuCiclo controller2 = loader.getController();
+        }catch (Exception e) {
+            //tratar la excepción
+        }
+    }
+
+    
+    public void mostrarContactoCiclo() {
+        try {
+        	System.out.println("Metodo mostrarContactoCiclo");
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("UIContactoCiclo.fxml"));
+            AnchorPane ventanaTres = (AnchorPane) loader.load();
+            Stage ventana = new Stage();
+            ventana.setTitle("Venta Tres");
+            ventana.initOwner(stagePrincipal);
+            Scene scene = new Scene(ventanaTres);
+            ventana.setScene(scene);
+
+            CContactoCiclo controller2 = loader.getController();
             controller2.setStagePrincipal(ventana);
 
             ventana.show();

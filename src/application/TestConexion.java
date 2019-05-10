@@ -16,7 +16,7 @@ public class TestConexion {
 	private String url= "";
 	private String usr = "";
 	private String pwd = "";
-	private String esquema="";
+	private static String esquema="";
 	private static Connection conexion;
 	
 
@@ -78,16 +78,17 @@ public class TestConexion {
 				String Clave = rset.getString(1);
 				String Nombre = rset.getString(2);
 				String Familia = rset.getString(3);
-				int Num_Cursos = rset.getInt(4);
+				String Num_Cursos = rset.getString(4);
 				String Period_Practicas = rset.getString(5);
 				String Capacidades = rset.getString(6);
 				String Act_Form = rset.getString(7);
 				String Criterios = rset.getString(8);
-				int Cod_Centro = rset.getInt(9);
+				String programa_formativo = rset.getString(9);
+				String Cod_Centro = rset.getString(10);
 				
 				
-				System.out.println(Clave + " " + Nombre + " " +Familia + " " +Num_Cursos + " " +Period_Practicas  + " " + Capacidades  + " " + Act_Form  + " " + Criterios  + " " + Cod_Centro );
-				Ciclo auxCiclo = new Ciclo(Clave, Nombre, Familia, Num_Cursos, Period_Practicas, Capacidades, Act_Form, Criterios, Cod_Centro);
+				System.out.println(Clave + ", " + Nombre + ", " +Familia + ", " +Num_Cursos + ", " +Period_Practicas  + ", " + Capacidades  + ", " + Act_Form  + ", " + Criterios  + ", " + programa_formativo  + ", " + Cod_Centro );
+				Ciclo auxCiclo = new Ciclo(Clave, Nombre, Familia, Num_Cursos, Period_Practicas, Capacidades, Act_Form, Criterios, programa_formativo, Cod_Centro);
 				aux.add(auxCiclo);
 			}
 			rset.close();
@@ -101,16 +102,16 @@ public class TestConexion {
 	}
 	
 	
-	/*public static int InsertUsuario() throws SQLException{
-		System.out.println("Voy a hacer un insert en la tabla USUARIO2");
+	/*public static int InsertCiclo() throws SQLException{
+		System.out.println("Voy a hacer un insert en la tabla Ciclos");
 		Statement stmt = conexion.createStatement();
 		
-		int num = stmt.executeUpdate("INSERT INTO LAURA.USUARIO2 VALUES (id_usuario.getText(), usuario.getText(), password.getText())");
+		int num = stmt.executeUpdate("INSERT INTO " + esquema +".USUARIO2 VALUES (Clave_Ciclo.getText(), Nombre_Ciclo.getText(), Familia_Profesional.getText(), Num_Cursos.getText(), Periodo_Practicas.getText(), Capacidades_terminales.getText(), Act_Activo_Formativas.getText(), Criterios_Evaluacion.getText(), ProgramaFormativo.getText(), Cod_Centro.getText())");
 		return num;
 		
 	}*/
 	
-	public static int InsertUsuario(String id_usuario, String usuario, String password) throws SQLException{
+	public static int InsertCiclo(String Clave_Ciclo, String Nombre_Ciclo, String Familia_Profesional, String Num_Cursos, String Periodo_Practicas, String Capacidades_terminales, String Act_Activo_Formativas, String Criterios_Evaluacion, String ProgramaFormativo, String Cod_Centro ) throws SQLException{
 		
 		System.out.println("Voy a hacer un insert en la tabla 	USUARIO2");
 		
@@ -119,8 +120,8 @@ public class TestConexion {
 		//INSERT INTO SCHEMA.NOMBRE_TABLA VALUES ();
 		
 		
-		System.out.println("INSERT INTO LAURA.USUARIO2 VALUES (" + id_usuario + "," +"'"+usuario+"'" +"," +"'"+password+"')");
-		int num = stmt.executeUpdate("INSERT INTO LAURA.USUARIO2 VALUES (" + id_usuario + "," +"'"+usuario+ "'" + "," +"'"+password+"')");
+		System.out.println("INSERT INTO " + esquema + ".USUARIO2 VALUES (" +"'" + Clave_Ciclo + "'"+  "," +"'"+Nombre_Ciclo+ "'" + "," +"'"+Familia_Profesional+ "'" + "," +Num_Cursos + "," + "'" + Periodo_Practicas + "'" + "," +"'"+Capacidades_terminales+ "'" + "," +"'"+Act_Activo_Formativas+ "'" + ","+ "'" + Criterios_Evaluacion + "'"  + "," +"'"+ProgramaFormativo+ "'" + "," + Cod_Centro +")");
+		int num = stmt.executeUpdate("INSERT INTO " + esquema + ".USUARIO2 VALUES (" +"'" + Clave_Ciclo + "'"+  "," +"'"+Nombre_Ciclo+ "'" + "," +"'"+Familia_Profesional+ "'" + "," +Num_Cursos + "," + "'" + Periodo_Practicas + "'" + "," +"'"+Capacidades_terminales+ "'" + "," +"'"+Act_Activo_Formativas+ "'" + ","+ "'" + Criterios_Evaluacion + "'"  + "," +"'"+ProgramaFormativo+ "'" + "," + Cod_Centro +")");
 		return num;
 	}
 	

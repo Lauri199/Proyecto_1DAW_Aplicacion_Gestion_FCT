@@ -7,21 +7,22 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CMenuCiclo">
    <children>
-      <TableView fx:id="Tabla" layoutX="87.0" layoutY="54.0" prefHeight="200.0" prefWidth="227.0">
+      <TableView fx:id="Tabla" layoutX="61.0" layoutY="52.0" prefHeight="200.0" prefWidth="278.0">
          <columns>
             <TableColumn fx:id="Clave_Ciclo" prefWidth="75.0" text="Clave Ciclo" />
             <TableColumn fx:id="Nombre" prefWidth="89.60003662109375" text="Nombre Ciclo" />
-            <TableColumn fx:id="Fam_Prof" prefWidth="60.79998779296875" text="Familia Profesional" />
-            <TableColumn fx:id="Num_Cursos" prefWidth="75.0" text="Num Cursos" />
-            <TableColumn fx:id="Period_Pract" prefWidth="75.0" text="Period Pract" />
-            <TableColumn fx:id="Cap_terminales" prefWidth="75.0" text="Capacidades terminales" />
-            <TableColumn fx:id="Act_Form" prefWidth="75.0" text="Actividades Activo Formativas" />
-            <TableColumn fx:id="Criterio" prefWidth="75.0" text="Criterios de Evaluacion" />
-            <TableColumn fx:id="Cod_Centro" prefWidth="75.0" text="Cod Centro" />
+            <TableColumn fx:id="Fam_Prof" prefWidth="115.19999694824219" text="Familia Profesional" />
+            <TableColumn fx:id="Num_Cursos" prefWidth="84.79998779296875" text="Num Cursos" />
+            <TableColumn fx:id="Period_Pract" prefWidth="72.800048828125" text="Period Pract" />
+            <TableColumn fx:id="Cap_terminales" prefWidth="104.0" text="Capac terminales" />
+            <TableColumn fx:id="Act_Form" prefWidth="131.99993896484375" text="Act Activo Formativas" />
+            <TableColumn fx:id="Criterio" prefWidth="85.60009765625" text="Criterios de Eva" />
+            <TableColumn fx:id="Programa_Formativo" prefWidth="122.4000244140625" text="Programa_Formativo" />
+            <TableColumn fx:id="Cod_Centro" prefWidth="74.4000244140625" text="Cod Centro" />
          </columns>
       </TableView>
       <Button layoutX="167.0" layoutY="306.0" mnemonicParsing="false" text="Modificar" />
-      <Button layoutX="87.0" layoutY="306.0" mnemonicParsing="false" text="Nuevo" />
+      <Button fx:id="Agregar" layoutX="87.0" layoutY="306.0" mnemonicParsing="false" onAction="#nuevaVentanaContactoCiclo" text="Nuevo" />
       <Button layoutX="264.0" layoutY="306.0" mnemonicParsing="false" text="Borrar" />
       <Button fx:id="Actualizar" layoutX="167.0" layoutY="345.0" mnemonicParsing="false" onAction="#ActualizaTabla" text="Actualizar" />
    </children>
