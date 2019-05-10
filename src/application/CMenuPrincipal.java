@@ -21,7 +21,7 @@ public class CMenuPrincipal {
 	@FXML
     private void nuevaVentana(ActionEvent event) throws IOException {
 		System.out.println("Abriendo 2 ventana");
-		this.ProgramaPrincipal.mostrarVentanaSecundaria();
+		this.ProgramaPrincipal.mostrarMenuCiclos();
     }
 	
 	
