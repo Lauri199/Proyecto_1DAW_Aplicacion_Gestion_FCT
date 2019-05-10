@@ -87,13 +87,11 @@ public class CMenuCiclo {
 		
 	}
 	
-
-	
-	
 	@FXML
     private void nuevaVentanaContactoCiclo(ActionEvent event) throws IOException {
-		//System.out.println("Abriendo 3 ventana");
+		System.out.println("Abriendo 3 ventana");
 		this.ProgramaPrincipal.mostrarContactoCiclo();
+		System.out.println("Ya se ha abierto");
     }
 		
 	
@@ -108,6 +106,10 @@ public class CMenuCiclo {
 	}
 	
 	
+	public void setStagePrincipal(Stage ventana) {
+		// TODO Auto-generated method stub
+		this.ventanaDos = ventana;
+	}
 	
 	public void setProgramaPrincipal(Main ProgramaPrincipal) {
         this.ProgramaPrincipal = ProgramaPrincipal;
@@ -115,11 +117,6 @@ public class CMenuCiclo {
 	
 	public void setListaCiclo(ObservableList<Ciclo> listaCiclo){
 		this.data = listaCiclo;
-	}
-	
-	public void setStagePrincipal(Stage ventana) {
-		// TODO Auto-generated method stub
-		this.ventanaDos = ventana;
 	}
 
 }

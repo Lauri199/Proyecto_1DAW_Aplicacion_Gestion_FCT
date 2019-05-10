@@ -51,10 +51,13 @@ public class CContactoCiclo {
     private Ciclo ciclo;
     private boolean okClicked = false;
 
+    public void setStagePrincipal(Stage ventana) {
+		// TODO Auto-generated method stub
+		this.ventanaTres = ventana;
+	}
 	
 	
-	
-	public void setPerson(Ciclo ciclo) {
+	public void setCiclo(Ciclo ciclo) {
         this.ciclo = ciclo;
 
         Clave_Ciclo.setText(ciclo.getClave_ciclo());
@@ -146,9 +149,6 @@ public class CContactoCiclo {
         }
         
         
-        
-
-
         if (errorMessage.length() == 0) {
             return true;
         } else {
@@ -162,9 +162,6 @@ public class CContactoCiclo {
         }
     }
     
-    public void setStagePrincipal(Stage ventana) {
-		// TODO Auto-generated method stub
-		this.ventanaTres = ventana;
-	}
+    
 
 }
