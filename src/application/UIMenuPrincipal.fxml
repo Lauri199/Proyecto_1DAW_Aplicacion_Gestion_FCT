@@ -7,7 +7,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="718.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CMenuPrincipal">
    <children>
-      <Button mnemonicParsing="false" prefHeight="200.0" prefWidth="300.0" text="Empresas">
+      <Button fx:id="Empresa" mnemonicParsing="false" onAction="#MenuEmpresa" prefHeight="200.0" prefWidth="300.0" text="Empresas">
          <graphic>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -16,7 +16,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button layoutX="300.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="300.0" text="Centro">
+      <Button fx:id="Centro" layoutX="300.0" mnemonicParsing="false" onAction="#MenuCentro" prefHeight="200.0" prefWidth="300.0" text="Centro">
          <graphic>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -25,7 +25,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button layoutY="200.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="300.0" text="Tutores">
+      <Button fx:id="Tutores" layoutY="200.0" mnemonicParsing="false" onAction="#MenuTutores" prefHeight="200.0" prefWidth="300.0" text="Tutores">
          <graphic>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -34,7 +34,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button layoutX="300.0" layoutY="200.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="300.0" text="Alumnos">
+      <Button fx:id="Alumnos" layoutX="300.0" layoutY="200.0" mnemonicParsing="false" onAction="#MenuAlumnos" prefHeight="200.0" prefWidth="300.0" text="Alumnos">
          <graphic>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -43,7 +43,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button alignment="BOTTOM_CENTER" contentDisplay="RIGHT" layoutX="300.0" layoutY="400.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="300.0" text="Practicas" />
+      <Button fx:id="Practicas" alignment="BOTTOM_CENTER" contentDisplay="RIGHT" layoutX="300.0" layoutY="400.0" mnemonicParsing="false" onAction="#MenuPracticas" prefHeight="200.0" prefWidth="300.0" text="Practicas" />
       <ImageView fitHeight="89.0" fitWidth="89.0" layoutX="308.0" layoutY="455.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../Desktop/DAW1/PROYECTO/ICONOS/icono-empresa-png-6.png" />
@@ -59,7 +59,7 @@
             <Image url="@../../../../../Desktop/DAW1/PROYECTO/ICONOS/dosFlechas.png" />
          </image>
       </ImageView>
-      <Button fx:id="Ciclo" layoutY="399.0" mnemonicParsing="false" onAction="#nuevaVentana" prefHeight="200.0" prefWidth="300.0" text="Ciclos">
+      <Button fx:id="Ciclo" layoutY="399.0" mnemonicParsing="false" onAction="#MenuCiclo" prefHeight="200.0" prefWidth="300.0" text="Ciclos">
          <graphic>
             <ImageView fitHeight="125.0" fitWidth="170.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -68,6 +68,6 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button layoutY="599.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="600.0" text="Generar Anexos" />
+      <Button fx:id="Anexos" layoutY="599.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="600.0" text="Generar Anexos" />
    </children>
 </AnchorPane>

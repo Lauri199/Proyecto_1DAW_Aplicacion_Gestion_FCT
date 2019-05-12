@@ -65,8 +65,11 @@ public class TestConexion {
 		
 	}
 	
+	/**
+	 * CICLO
+	 */
 		
-	public ObservableList<Ciclo> Consulta() {
+	public ObservableList<Ciclo> ConsultaCiclos() {
 		
 		ObservableList<Ciclo> aux = FXCollections.observableArrayList();
 		
@@ -101,30 +104,132 @@ public class TestConexion {
 		
 	}
 	
-	
-	/*public static int InsertCiclo() throws SQLException{
+	public static int InsertCiclo(String Clave_Ciclo, String Nombre_Ciclo, String Familia_Profesional, String Num_Cursos, String Periodo_Practicas, String ProgramaFormativo, String Cod_Centro ) throws SQLException{
+		
 		System.out.println("Voy a hacer un insert en la tabla Ciclos");
-		Statement stmt = conexion.createStatement();
-		
-		int num = stmt.executeUpdate("INSERT INTO " + esquema +".USUARIO2 VALUES (Clave_Ciclo.getText(), Nombre_Ciclo.getText(), Familia_Profesional.getText(), Num_Cursos.getText(), Periodo_Practicas.getText(), Capacidades_terminales.getText(), Act_Activo_Formativas.getText(), Criterios_Evaluacion.getText(), ProgramaFormativo.getText(), Cod_Centro.getText())");
-		return num;
-		
-	}*/
-	
-	public static int InsertCiclo(String Clave_Ciclo, String Nombre_Ciclo, String Familia_Profesional, String Num_Cursos, String Periodo_Practicas, String Capacidades_terminales, String Act_Activo_Formativas, String Criterios_Evaluacion, String ProgramaFormativo, String Cod_Centro ) throws SQLException{
-		
-		System.out.println("Voy a hacer un insert en la tabla 	USUARIO2");
 		
 		Statement stmt = conexion.createStatement();//Introduce los datos
 		
 		//INSERT INTO SCHEMA.NOMBRE_TABLA VALUES ();
 		
 		
-		System.out.println("INSERT INTO " + esquema + ".USUARIO2 VALUES (" +"'" + Clave_Ciclo + "'"+  "," +"'"+Nombre_Ciclo+ "'" + "," +"'"+Familia_Profesional+ "'" + "," +Num_Cursos + "," + "'" + Periodo_Practicas + "'" + "," +"'"+Capacidades_terminales+ "'" + "," +"'"+Act_Activo_Formativas+ "'" + ","+ "'" + Criterios_Evaluacion + "'"  + "," +"'"+ProgramaFormativo+ "'" + "," + Cod_Centro +")");
-		int num = stmt.executeUpdate("INSERT INTO " + esquema + ".USUARIO2 VALUES (" +"'" + Clave_Ciclo + "'"+  "," +"'"+Nombre_Ciclo+ "'" + "," +"'"+Familia_Profesional+ "'" + "," +Num_Cursos + "," + "'" + Periodo_Practicas + "'" + "," +"'"+Capacidades_terminales+ "'" + "," +"'"+Act_Activo_Formativas+ "'" + ","+ "'" + Criterios_Evaluacion + "'"  + "," +"'"+ProgramaFormativo+ "'" + "," + Cod_Centro +")");
+		System.out.println("INSERT INTO " + esquema + ".CICLOS VALUES (" +"'" + Clave_Ciclo + "'"+  "," +"'"+Nombre_Ciclo+ "'" + "," +"'"+Familia_Profesional+ "'" + "," +Num_Cursos + "," + "'" + Periodo_Practicas + "'"+  "," +"'"+"'" + "," +"'"+"'" + "," +"'"+"'" + "," + "'" + ProgramaFormativo+ "'" + "," + Cod_Centro +")");
+		int num = stmt.executeUpdate("INSERT INTO " + esquema + ".CICLOS VALUES ("+"'" + Clave_Ciclo + "'"+  "," +"'"+Nombre_Ciclo+ "'" + "," +"'"+Familia_Profesional+ "'" + "," +Num_Cursos + "," + "'" + Periodo_Practicas + "'"+  "," +"'"+"'" + "," +"'"+"'" + "," +"'"+"'" + "," + "'"+ ProgramaFormativo+ "'" + "," + Cod_Centro +")");
 		return num;
 	}
 	
+	/**
+	 * EMPRESA
+	 */
+	
+	public ObservableList<Empresa> ConsultaEmpresas() {
+			
+			ObservableList<Empresa> aux = FXCollections.observableArrayList();
+			
+			try {
+				Statement stmt = conexion.createStatement();
+				ResultSet rset = stmt.executeQuery("SELECT * FROM " +esquema +".Empresa" );
+				while(rset.next()) {
+					
+					//Quitar Familia_Profesional de la base de datos o añadir aqui
+					String Num_Convenio = rset.getString(1);
+					String NIF = rset.getString(2);
+					String Nombre_Empresa = rset.getString(3);
+					String Representante_Empresa = rset.getString(4);
+					String Localidad = rset.getString(5);
+					String Provincia = rset.getString(6);
+					String Pais = rset.getString(7);
+					String Calle = rset.getString(8);
+					String Codigo_postal = rset.getString(9);
+					String CIF = rset.getString(10);
+					String Telefono = rset.getString(11);
+					String Fax = rset.getString(12);
+					String CiudadFirmaConvenio = rset.getString(13);
+					String FechaFirmaConvenio = rset.getString(14);
+					
+					
+					System.out.println(Num_Convenio + ", " + NIF + ", " +Nombre_Empresa + ", " +Representante_Empresa + ", " +Localidad  + ", " + Provincia  + ", " + Pais  + ", " + Calle  + ", " + Codigo_postal  + ", " + CIF + ", " + Telefono + ", " +  ", " + Fax + ", " +  ", " + CiudadFirmaConvenio + ", " + ", " + FechaFirmaConvenio );
+					Empresa auxEmpresa = new Empresa(Num_Convenio, NIF, Nombre_Empresa, Representante_Empresa, Localidad, Provincia, Pais, Calle, Codigo_postal, CIF, Telefono, Fax, CiudadFirmaConvenio, FechaFirmaConvenio);
+					aux.add(auxEmpresa);
+				}
+				rset.close();
+				stmt.close();
+				
+			}catch (SQLException s){
+				s.printStackTrace();
+			}
+			return aux;
+			
+		}
+	
+	public static int InsertEmpresa(String Num_Convenio, String NIF, String Nombre_Empresa, String Representante_Empresa , String Localidad, String Provincia, String Pais, String Calle, String Codigo_postal, String CIF, String Telefono, String Fax, String CiudadFirmaConvenio, String FechaFirmaConvenio) throws SQLException{
+		
+		System.out.println("Voy a hacer un insert en la tabla Empresa");
+		
+		Statement stmt = conexion.createStatement();//Introduce los datos
+		
+		//INSERT INTO SCHEMA.NOMBRE_TABLA VALUES ();
+		
+		
+		System.out.println("INSERT INTO " + esquema + ".EMPRESA VALUES ("+"'" + Num_Convenio + "'"+  "," +"'"+ NIF + "'" + "," +"'"+ Nombre_Empresa + "'" + "," + "'"+"'" +  "," +"'"+ Representante_Empresa + "'" + "," + "'" + Localidad + "'"+  "," +"'"+ Provincia+ "'" + "," +"'"+ Pais+ "'" + "," +"'"+ Calle +"'" + "," + "'"+ Codigo_postal + "'" + "," + "'"+ CIF + "'" + "," +"'"+ Telefono + "'" + "," +"'"+ Fax + "'" + "," + "'"+ CiudadFirmaConvenio +"'" +  "," +"'"+ FechaFirmaConvenio + "'" +")");
+		int num = stmt.executeUpdate("INSERT INTO " + esquema + ".EMPRESA VALUES ("+"'" + Num_Convenio + "'"+  "," +"'"+ NIF + "'" + "," +"'"+ Nombre_Empresa + "'" + "," + "'"+"'" +  "," +"'"+ Representante_Empresa + "'" + "," + "'" + Localidad + "'"+  "," +"'"+ Provincia+ "'" + "," +"'"+ Pais+ "'" + "," +"'"+ Calle +"'" + "," + "'"+ Codigo_postal + "'" + "," + "'"+ CIF + "'" + "," +"'"+ Telefono + "'" + "," +"'"+ Fax + "'" + "," + "'"+ CiudadFirmaConvenio +"'" +  "," +"'"+ FechaFirmaConvenio + "'" +")");
+		return num;
+	}
+	
+	/**
+	 * CENTRO
+	 */
+	
+	public ObservableList<Centro> ConsultaCentro() {
+		
+		ObservableList<Centro> aux = FXCollections.observableArrayList();
+		
+		try {
+			Statement stmt = conexion.createStatement();
+			ResultSet rset = stmt.executeQuery("SELECT * FROM " +esquema +".Centro" );
+			while(rset.next()) {
+				
+				String Cod_Centro = rset.getString(1);
+				String Representante_Centro = rset.getString(2);
+				String NIF = rset.getString(3);
+				String NombreCentro = rset.getString(4);
+				String Ciudad = rset.getString(5);
+				String Provincia = rset.getString(6);
+				String Calle = rset.getString(7);
+				String Codigo_Postal = rset.getString(8);
+				String CIF = rset.getString(9);
+				String Telefono = rset.getString(10);
+				String Fax = rset.getString(11);
+				String DAT = rset.getString(12);
+				
+				
+				System.out.println(Cod_Centro + ", " + Representante_Centro + ", " +NIF + ", " +NombreCentro + ", " +Ciudad  + ", " + Provincia + ", " + Calle  + ", " + Codigo_Postal  + ", " + CIF + ", " + Telefono + ", " +  ", " + Fax + ", " +  ", " + DAT  );
+				Centro auxCentro = new Centro(Cod_Centro, Representante_Centro, NIF, NombreCentro, Ciudad, Provincia, Calle, Codigo_Postal, CIF, Telefono, Fax, DAT);
+				aux.add(auxCentro);
+			}
+			rset.close();
+			stmt.close();
+			
+		}catch (SQLException s){
+			s.printStackTrace();
+		}
+		return aux;
+		
+	}
+
+public static int InsertCentro(String Cod_Centro, String Representante_Centro, String NIF, String NombreCentro , String Ciudad, String Provincia, String Calle, String Codigo_postal, String CIF, String Telefono, String Fax, String DAT) throws SQLException{
+	
+	System.out.println("Voy a hacer un insert en la tabla Empresa");
+	
+	Statement stmt = conexion.createStatement();//Introduce los datos
+	
+	//INSERT INTO SCHEMA.NOMBRE_TABLA VALUES ();
+	
+	
+	System.out.println("INSERT INTO " + esquema + ".CENTRO VALUES ("+"'" + Cod_Centro + "'"+  "," +"'"+ Representante_Centro + "'" + "," +"'"+ NIF + "'" + "," + "'"+"'" +  "," +"'"+ NombreCentro + "'" + "," + "'" + Ciudad + "'"+  "," +"'"+ Provincia+ "'" + "," +"'"+ Calle +"'" + "," + "'"+ Codigo_postal + "'" + "," + "'"+ CIF + "'" + "," +"'"+ Telefono + "'" + "," +"'"+ Fax + "'" + "," + "'"+ DAT +"'" +")");
+	int num = stmt.executeUpdate("INSERT INTO " + esquema + ".CENTRO VALUES ("+"'" + Cod_Centro + "'"+  "," +"'"+ Representante_Centro + "'" + "," +"'"+ NIF + "'" + "," + "'"+"'" +  "," +"'"+ NombreCentro + "'" + "," + "'" + Ciudad + "'"+  "," +"'"+ Provincia+ "'" + "," +"'"+ Calle +"'" + "," + "'"+ Codigo_postal + "'" + "," + "'"+ CIF + "'" + "," +"'"+ Telefono + "'" + "," +"'"+ Fax + "'" + "," + "'"+ DAT +"'" +")");
+	return num;
+}
 	
 
 }

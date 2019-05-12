@@ -2,15 +2,17 @@ package application;
 
 import java.io.IOException;
 
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class CMenuCiclo {
@@ -60,14 +62,9 @@ public class CMenuCiclo {
 	@FXML
 	private Button Modificar;
 	
-	private Stage ventanaDos;
-	
-	private boolean okClicked = false;
-	
-	
 	TestConexion conexionbbdd;
 	
-	Main ProgramaPrincipal;
+	Main ProgramaSecundario;
 	
 	
 	private ObservableList<Ciclo> data = FXCollections.observableArrayList();
@@ -87,33 +84,25 @@ public class CMenuCiclo {
 		
 	}
 	
-	@FXML
-    private void nuevaVentanaContactoCiclo(ActionEvent event) throws IOException {
-		System.out.println("Abriendo 3 ventana");
-		this.ProgramaPrincipal.mostrarContactoCiclo();
-		System.out.println("Ya se ha abierto");
-    }
+	public void ContactoCiclo(ActionEvent event) throws IOException{
+
+		FXMLLoader loader = new FXMLLoader(Main.class.getResource("UIContactoCiclo.fxml"));
+		AnchorPane ventanaDos = (AnchorPane) loader.load();
+        Stage ventana = new Stage();
+        ventana.setTitle("Venta Dos");
+        Scene scene = new Scene(ventanaDos);
+        ventana.setScene(scene);
+        ventana.show();
+	}
 		
-	
-	public boolean isOkClicked() {
-    	return okClicked;
-    }
 	
 	@FXML
 	public void ActualizaTabla(){
 		conexionbbdd = new TestConexion();
-		Tabla.setItems(conexionbbdd.Consulta());
+		Tabla.setItems(conexionbbdd.ConsultaCiclos());
 	}
 	
 	
-	public void setStagePrincipal(Stage ventana) {
-		// TODO Auto-generated method stub
-		this.ventanaDos = ventana;
-	}
-	
-	public void setProgramaPrincipal(Main ProgramaPrincipal) {
-        this.ProgramaPrincipal = ProgramaPrincipal;
-    }
 	
 	public void setListaCiclo(ObservableList<Ciclo> listaCiclo){
 		this.data = listaCiclo;

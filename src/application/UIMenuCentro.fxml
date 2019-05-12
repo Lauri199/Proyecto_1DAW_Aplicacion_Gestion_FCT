@@ -5,27 +5,27 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CMenuCentro">
    <children>
       <TableView layoutX="87.0" layoutY="53.0" prefHeight="200.0" prefWidth="226.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Cod_Centro" />
-          <TableColumn prefWidth="89.60003662109375" text="Representante" />
-            <TableColumn prefWidth="60.79998779296875" text="NIF" />
-            <TableColumn prefWidth="75.0" text="NombreCentro" />
-            <TableColumn prefWidth="75.0" text="Ciudad" />
-            <TableColumn prefWidth="75.0" text="Provincia" />
-            <TableColumn prefWidth="75.0" text="Calle" />
-            <TableColumn prefWidth="75.0" text="CP" />
-            <TableColumn prefWidth="75.0" text="CIF" />
-            <TableColumn prefWidth="75.0" text="Telf" />
-            <TableColumn prefWidth="75.0" text="Fax" />
-            <TableColumn prefWidth="75.0" text="DAT" />
+          <TableColumn fx:id="Cod_Centro" prefWidth="75.0" text="Cod_Centro" />
+          <TableColumn fx:id="Representante_Centro" prefWidth="89.60003662109375" text="Representante" />
+            <TableColumn fx:id="NIF" prefWidth="60.79998779296875" text="NIF" />
+            <TableColumn fx:id="NombreCentro" prefWidth="75.0" text="NombreCentro" />
+            <TableColumn fx:id="Ciudad" prefWidth="75.0" text="Ciudad" />
+            <TableColumn fx:id="Provincia" prefWidth="75.0" text="Provincia" />
+            <TableColumn fx:id="Calle" prefWidth="75.0" text="Calle" />
+            <TableColumn fx:id="Codigo_Postal" prefWidth="75.0" text="CP" />
+            <TableColumn fx:id="CIF" prefWidth="75.0" text="CIF" />
+            <TableColumn fx:id="Telefono" prefWidth="75.0" text="Telf" />
+            <TableColumn fx:id="Fax" prefWidth="75.0" text="Fax" />
+            <TableColumn fx:id="DAT" prefWidth="75.0" text="DAT" />
         </columns>
       </TableView>
       <Button layoutX="167.0" layoutY="305.0" mnemonicParsing="false" text="Modificar" />
-      <Button layoutX="87.0" layoutY="305.0" mnemonicParsing="false" text="Nuevo" />
+      <Button fx:id="Agregar" layoutX="87.0" layoutY="305.0" mnemonicParsing="false" onAction="#ContactoCentro" text="Nuevo" />
       <Button layoutX="264.0" layoutY="305.0" mnemonicParsing="false" text="Borrar" />
+      <Button fx:id="Actualizar" layoutX="166.0" layoutY="349.0" mnemonicParsing="false" onAction="#ActualizaTabla" text="Actualizar" />
    </children>
 </AnchorPane>

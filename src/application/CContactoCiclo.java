@@ -7,6 +7,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.event.ActionEvent;
 import javafx.stage.Stage;
 
 public class CContactoCiclo {
@@ -29,6 +30,8 @@ public class CContactoCiclo {
 	@FXML
 	private TextField Periodo_Practicas ;
 	
+	/*
+	
 	@FXML
 	private TextField Capacidades_terminales ;
 	
@@ -37,6 +40,7 @@ public class CContactoCiclo {
 	
 	@FXML
 	private TextField Criterios_Evaluacion ;
+	*/
 	
 	@FXML
 	private TextField ProgramaFormativo ;
@@ -51,7 +55,7 @@ public class CContactoCiclo {
     private Ciclo ciclo;
     private boolean okClicked = false;
 
-    public void setStagePrincipal(Stage ventana) {
+    public void setStageSecundario(Stage ventana) {
 		// TODO Auto-generated method stub
 		this.ventanaTres = ventana;
 	}
@@ -65,9 +69,11 @@ public class CContactoCiclo {
         Familia_Profesional.setText(ciclo.getFamilia_prof());
         Num_Cursos.setText(ciclo.getNum_cursos());
         Periodo_Practicas.setText(ciclo.getPeriod_pract());
+        /*
         Capacidades_terminales.setText(ciclo.getCapac_term());
         Act_Activo_Formativas.setText(ciclo.getAct_form());
         Criterios_Evaluacion.setText(ciclo.getCriterios_eva());
+        */
         ProgramaFormativo.setText(ciclo.getPrograma_formativo());
         Cod_Centro.setText(ciclo.getCod_centro());
     }
@@ -85,9 +91,11 @@ public class CContactoCiclo {
             ciclo.setFamilia_prof(Familia_Profesional.getText());
             ciclo.setNum_cursos(Num_Cursos.getText());
             ciclo.setPeriod_pract(Periodo_Practicas.getText());
+            /*
             ciclo.setCapac_term(Capacidades_terminales.getText());
             ciclo.setAct_form(Act_Activo_Formativas.getText());
             ciclo.setCriterios_eva(Criterios_Evaluacion.getText());
+            */
             ciclo.setPrograma_formativo(ProgramaFormativo.getText());
             ciclo.setCod_centro(Cod_Centro.getText());
 
@@ -105,12 +113,11 @@ public class CContactoCiclo {
     private void InsertarCiclo() throws SQLException {
     	conexionbbdd = new TestConexion();
 		try {
-			conexionbbdd.InsertCiclo(Clave_Ciclo.getText(), Nombre_Ciclo.getText(), Familia_Profesional.getText(), Num_Cursos.getText(), Periodo_Practicas.getText(), Capacidades_terminales.getText(), Act_Activo_Formativas.getText(), Criterios_Evaluacion.getText(), ProgramaFormativo.getText(), Cod_Centro.getText());
+			conexionbbdd.InsertCiclo(Clave_Ciclo.getText(), Nombre_Ciclo.getText(), Familia_Profesional.getText(), Num_Cursos.getText(), Periodo_Practicas.getText(), ProgramaFormativo.getText(), Cod_Centro.getText());
 		} catch (SQLException e) {
 			// TODO Bloque catch generado automáticamente
 			e.printStackTrace();
 		}
-		this.ventanaTres.close();
 
     }
 
@@ -134,6 +141,7 @@ public class CContactoCiclo {
         if (Periodo_Practicas.getText() == null || Periodo_Practicas.getText().length() == 0) {
             errorMessage += "Periodo de practicas no válido!\n";
         }
+        /*
         if (Capacidades_terminales.getText() == null || Capacidades_terminales.getText().length() != 9) {
             errorMessage += "Capacidades terminales no válidas!\n";
         }
@@ -144,6 +152,7 @@ public class CContactoCiclo {
         if (Criterios_Evaluacion.getText() == null || Criterios_Evaluacion.getText().length() == 0) {
             errorMessage += "Criterios de evaluacion no válidos!\n";
         }
+        */
         if (ProgramaFormativo.getText() == null || ProgramaFormativo.getText().length() != 9) {
             errorMessage += "Programa Formativo no válido!\n";
         }

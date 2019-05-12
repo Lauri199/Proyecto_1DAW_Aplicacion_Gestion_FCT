@@ -23,7 +23,7 @@
       <TextField fx:id="Num_Cursos" layoutX="208.0" layoutY="199.0" />
       <TextField fx:id="Periodo_Practicas" layoutX="208.0" layoutY="240.0" />
       <TextField fx:id="ProgramaFormativo" layoutX="208.0" layoutY="284.0" />
-      <TableView layoutX="108.0" layoutY="348.0" prefHeight="93.0" prefWidth="200.0">
+      <TableView layoutX="108.0" layoutY="379.0" prefHeight="93.0" prefWidth="200.0">
         <columns>
           <TableColumn prefWidth="75.0" text="Cod_Centro" />
           <TableColumn prefWidth="123.20001220703125" text="Nombre" />
@@ -35,5 +35,7 @@
             <Font size="21.0" />
          </font>
       </Text>
+      <TextField fx:id="Cod_Centro" layoutX="208.0" layoutY="326.0" />
+      <Label layoutX="115.0" layoutY="330.0" text="Cod_centro" />
    </children>
 </AnchorPane>
