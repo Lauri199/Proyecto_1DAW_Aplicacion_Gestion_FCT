@@ -9,7 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
-public class CContactoCentro {
+public class CContactoModificarCentro {
 	
 	@FXML
 	private Button add;
@@ -92,10 +92,10 @@ public class CContactoCentro {
     }
     
     @FXML
-    private void InsertarCentro() throws SQLException {
+    private void ModificarCentro() throws SQLException {
     	conexionbbdd = new TestConexion();
 		try {
-			conexionbbdd.InsertCentro(Cod_Centro.getText(), Representante_Centro.getText(), NIF.getText(), NombreCentro.getText(), Ciudad.getText(), Provincia.getText(), Calle.getText(), Codigo_Postal.getText(), CIF.getText(), Telefono.getText(), Fax.getText(), DAT.getText());
+			conexionbbdd.ModificarCentro(Cod_Centro.getText(), Representante_Centro.getText(), NIF.getText(), NombreCentro.getText(), Ciudad.getText(), Provincia.getText(), Calle.getText(), Codigo_Postal.getText(), CIF.getText(), Telefono.getText(), Fax.getText(), DAT.getText());
 		} catch (SQLException e) {
 			// TODO Bloque catch generado automáticamente
 			e.printStackTrace();

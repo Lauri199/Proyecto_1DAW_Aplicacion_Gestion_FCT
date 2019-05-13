@@ -7,11 +7,10 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CContactoCentro">
    <children>
-      <TextField layoutX="166.0" layoutY="87.0" />
-      <TextField layoutX="164.0" layoutY="131.0" />
+      <TextField fx:id="Cod_Centro" layoutX="166.0" layoutY="87.0" />
+      <TextField fx:id="Representante_Centro" layoutX="164.0" layoutY="131.0" />
       <Label layoutX="53.0" layoutY="91.0" text="Codigo del centro" />
       <Label layoutX="74.0" layoutY="135.0" text="Representante" />
       <Label layoutX="131.0" layoutY="175.0" text="NIF" />
@@ -19,16 +18,16 @@
       <Label layoutX="91.0" layoutY="260.0" text="Ciudad" />
       <Label layoutX="92.0" layoutY="304.0" text="Provincia" />
       <Label layoutX="110.0" layoutY="349.0" text="Calle" />
-      <TextField layoutX="164.0" layoutY="171.0" />
-      <TextField layoutX="164.0" layoutY="215.0" />
-      <TextField layoutX="164.0" layoutY="256.0" />
-      <TextField layoutX="166.0" layoutY="300.0" />
-      <TextField layoutX="164.0" layoutY="345.0" />
-      <TextField layoutX="164.0" layoutY="387.0" />
-      <TextField layoutX="164.0" layoutY="431.0" />
-      <TextField layoutX="164.0" layoutY="472.0" />
-      <TextField layoutX="164.0" layoutY="516.0" />
-      <TextField layoutX="164.0" layoutY="557.0" />
+      <TextField fx:id="NIF" layoutX="164.0" layoutY="171.0" />
+      <TextField fx:id="NombreCentro" layoutX="164.0" layoutY="215.0" />
+      <TextField fx:id="Ciudad" layoutX="164.0" layoutY="256.0" />
+      <TextField fx:id="Provincia" layoutX="166.0" layoutY="300.0" />
+      <TextField fx:id="Calle" layoutX="164.0" layoutY="345.0" />
+      <TextField fx:id="Codigo_Postal" layoutX="164.0" layoutY="387.0" />
+      <TextField fx:id="CIF" layoutX="164.0" layoutY="431.0" />
+      <TextField fx:id="Telefono" layoutX="164.0" layoutY="472.0" />
+      <TextField fx:id="Fax" layoutX="164.0" layoutY="516.0" />
+      <TextField fx:id="DAT" layoutX="164.0" layoutY="557.0" />
       <Label layoutX="125.0" layoutY="391.0" text="CP" />
       <Label layoutX="124.0" layoutY="435.0" text="CIF" />
       <Label layoutX="91.0" layoutY="476.0" text="Telefono" />
@@ -39,6 +38,6 @@
             <Font size="21.0" />
          </font>
       </Text>
-      <Button layoutX="393.0" layoutY="630.0" mnemonicParsing="false" text="OK" />
+      <Button fx:id="add" layoutX="393.0" layoutY="630.0" mnemonicParsing="false" onAction="#InsertarCentro" text="OK" />
    </children>
 </AnchorPane>

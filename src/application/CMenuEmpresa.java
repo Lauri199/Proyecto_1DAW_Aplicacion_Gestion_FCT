@@ -8,9 +8,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -78,6 +80,8 @@ public class CMenuEmpresa {
 	
 	Main ProgramaSecundario;
 	
+	private boolean okClicked = false;
+	
 	
 	private ObservableList<Empresa> data = FXCollections.observableArrayList();
 	
@@ -100,7 +104,13 @@ public class CMenuEmpresa {
 		
 	}
 	
-	public void pressedButton(ActionEvent event) throws IOException{
+	public void setMain(Main ProgramaSecundario) {
+		// TODO Auto-generated method stub
+		System.out.println("setMain");
+		this.ProgramaSecundario = ProgramaSecundario;
+	}
+	
+	public void ContactoEmpresa(ActionEvent event) throws IOException{
 
 		FXMLLoader loader = new FXMLLoader(Main.class.getResource("UIContactoEmpresa.fxml"));
 		AnchorPane ventanaDos = (AnchorPane) loader.load();
@@ -117,7 +127,44 @@ public class CMenuEmpresa {
 		Tabla.setItems(conexionbbdd.ConsultaEmpresas());
 	}
 	
-	public void setListaCiclo(ObservableList<Empresa> listaEmpresa){
+	@FXML
+	public void EditarEmpresa() throws IOException {
+		Empresa selectedEmpresa = Tabla.getSelectionModel().getSelectedItem();
+		if (selectedEmpresa != null) {
+			System.out.println("editar empresa");
+			FXMLLoader loader = new FXMLLoader(Main.class.getResource("UIContactoModificarEmpresa.fxml"));
+			AnchorPane ventanaDos = (AnchorPane) loader.load();
+	        Stage ventana = new Stage();
+	        ventana.setTitle("Venta Dos");
+	        Scene scene = new Scene(ventanaDos);
+	        CContactoModificarEmpresa empresaseleccionada = loader.getController();
+	        empresaseleccionada.setEmpresa(selectedEmpresa);
+	        ventana.setScene(scene);
+	        ventana.show();
+        }
+        else
+        {
+        	// No se ha seleccionado nada.
+        	Alert alert = new Alert(AlertType.ERROR);
+        	ShowAlertNoSelectionEmpresa(alert);
+        }
+		
+	}
+	
+	private void ShowAlertNoSelectionEmpresa(Alert alert){
+
+        alert.setTitle("No Seleccionado");
+        alert.setHeaderText("Empresa no seleccionada");
+        alert.setContentText("Por favor!!! Seleccione un ciclo de la tabla");
+
+        alert.showAndWait();
+    }
+	
+	public boolean isOkClicked() {
+    	return okClicked;
+    }
+	
+	public void setListaEmpresa(ObservableList<Empresa> listaEmpresa){
 		this.data = listaEmpresa;
 	}
 	

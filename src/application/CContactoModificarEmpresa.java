@@ -1,6 +1,7 @@
 package application;
 
 import java.sql.SQLException;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -8,8 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
-public class CContactoEmpresa {
-	
+public class CContactoModificarEmpresa {
 	@FXML
 	private Button add;
 	
@@ -99,10 +99,10 @@ public class CContactoEmpresa {
     }
     
     @FXML
-    private void InsertarEmpresa() throws SQLException {
+    private void ModificarEmpresa() throws SQLException {
     	conexionbbdd = new TestConexion();
 		try {
-			conexionbbdd.InsertEmpresa(Num_Convenio.getText(), NIF.getText(), Nombre_Empresa.getText(), Representante_Empresa.getText(), Localidad.getText(), Provincia.getText(), Pais.getText(), Calle.getText(), Codigo_postal.getText(), CIF.getText(), Telefono.getText(), Fax.getText(), CiudadFirmaConvenio.getText(), FechaFirmaConvenio.getText());
+			conexionbbdd.ModificarEmpresa(Num_Convenio.getText(), NIF.getText(), Nombre_Empresa.getText(), Representante_Empresa.getText(), Localidad.getText(), Provincia.getText(), Pais.getText(), Calle.getText(), Codigo_postal.getText(), CIF.getText(), Telefono.getText(), Fax.getText(), CiudadFirmaConvenio.getText(), FechaFirmaConvenio.getText());
 		} catch (SQLException e) {
 			// TODO Bloque catch generado automáticamente
 			e.printStackTrace();

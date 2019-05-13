@@ -8,9 +8,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -72,6 +74,8 @@ public class CMenuCentro {
 	
 	Main ProgramaSecundario;
 	
+	private boolean okClicked = false;
+	
 	
 	private ObservableList<Centro> data = FXCollections.observableArrayList();
 	
@@ -92,12 +96,18 @@ public class CMenuCentro {
 		
 	}
 	
+	public void setMain(Main ProgramaSecundario) {
+		// TODO Auto-generated method stub
+		System.out.println("setMain");
+		this.ProgramaSecundario = ProgramaSecundario;
+	}
+	
 	public void ContactoCentro(ActionEvent event) throws IOException{
 
 		FXMLLoader loader = new FXMLLoader(Main.class.getResource("UIContactoCentro.fxml"));
 		AnchorPane ventanaDos = (AnchorPane) loader.load();
         Stage ventana = new Stage();
-        ventana.setTitle("V2 Ciclo");
+        ventana.setTitle("V2 Centro");
         Scene scene = new Scene(ventanaDos);
         ventana.setScene(scene);
         ventana.show();
@@ -108,6 +118,47 @@ public class CMenuCentro {
 		conexionbbdd = new TestConexion();
 		Tabla.setItems(conexionbbdd.ConsultaCentro());
 	}
+	
+	@FXML
+	public void EditarCentro() throws IOException {
+		Centro selectedCentro = Tabla.getSelectionModel().getSelectedItem();
+		if (selectedCentro != null) {
+			System.out.println("editar ciclo");
+			FXMLLoader loader = new FXMLLoader(Main.class.getResource("UIContactoModificarCentro.fxml"));
+			AnchorPane ventanaDos = (AnchorPane) loader.load();
+	        Stage ventana = new Stage();
+	        ventana.setTitle("Venta Dos");
+	        Scene scene = new Scene(ventanaDos);
+	        CContactoModificarCentro centroseleccionado = loader.getController();
+	        centroseleccionado.setCentro(selectedCentro);
+	        ventana.setScene(scene);
+	        ventana.show();
+        	
+           // Tabla.setItems(this.ciclo.getClave_ciclo(), this.ciclo.getNom_ciclo(), this.ciclo.getFamilia_prof(), this.ciclo.getNum_cursos(), this.ciclo.getPeriod_pract(), this.ciclo.getCapac_term(), this.ciclo.getAct_form(), this.ciclo.getCriterios_eva(), this.ciclo.getPrograma_formativo(), this.ciclo.getCod_centro());
+        }
+        else
+        {
+        	// No se ha seleccionado nada.
+        	Alert alert = new Alert(AlertType.ERROR);
+        	ShowAlertNoSelectionCentro(alert);
+        }
+		
+	}
+	
+	
+	
+	private void ShowAlertNoSelectionCentro(Alert alert){
+
+        alert.setTitle("No Seleccionado");
+        alert.setHeaderText("Centro no seleccionado");
+        alert.setContentText("Por favor!!! Seleccione un ciclo de la tabla");
+
+        alert.showAndWait();
+    }
+	
+	public boolean isOkClicked() {
+    	return okClicked;
+    }
 	
 	
 	public void setListaCentro(ObservableList<Centro> listaCentro){

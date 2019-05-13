@@ -7,42 +7,44 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="668.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CMenuTutorCentroyEmpresa">
    <children>
       <Text layoutX="142.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tutor de Empresa">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <TableView layoutX="87.0" layoutY="51.0" prefHeight="200.0" prefWidth="226.0">
+      <TableView fx:id="Tabla_TE" layoutX="87.0" layoutY="51.0" prefHeight="200.0" prefWidth="226.0">
          <columns>
-            <TableColumn prefWidth="75.0" text="DNI" />
-            <TableColumn prefWidth="76.800048828125" text="Nombre" />
-            <TableColumn prefWidth="74.39996337890625" text="Apellido" />
-            <TableColumn prefWidth="75.0" text="Telefono" />
-            <TableColumn prefWidth="75.0" text="Gmail" />
+            <TableColumn fx:id="DNI_TE" prefWidth="75.0" text="DNI" />
+            <TableColumn fx:id="Nombre_TE" prefWidth="76.800048828125" text="Nombre" />
+            <TableColumn fx:id="Apellido_TE" prefWidth="74.39996337890625" text="Apellido" />
+            <TableColumn fx:id="Telefono_TE" prefWidth="75.0" text="Telefono" />
+            <TableColumn fx:id="Gmail_TE" prefWidth="75.0" text="Gmail" />
+            <TableColumn fx:id="Num_Convenio_TE" prefWidth="75.0" text="Nº Convenio" />
          </columns>
       </TableView>
-      <Button layoutX="167.0" layoutY="265.0" mnemonicParsing="false" text="Modificar" />
-      <Button layoutX="87.0" layoutY="265.0" mnemonicParsing="false" text="Nuevo" />
-      <Button layoutX="264.0" layoutY="265.0" mnemonicParsing="false" text="Borrar" />
-      <Text layoutX="147.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tutor de Centro">
+      <Button fx:id="Modificar_TE" layoutX="167.0" layoutY="265.0" mnemonicParsing="false" onAction="#EditarTutorEmpresa" text="Modificar" />
+      <Button fx:id="Agregar_TE" layoutX="87.0" layoutY="265.0" mnemonicParsing="false" onAction="#ContactoTutorEmpresa" text="Nuevo" />
+      <Button fx:id="Borrar_TE" layoutX="264.0" layoutY="265.0" mnemonicParsing="false" text="Borrar" />
+      <Text layoutX="147.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tutor de Centro">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <TableView layoutX="87.0" layoutY="332.0" prefHeight="200.0" prefWidth="226.0">
+      <TableView fx:id="Tabla_TC" layoutX="87.0" layoutY="363.0" prefHeight="200.0" prefWidth="226.0">
          <columns>
-            <TableColumn prefWidth="75.0" text="DNI" />
-            <TableColumn prefWidth="76.800048828125" text="Nombre" />
-            <TableColumn prefWidth="74.39996337890625" text="Apellido" />
-            <TableColumn prefWidth="75.0" text="Telefono" />
-            <TableColumn prefWidth="75.0" text="Gmail" />
+            <TableColumn fx:id="DNI_TC" prefWidth="75.0" text="DNI" />
+            <TableColumn fx:id="Nombre_TC" prefWidth="76.800048828125" text="Nombre" />
+            <TableColumn fx:id="Apellido_TC" prefWidth="74.39996337890625" text="Apellido" />
+            <TableColumn fx:id="Telefono_TC" prefWidth="75.0" text="Telefono" />
+            <TableColumn fx:id="Gmail_TC" prefWidth="75.0" text="Gmail" />
          </columns>
       </TableView>
-      <Button layoutX="167.0" layoutY="556.0" mnemonicParsing="false" text="Modificar" />
-      <Button layoutX="87.0" layoutY="556.0" mnemonicParsing="false" text="Nuevo" />
-      <Button layoutX="264.0" layoutY="556.0" mnemonicParsing="false" text="Borrar" />
+      <Button fx:id="Modificar_TC" layoutX="167.0" layoutY="587.0" mnemonicParsing="false" onAction="#EditarTutorCentro" text="Modificar" />
+      <Button fx:id="Agregar_TC" layoutX="87.0" layoutY="587.0" mnemonicParsing="false" onAction="#ContactoTutorCentro" text="Nuevo" />
+      <Button fx:id="Borrar_TC" layoutX="264.0" layoutY="587.0" mnemonicParsing="false" text="Borrar" />
+      <Button fx:id="Actualizar_TE" layoutX="166.0" layoutY="299.0" mnemonicParsing="false" onAction="#ActualizaTablaTutorEmpresa" text="Actualizar" />
+      <Button fx:id="Actualizar_TC" layoutX="166.0" layoutY="623.0" mnemonicParsing="false" onAction="#ActualizaTablaTutorCentro" text="Actualizar" />
    </children>
 </AnchorPane>

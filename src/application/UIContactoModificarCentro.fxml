@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CContactoModificarCentro">
+   <children>
+      <TextField fx:id="Cod_Centro" layoutX="176.0" layoutY="97.0" />
+      <TextField fx:id="Representante_Centro" layoutX="174.0" layoutY="141.0" />
+      <Label layoutX="63.0" layoutY="101.0" text="Codigo del centro" />
+      <Label layoutX="84.0" layoutY="145.0" text="Representante" />
+      <Label layoutX="141.0" layoutY="185.0" text="NIF" />
+      <Label layoutX="61.0" layoutY="229.0" text="Nombre del centro" />
+      <Label layoutX="101.0" layoutY="270.0" text="Ciudad" />
+      <Label layoutX="102.0" layoutY="314.0" text="Provincia" />
+      <Label layoutX="120.0" layoutY="359.0" text="Calle" />
+      <TextField fx:id="NIF" layoutX="174.0" layoutY="181.0" />
+      <TextField fx:id="NombreCentro" layoutX="174.0" layoutY="225.0" />
+      <TextField fx:id="Ciudad" layoutX="174.0" layoutY="266.0" />
+      <TextField fx:id="Provincia" layoutX="176.0" layoutY="310.0" />
+      <TextField fx:id="Calle" layoutX="174.0" layoutY="355.0" />
+      <TextField fx:id="Codigo_Postal" layoutX="174.0" layoutY="397.0" />
+      <TextField fx:id="CIF" layoutX="174.0" layoutY="441.0" />
+      <TextField fx:id="Telefono" layoutX="174.0" layoutY="482.0" />
+      <TextField fx:id="Fax" layoutX="174.0" layoutY="526.0" />
+      <TextField fx:id="DAT" layoutX="174.0" layoutY="567.0" />
+      <Label layoutX="135.0" layoutY="401.0" text="CP" />
+      <Label layoutX="134.0" layoutY="445.0" text="CIF" />
+      <Label layoutX="101.0" layoutY="486.0" text="Telefono" />
+      <Label layoutX="126.0" layoutY="530.0" text="Fax" />
+      <Label layoutX="121.0" layoutY="571.0" text="DAT" />
+      <Text layoutX="96.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modificar centro educativo">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
+      <Button fx:id="add" layoutX="403.0" layoutY="640.0" mnemonicParsing="false" onAction="#ModificarCentro" text="OK" />
+   </children>
+</AnchorPane>

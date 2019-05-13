@@ -7,7 +7,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CMenuCentro">
    <children>
-      <TableView layoutX="87.0" layoutY="53.0" prefHeight="200.0" prefWidth="226.0">
+      <TableView fx:id="Tabla" layoutX="87.0" layoutY="53.0" prefHeight="200.0" prefWidth="226.0">
         <columns>
           <TableColumn fx:id="Cod_Centro" prefWidth="75.0" text="Cod_Centro" />
           <TableColumn fx:id="Representante_Centro" prefWidth="89.60003662109375" text="Representante" />
@@ -23,7 +23,7 @@
             <TableColumn fx:id="DAT" prefWidth="75.0" text="DAT" />
         </columns>
       </TableView>
-      <Button layoutX="167.0" layoutY="305.0" mnemonicParsing="false" text="Modificar" />
+      <Button fx:id="Modificar" layoutX="167.0" layoutY="305.0" mnemonicParsing="false" onAction="#EditarCentro" text="Modificar" />
       <Button fx:id="Agregar" layoutX="87.0" layoutY="305.0" mnemonicParsing="false" onAction="#ContactoCentro" text="Nuevo" />
       <Button layoutX="264.0" layoutY="305.0" mnemonicParsing="false" text="Borrar" />
       <Button fx:id="Actualizar" layoutX="166.0" layoutY="349.0" mnemonicParsing="false" onAction="#ActualizaTabla" text="Actualizar" />

@@ -45,47 +45,44 @@ public class Main extends Application {
 	  try {
 	   
 	    // Load root layout from fxml file.
-	            FXMLLoader loader = new FXMLLoader();
-	            loader.setLocation(Main.class.getResource("UIMenuCiclos.fxml"));
-	            rootLayout = (AnchorPane) loader.load();
-	            // Show the scene containing the root layout.
-	            Scene scene = new Scene(rootLayout);
-	            primaryStage.setScene(scene);
+		  FXMLLoader loader = new FXMLLoader();
+		  loader.setLocation(Main.class.getResource("UIMenuCiclos.fxml"));
+		  rootLayout = (AnchorPane) loader.load();
+		  // Show the scene containing the root layout.
+		  Scene scene = new Scene(rootLayout);
+		  primaryStage.setScene(scene);
 	            
-	            CMenuCiclo controller = loader.getController();
-	            //controller.setListaCiclo(listaCiclo);
-	            controller.setMain(this);
+		  CMenuCiclo controller = loader.getController();
+		  //controller.setListaCiclo(listaCiclo);
+		  controller.setMain(this);
 	            
 	            
-	            primaryStage.show();
-	           } catch(Exception e) {
-	   e.printStackTrace();
+		  primaryStage.show();
+	  } catch(Exception e) {
+		  e.printStackTrace();
 	  }
 	 }
 	 
-	 public boolean MostrarContactoCiclo(Ciclo datosCicloaEditar) {
+	 public boolean NuevoContactoCiclo(Ciclo datosCicloaEditar) {
 	  try {
 	    // Load root layout from fxml file.
-	            FXMLLoader loader = new FXMLLoader();
-	            loader.setLocation(Main.class.getResource("UIContactoCiclo.fxml"));
-	            rootLayout = (AnchorPane) loader.load();
-	            // Show the scene containing the root layout.
-	            Scene scene = new Scene(rootLayout);
-	            primaryStage.setScene(scene);
+		  FXMLLoader loader = new FXMLLoader();
+		  loader.setLocation(Main.class.getResource("UIContactoCiclo.fxml"));
+		  rootLayout = (AnchorPane) loader.load();
+		  // Show the scene containing the root layout.
+		  Scene scene = new Scene(rootLayout);
+		  primaryStage.setScene(scene);
 	            
-	            CContactoCiclo controller = loader.getController();
-	            controller.setCiclo(datosCicloaEditar);
-	            controller.setStageSecundario(primaryStage);
+		  CContactoCiclo controller = loader.getController();
+		  controller.setCiclo(datosCicloaEditar);
+		  controller.setStageSecundario(primaryStage);
 	            
-	            primaryStage.show();
+		  primaryStage.show();
 	            
-	            
-	            
-	            return controller.isOkClicked();
-	           } catch(Exception e) {
-	   e.printStackTrace();
-	   
-	   return false;
+		  return controller.isOkClicked();
+	  } catch(Exception e) {
+		  e.printStackTrace();
+		  return false;
 	  }
 	
 	 }
@@ -93,36 +90,25 @@ public class Main extends Application {
 	 public boolean MostrarModificarContactoCiclo(Ciclo datosCicloaEditar) {
 		  try {
 		    // Load root layout from fxml file.
-		            FXMLLoader loader = new FXMLLoader();
-		            loader.setLocation(Main.class.getResource("UIContactoModificarCiclo.fxml"));
-		            rootLayout = (AnchorPane) loader.load();
-		            // Show the scene containing the root layout.
-		            Scene scene = new Scene(rootLayout);
-		            primaryStage.setScene(scene);
+			  FXMLLoader loader = new FXMLLoader();
+			  loader.setLocation(Main.class.getResource("UIContactoModificarCiclo.fxml"));
+			  rootLayout = (AnchorPane) loader.load();
+			  // Show the scene containing the root layout.
+			  Scene scene = new Scene(rootLayout);
+			  primaryStage.setScene(scene);
 		            
-		            CContactoModificarCiclo controller = loader.getController();
-		            controller.setCiclo(datosCicloaEditar);
-		            controller.setStageSecundario(primaryStage);
+			  CContactoModificarCiclo controller = loader.getController();
+			  controller.setCiclo(datosCicloaEditar);
+			  controller.setStageSecundario(primaryStage);
 		            
-		            primaryStage.show();
-		            
-		            
-		            
-		            return controller.isOkClicked();
-		           } catch(Exception e) {
-		   e.printStackTrace();
-		   
+			  primaryStage.show();
+		      return controller.isOkClicked();
+		  } catch(Exception e) {
+			  e.printStackTrace();
 		   return false;
 		  }
 		
-		 }
-	 
-	 
-	 public void NewCiclo(){
-	    	Ciclo CicloNew = new Ciclo(null, null, null, null, null, null, null, null, null, null);
-	    	if(MostrarContactoCiclo(CicloNew))
-	    		this.ciclo.addCiclo(CicloNew);
-	    }
+	 }
 	 
 	 /**
 	  * EMPRESA
@@ -130,37 +116,73 @@ public class Main extends Application {
 	 
 	 public void MostrarMenuEmpresa() {
 		  try {
-		   this.primaryStage = primaryStage;
-		   this.primaryStage.setTitle("Ventana Secundaria");
+		   
 		    // Load root layout from fxml file.
-		            FXMLLoader loader = new FXMLLoader();
-		            loader.setLocation(Main.class.getResource("UIMenuEmpresa.fxml"));
-		            rootLayout = (AnchorPane) loader.load();
-		            // Show the scene containing the root layout.
-		            Scene scene = new Scene(rootLayout);
-		            primaryStage.setScene(scene);
-		            primaryStage.show();
-		           } catch(Exception e) {
-		   e.printStackTrace();
+			  FXMLLoader loader = new FXMLLoader();
+			  loader.setLocation(Main.class.getResource("UIMenuEmpresa.fxml"));
+			  rootLayout = (AnchorPane) loader.load();
+			  // Show the scene containing the root layout.
+			  Scene scene = new Scene(rootLayout);
+			  primaryStage.setScene(scene);
+		            
+			  CMenuEmpresa controller = loader.getController();
+			  //controller.setListaCiclo(listaCiclo);
+			  controller.setMain(this);
+		            
+		            
+			  primaryStage.show();
+		  } catch(Exception e) {
+			  e.printStackTrace();
 		  }
-		 }
+	 }
 		 
-	 public void MostrarContactoEmpresa() {
+	 public boolean NuevoContactoEmpresa(Empresa datosEmpresaaEditar) {
 		  try {
-		   this.primaryStage = primaryStage;
-		   this.primaryStage.setTitle("Alumno");
 		    // Load root layout from fxml file.
-		            FXMLLoader loader = new FXMLLoader();
-		            loader.setLocation(Main.class.getResource("UIContactoEmpresa.fxml"));
-		            rootLayout = (AnchorPane) loader.load();
-		            // Show the scene containing the root layout.
-		            Scene scene = new Scene(rootLayout);
-		            primaryStage.setScene(scene);
-		            primaryStage.show();
-		           } catch(Exception e) {
-		   e.printStackTrace();
+			  FXMLLoader loader = new FXMLLoader();
+			  loader.setLocation(Main.class.getResource("UIContactoEmpresa.fxml"));
+			  rootLayout = (AnchorPane) loader.load();
+			  // Show the scene containing the root layout.
+			  Scene scene = new Scene(rootLayout);
+			  primaryStage.setScene(scene);
+		            
+			  CContactoEmpresa controller = loader.getController();
+			  controller.setEmpresa(datosEmpresaaEditar);
+			  controller.setStageSecundario(primaryStage);
+		            
+			  primaryStage.show();
+		            
+			  return controller.isOkClicked();
+		  } catch(Exception e) {
+			  e.printStackTrace();
+			  return false;
 		  }
-		 }
+		
+	 }
+	 
+	 
+	 public boolean ModificarContactoEmpresa(Empresa datosEmpresaaEditar) {
+		  try {
+		    // Load root layout from fxml file.
+			  FXMLLoader loader = new FXMLLoader();
+			  loader.setLocation(Main.class.getResource("UIContactoModificarEmpresa.fxml"));
+			  rootLayout = (AnchorPane) loader.load();
+			  // Show the scene containing the root layout.
+			  Scene scene = new Scene(rootLayout);
+			  primaryStage.setScene(scene);
+		            
+			  CContactoModificarEmpresa controller = loader.getController();
+			  controller.setEmpresa(datosEmpresaaEditar);
+			  controller.setStageSecundario(primaryStage);
+		            
+			  primaryStage.show();
+		      return controller.isOkClicked();
+		  } catch(Exception e) {
+			  e.printStackTrace();
+		   return false;
+		  }
+		
+	 }
 	 
 	 /**
 	  * CENTRO
@@ -168,38 +190,122 @@ public class Main extends Application {
 		 
 	 public void MostrarMenuCentro() {
 		  try {
-		   this.primaryStage = primaryStage;
-		   this.primaryStage.setTitle("Ventana Secundaria");
+		   
 		    // Load root layout from fxml file.
-		            FXMLLoader loader = new FXMLLoader();
-		            loader.setLocation(Main.class.getResource("UIMenuCentro.fxml"));
-		            rootLayout = (AnchorPane) loader.load();
-		            // Show the scene containing the root layout.
-		            Scene scene = new Scene(rootLayout);
-		            primaryStage.setScene(scene);
-		            primaryStage.show();
-		           } catch(Exception e) {
-		   e.printStackTrace();
+			  FXMLLoader loader = new FXMLLoader();
+			  loader.setLocation(Main.class.getResource("UIMenuCentro.fxml"));
+			  rootLayout = (AnchorPane) loader.load();
+			  // Show the scene containing the root layout.
+			  Scene scene = new Scene(rootLayout);
+			  primaryStage.setScene(scene);
+		            
+			  CMenuEmpresa controller = loader.getController();
+			  //controller.setListaCiclo(listaCiclo);
+			  controller.setMain(this);
+		            
+		            
+			  primaryStage.show();
+		  } catch(Exception e) {
+			  e.printStackTrace();
 		  }
-		 }
+	 }
 		 
-		 public void MostrarContactoCentro() {
+	 public boolean NuevoContactoCentro(Centro datosCentroaEditar) {
 		  try {
-		   this.primaryStage = primaryStage;
-		   this.primaryStage.setTitle("Alumno");
 		    // Load root layout from fxml file.
-		            FXMLLoader loader = new FXMLLoader();
-		            loader.setLocation(Main.class.getResource("UIContactoCentro.fxml"));
-		            rootLayout = (AnchorPane) loader.load();
-		            // Show the scene containing the root layout.
-		            Scene scene = new Scene(rootLayout);
-		            primaryStage.setScene(scene);
-		            primaryStage.show();
-		           } catch(Exception e) {
-		   e.printStackTrace();
+			  FXMLLoader loader = new FXMLLoader();
+			  loader.setLocation(Main.class.getResource("UIContactoCentro.fxml"));
+			  rootLayout = (AnchorPane) loader.load();
+			  // Show the scene containing the root layout.
+			  Scene scene = new Scene(rootLayout);
+			  primaryStage.setScene(scene);
+		            
+			  CContactoCentro controller = loader.getController();
+			  controller.setCentro(datosCentroaEditar);
+			  controller.setStageSecundario(primaryStage);
+		            
+			  primaryStage.show();
+		            
+			  return controller.isOkClicked();
+		  } catch(Exception e) {
+			  e.printStackTrace();
+			  return false;
 		  }
-		 }
+		
+	 }
 	 
+	 public boolean ModificarContactoCentro(Centro datosCentroaEditar) {
+		  try {
+		    // Load root layout from fxml file.
+			  FXMLLoader loader = new FXMLLoader();
+			  loader.setLocation(Main.class.getResource("UIContactoModificarCentro.fxml"));
+			  rootLayout = (AnchorPane) loader.load();
+			  // Show the scene containing the root layout.
+			  Scene scene = new Scene(rootLayout);
+			  primaryStage.setScene(scene);
+		            
+			  CContactoModificarCentro controller = loader.getController();
+			  controller.setCentro(datosCentroaEditar);
+			  controller.setStageSecundario(primaryStage);
+		            
+			  primaryStage.show();
+		      return controller.isOkClicked();
+		  } catch(Exception e) {
+			  e.printStackTrace();
+		   return false;
+		  }
+		
+	 }
+	 
+	 
+	 /**
+	  * TUTOR CENTRO
+	  */
+	 public void MostrarMenuTutorCentro() {
+		  try {
+		   
+		    // Load root layout from fxml file.
+			  FXMLLoader loader = new FXMLLoader();
+			  loader.setLocation(Main.class.getResource("UIMenuTutores.fxml"));
+			  rootLayout = (AnchorPane) loader.load();
+			  // Show the scene containing the root layout.
+			  Scene scene = new Scene(rootLayout);
+			  primaryStage.setScene(scene);
+		            
+			  CMenuTutorCentroyEmpresa controller = loader.getController();
+			  //controller.setListaCiclo(listaCiclo);
+			  controller.setMain(this);
+		            
+		            
+			  primaryStage.show();
+		  } catch(Exception e) {
+			  e.printStackTrace();
+		  }
+	 }
+	 
+	 public boolean NuevoContactoTutorCentro(TutorCentro datosTutorCentroaEditar) {
+		  try {
+		    // Load root layout from fxml file.
+			  FXMLLoader loader = new FXMLLoader();
+			  loader.setLocation(Main.class.getResource("UIContactoTutor.fxml"));
+			  rootLayout = (AnchorPane) loader.load();
+			  // Show the scene containing the root layout.
+			  Scene scene = new Scene(rootLayout);
+			  primaryStage.setScene(scene);
+		            
+			  CContactoTutorCentro controller = loader.getController();
+			  controller.setTutorCentro(datosTutorCentroaEditar);
+			  controller.setStageSecundario(primaryStage);
+		            
+			  primaryStage.show();
+		            
+			  return controller.isOkClicked();
+		  } catch(Exception e) {
+			  e.printStackTrace();
+			  return false;
+		  }
+		
+	 }
 	 
  
 }

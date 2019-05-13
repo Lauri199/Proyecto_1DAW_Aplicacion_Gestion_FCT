@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CContactoModificarEmpresa">
+   <children>
+      <TextField fx:id="Num_Convenio" layoutX="164.0" layoutY="53.0" />
+      <TextField fx:id="NIF" layoutX="162.0" layoutY="97.0" />
+      <Label layoutX="77.0" layoutY="57.0" text="Nº Convenio" />
+      <Label layoutX="123.0" layoutY="101.0" text="NIF" />
+      <Label layoutX="16.0" layoutY="141.0" text="Nombre de la empresa" />
+      <Label layoutX="61.0" layoutY="185.0" text="Representante" />
+      <Label layoutX="89.0" layoutY="226.0" text="Localidad" />
+      <Label layoutX="90.0" layoutY="270.0" text="Provincia" />
+      <Label layoutX="113.0" layoutY="311.0" text="Pais" />
+      <Label layoutX="110.0" layoutY="355.0" text="Calle" />
+      <TextField fx:id="Nombre_Empresa" layoutX="162.0" layoutY="137.0" />
+      <TextField fx:id="Representante_Empresa" layoutX="162.0" layoutY="181.0" />
+      <TextField fx:id="Localidad" layoutX="162.0" layoutY="222.0" />
+      <TextField fx:id="Provincia" layoutX="164.0" layoutY="266.0" />
+      <TextField fx:id="Pais" layoutX="164.0" layoutY="307.0" />
+      <TextField fx:id="Calle" layoutX="164.0" layoutY="351.0" />
+      <TextField fx:id="Codigo_postal" layoutX="164.0" layoutY="393.0" />
+      <TextField fx:id="CIF" layoutX="164.0" layoutY="437.0" />
+      <TextField fx:id="Telefono" layoutX="164.0" layoutY="478.0" />
+      <TextField fx:id="Fax" layoutX="164.0" layoutY="522.0" />
+      <TextField fx:id="CiudadFirmaConvenio" layoutX="164.0" layoutY="563.0" />
+      <TextField fx:id="FechaFirmaConvenio" layoutX="164.0" layoutY="607.0" />
+      <Label layoutX="125.0" layoutY="397.0" text="CP" />
+      <Label layoutX="124.0" layoutY="441.0" text="CIF" />
+      <Label layoutX="91.0" layoutY="482.0" text="Telefono" />
+      <Label layoutX="116.0" layoutY="526.0" text="Fax" />
+      <Label layoutX="60.0" layoutY="611.0" text="Fecha de firma" />
+      <Label layoutX="57.0" layoutY="567.0" text="Ciudad de firma" />
+      <Button fx:id="add" layoutX="393.0" layoutY="633.0" mnemonicParsing="false" onAction="#ModificarEmpresa" text="OK" />
+      <Text layoutX="150.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modificar Empresa">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

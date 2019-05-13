@@ -7,7 +7,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CMenuEmpresa">
    <children>
-      <TableView layoutX="77.0" layoutY="63.0" prefHeight="200.0" prefWidth="245.0">
+      <TableView fx:id="Tabla" layoutX="77.0" layoutY="63.0" prefHeight="200.0" prefWidth="245.0">
          <columns>
             <TableColumn fx:id="Num_Convenio" prefWidth="91.20001220703125" text="Num Convenio" />
             <TableColumn fx:id="NIF" prefWidth="45.60003662109375" text="NIF" />
@@ -25,8 +25,8 @@
             <TableColumn fx:id="FechaFirmaConvenio" prefWidth="75.0" text="Fecha firma" />
          </columns>
       </TableView>
-      <Button layoutX="167.0" layoutY="313.0" mnemonicParsing="false" text="Modificar" />
-      <Button fx:id="Agregar" layoutX="87.0" layoutY="313.0" mnemonicParsing="false" onAction="#pressedButton" text="Nuevo" />
+      <Button fx:id="Modificar" layoutX="167.0" layoutY="313.0" mnemonicParsing="false" onAction="#EditarEmpresa" text="Modificar" />
+      <Button fx:id="Agregar" layoutX="87.0" layoutY="313.0" mnemonicParsing="false" onAction="#ContactoEmpresa" text="Nuevo" />
       <Button layoutX="264.0" layoutY="313.0" mnemonicParsing="false" text="Borrar" />
       <Button fx:id="Actualizar" layoutX="166.0" layoutY="349.0" mnemonicParsing="false" onAction="#ActualizaTabla" text="Actualizar" />
    </children>

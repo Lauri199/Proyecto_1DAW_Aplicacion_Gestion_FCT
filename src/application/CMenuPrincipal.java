@@ -63,7 +63,7 @@ public class CMenuPrincipal {
 	
 	public void MenuTutores(ActionEvent event) throws IOException{
 
-		FXMLLoader loader = new FXMLLoader(Main.class.getResource("UIMenuTutor.fxml"));
+		FXMLLoader loader = new FXMLLoader(Main.class.getResource("UIMenuTutores.fxml"));
 		AnchorPane ventanaDos = (AnchorPane) loader.load();
         Stage ventana = new Stage();
         ventana.setTitle("Venta Dos");

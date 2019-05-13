@@ -1,7 +1,6 @@
 package application;
 
 import java.io.IOException;
-import java.util.List;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,40 +17,27 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class CMenuCiclo {
+public class CMenuAlumnos {
+	@FXML
+	private TableView<Alumno> Tabla;
 	
 	@FXML
-	private TableView<Ciclo> Tabla;
-	
-	@FXML
-	private TableColumn<Ciclo,String> Clave_Ciclo;
+	private TableColumn<Alumno,String> DNI_ALUM;
 
 	@FXML
-	private TableColumn<Ciclo,String> Nombre;
+	private TableColumn<Alumno,String> Nombre;
 
 	@FXML
-	private TableColumn<Ciclo,String> Fam_Prof;
+	private TableColumn<Alumno,String> Apellido;
 	
 	@FXML
-	private TableColumn<Ciclo,String> Num_Cursos;
+	private TableColumn<Alumno,String> Tiempo_Empleado;
 	
 	@FXML
-	private TableColumn<Ciclo,String> Period_Pract;
+	private TableColumn<Alumno,String> DNI_TC;
 	
 	@FXML
-	private TableColumn<Ciclo,String> Cap_terminales;
-	
-	@FXML
-	private TableColumn<Ciclo,String> Act_Form;
-	
-	@FXML
-	private TableColumn<Ciclo,String> Criterio;
-	
-	@FXML
-	private TableColumn<Ciclo,String> Programa_Formativo;
-	
-	@FXML
-	private TableColumn<Ciclo,String> Cod_Centro;
+	private TableColumn<Alumno,String> DNI_TE;
 	
 	@FXML
 	private Button Actualizar;
@@ -71,23 +57,19 @@ public class CMenuCiclo {
 	
 	private boolean okClicked = false;
 	
-	Ciclo ciclo;
+	Alumno alumno;
 	
 	
-	private ObservableList<Ciclo> data = FXCollections.observableArrayList();
+	private ObservableList<Alumno> data = FXCollections.observableArrayList();
 	
 	@FXML
 	public void initialize(){
-		Clave_Ciclo.setCellValueFactory(new PropertyValueFactory<Ciclo,String>("clave_ciclo"));
-		Nombre.setCellValueFactory(new PropertyValueFactory<Ciclo,String>("nom_ciclo"));
-		Fam_Prof.setCellValueFactory(new PropertyValueFactory<Ciclo,String>("familia_prof"));
-		Num_Cursos.setCellValueFactory(new PropertyValueFactory<Ciclo,String>("num_cursos"));
-		Period_Pract.setCellValueFactory(new PropertyValueFactory<Ciclo,String>("period_pract"));
-		Cap_terminales.setCellValueFactory(new PropertyValueFactory<Ciclo,String>("capac_term"));
-		Act_Form.setCellValueFactory(new PropertyValueFactory<Ciclo,String>("act_form"));
-		Criterio.setCellValueFactory(new PropertyValueFactory<Ciclo,String>("criterios_eva"));
-		Programa_Formativo.setCellValueFactory(new PropertyValueFactory<Ciclo,String>("programa_formativo"));
-		Cod_Centro.setCellValueFactory(new PropertyValueFactory<Ciclo,String>("cod_centro"));
+		DNI_ALUM.setCellValueFactory(new PropertyValueFactory<Alumno,String>("dni_alum"));
+		Nombre.setCellValueFactory(new PropertyValueFactory<Alumno,String>("nombre"));
+		Apellido.setCellValueFactory(new PropertyValueFactory<Alumno,String>("apellido"));
+		Tiempo_Empleado.setCellValueFactory(new PropertyValueFactory<Alumno,String>("tiempo_empleado"));
+		DNI_TC.setCellValueFactory(new PropertyValueFactory<Alumno,String>("dni_tc"));
+		DNI_TE.setCellValueFactory(new PropertyValueFactory<Alumno,String>("dni_te"));
 		
 	}
 	
@@ -99,7 +81,7 @@ public class CMenuCiclo {
 	
 	public void ContactoCiclo(ActionEvent event) throws IOException{
 
-		FXMLLoader loader = new FXMLLoader(Main.class.getResource("UIContactoCiclo.fxml"));
+		FXMLLoader loader = new FXMLLoader(Main.class.getResource("UIContactoAlumno.fxml"));
 		AnchorPane ventanaDos = (AnchorPane) loader.load();
         Stage ventana = new Stage();
         ventana.setTitle("Venta Dos");
@@ -109,25 +91,25 @@ public class CMenuCiclo {
 	}
 		
 	
-	@FXML
+	/*@FXML
 	public void ActualizaTabla(){
 		conexionbbdd = new TestConexion();
-		Tabla.setItems(conexionbbdd.ConsultaCiclos());
+		Tabla.setItems(conexionbbdd.ConsultaAlumnos());
 	}
 	
 	
 	@FXML
-	public void EditarCiclo() throws IOException {
-		Ciclo selectedCiclo = Tabla.getSelectionModel().getSelectedItem();
-		if (selectedCiclo != null) {
-			System.out.println("editar ciclo");
-			FXMLLoader loader = new FXMLLoader(Main.class.getResource("UIContactoModificarCiclo.fxml"));
+	public void EditarAlumno() throws IOException {
+		Alumno selectedAlumno = Tabla.getSelectionModel().getSelectedItem();
+		if (selectedAlumno != null) {
+			System.out.println("editar Alumno");
+			FXMLLoader loader = new FXMLLoader(Main.class.getResource("UIContactoModificarAlumno.fxml"));
 			AnchorPane ventanaDos = (AnchorPane) loader.load();
 	        Stage ventana = new Stage();
 	        ventana.setTitle("Venta Dos");
 	        Scene scene = new Scene(ventanaDos);
 	        CContactoModificarCiclo cicloseleccionado = loader.getController();
-	        cicloseleccionado.setCiclo(selectedCiclo);
+	        cicloseleccionado.setAlumno(selectedAlumno);
 	        ventana.setScene(scene);
 	        ventana.show();
         	
@@ -140,7 +122,8 @@ public class CMenuCiclo {
         	ShowAlertNoSelectionCiclo(alert);
         }
 		
-	}
+	}*/
+	
 	
 	/*@FXML
 	public void BorrarTabla(){
@@ -163,6 +146,7 @@ public class CMenuCiclo {
 	
 	
 	
+	
 	private void ShowAlertNoSelectionCiclo(Alert alert){
 
         alert.setTitle("No Seleccionado");
@@ -177,8 +161,8 @@ public class CMenuCiclo {
     }
 	
 	
-	public void setListaCiclo(ObservableList<Ciclo> listaCiclo){
-		this.data = listaCiclo;
+	public void setListaAlumno(ObservableList<Alumno> listaAlumno){
+		this.data = listaAlumno;
 	}
 
 }

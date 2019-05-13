@@ -54,8 +54,6 @@ public class CContactoCiclo {
 	private Stage ventanaTres;
     private Ciclo ciclo;
     private boolean okClicked = false;
-    private boolean Modificar = false;
-    CMenuCiclo MenuCiclo;
 
     public void setStageSecundario(Stage ventana) {
 		// TODO Auto-generated method stub
@@ -80,7 +78,6 @@ public class CContactoCiclo {
         ProgramaFormativo.setText(ciclo.getPrograma_formativo());
         Cod_Centro.setText(ciclo.getCod_centro());
         
-        Modificar=true;
         okClicked = true;
         
     }
@@ -89,27 +86,6 @@ public class CContactoCiclo {
     	return okClicked;
     }
 
-    
-    @FXML
-    private void handleOk() {
-    	if (isInputValid()) {
-            ciclo.setClave_ciclo(Clave_Ciclo.getText());
-            ciclo.setNom_ciclo(Nombre_Ciclo.getText());
-            ciclo.setFamilia_prof(Familia_Profesional.getText());
-            ciclo.setNum_cursos(Num_Cursos.getText());
-            ciclo.setPeriod_pract(Periodo_Practicas.getText());
-            /*
-            ciclo.setCapac_term(Capacidades_terminales.getText());
-            ciclo.setAct_form(Act_Activo_Formativas.getText());
-            ciclo.setCriterios_eva(Criterios_Evaluacion.getText());
-            */
-            ciclo.setPrograma_formativo(ProgramaFormativo.getText());
-            ciclo.setCod_centro(Cod_Centro.getText());
-
-            okClicked = true;
-            ventanaTres.close();
-        }
-    }
 
     @FXML
     private void handleCancel() {
@@ -119,14 +95,6 @@ public class CContactoCiclo {
     @FXML
     private void InsertarCiclo() throws SQLException {
     	conexionbbdd = new TestConexion();
-    		/*
-    		try {
-				conexionbbdd.ModificarCiclo(Clave_Ciclo.getText(), Nombre_Ciclo.getText(), Familia_Profesional.getText(), Num_Cursos.getText(), Periodo_Practicas.getText(), ProgramaFormativo.getText(), Cod_Centro.getText());
-			} catch (SQLException e) {
-				// TODO Bloque catch generado automáticamente
-				e.printStackTrace();
-			}*/
-    	
     	
     	try {
 			conexionbbdd.InsertCiclo(Clave_Ciclo.getText(), Nombre_Ciclo.getText(), Familia_Profesional.getText(), Num_Cursos.getText(), Periodo_Practicas.getText(), ProgramaFormativo.getText(), Cod_Centro.getText());
@@ -147,7 +115,7 @@ public class CContactoCiclo {
         if (Nombre_Ciclo.getText() == null || Nombre_Ciclo.getText().length() == 0) {
             errorMessage += "Nombre del ciclo no válido!\n";
         }
-        if (Familia_Profesional.getText() == null || Familia_Profesional.getText().length() != 9) {
+        if (Familia_Profesional.getText() == null || Familia_Profesional.getText().length() != 0) {
             errorMessage += "Familia profesional no válida!\n";
         }
         
@@ -169,7 +137,7 @@ public class CContactoCiclo {
             errorMessage += "Criterios de evaluacion no válidos!\n";
         }
         */
-        if (ProgramaFormativo.getText() == null || ProgramaFormativo.getText().length() != 9) {
+        if (ProgramaFormativo.getText() == null || ProgramaFormativo.getText().length() != 0) {
             errorMessage += "Programa Formativo no válido!\n";
         }
         
