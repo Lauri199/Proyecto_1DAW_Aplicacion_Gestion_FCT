@@ -9,6 +9,7 @@ import java.util.Properties;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.TableColumn;
 
 public class TestConexion {
 
@@ -118,6 +119,36 @@ public class TestConexion {
 		return num;
 	}
 	
+	public static int ModificarCiclo(String Clave_Ciclo, String Nombre_Ciclo, String Familia_Profesional, String Num_Cursos, String Periodo_Practicas, String ProgramaFormativo, String Cod_Centro ) throws SQLException{
+		
+		System.out.println("Voy a hacer un insert en la tabla Ciclos modificando sus datos");
+		
+		Statement stmt = conexion.createStatement();//Introduce los datos
+		
+		//INSERT INTO SCHEMA.NOMBRE_TABLA VALUES ();
+		
+		System.out.println("UPDATE customer SET City='Frankfurt', PostalCode=45672, Country='Alemania',Address='Zeil 112' WHERE CustomerID=1;");
+		System.out.println("UPDATE " + esquema + ".CICLOS SET. (" +"Clave_Ciclo='" + Clave_Ciclo + "'"+  "," +"Nombre_Ciclo='"+Nombre_Ciclo+ "'" + "," +"Familia_Profesional='"+Familia_Profesional+ "'" + "," +"Num_Cursos="+Num_Cursos + "," + "Periodo_Practicas='" + Periodo_Practicas + "'"+  "," +"CAPACIDADES_TERMINALES='"+"'" + "," +"ACT_ACTIVO_FORMATIVAS='"+"'" + "," +"CRITERIOS_EVALUACION='"+"'" + "," + "ProgramaFormativo='" + ProgramaFormativo+ "'" + "," + "Cod_Centro="+ Cod_Centro +")");
+		int num = stmt.executeUpdate("UPDATE " + esquema + ".CICLOS SET. (" +"Clave_Ciclo='" + Clave_Ciclo + "'"+  "," +"Nombre_Ciclo='"+Nombre_Ciclo+ "'" + "," +"Familia_Profesional='"+Familia_Profesional+ "'" + "," +"Num_Cursos="+Num_Cursos + "," + "Periodo_Practicas='" + Periodo_Practicas + "'"+  "," +"CAPACIDADES_TERMINALES='"+"'" + "," +"ACT_ACTIVO_FORMATIVAS='"+"'" + "," +"CRITERIOS_EVALUACION='"+"'" + "," + "ProgramaFormativo='" + ProgramaFormativo+ "'" + "," + "Cod_Centro="+ Cod_Centro +")");
+		return num;
+	}
+	
+	/*public static ObservableList<Ciclo> BorrarCiclo(TableColumn<Ciclo, String> clave_Ciclo, TableColumn<Ciclo, String> nombre, TableColumn<Ciclo, String> fam_Prof, TableColumn<Ciclo, String> num_Cursos, TableColumn<Ciclo, String> period_Pract, TableColumn<Ciclo, String> programa_Formativo, TableColumn<Ciclo, String> cod_Centro ) throws SQLException{
+		
+		System.out.println("Voy a borrar un elemento en la tabla Ciclos");
+		
+		Statement stmt = conexion.createStatement();//Introduce los datos
+		
+		//INSERT INTO SCHEMA.NOMBRE_TABLA VALUES ();
+		
+		System.out.println("DELETE Employees WHERE EmployeeID = 9");
+		System.out.println("DELETE " + esquema + ".CICLOS WHERE CLAVE_CICLO = ");
+		int num = stmt.executeUpdate("INSERT INTO " + esquema + ".CICLOS VALUES ("+"'" + clave_Ciclo + "'"+  "," +"'"+nombre+ "'" + "," +"'"+fam_Prof+ "'" + "," +num_Cursos + "," + "'" + period_Pract + "'"+  "," +"'"+"'" + "," +"'"+"'" + "," +"'"+"'" + "," + "'"+ programa_Formativo+ "'" + "," + cod_Centro +")");
+		return num;
+	}*/
+	
+	
+	
 	/**
 	 * EMPRESA
 	 */
@@ -148,7 +179,7 @@ public class TestConexion {
 					String FechaFirmaConvenio = rset.getString(14);
 					
 					
-					System.out.println(Num_Convenio + ", " + NIF + ", " +Nombre_Empresa + ", " +Representante_Empresa + ", " +Localidad  + ", " + Provincia  + ", " + Pais  + ", " + Calle  + ", " + Codigo_postal  + ", " + CIF + ", " + Telefono + ", " +  ", " + Fax + ", " +  ", " + CiudadFirmaConvenio + ", " + ", " + FechaFirmaConvenio );
+					System.out.println(Num_Convenio + ", " + NIF + ", " +Nombre_Empresa + ", " +Representante_Empresa + ", " +Localidad  + ", " + Provincia  + ", " + Pais  + ", " + Calle  + ", " + Codigo_postal  + ", " + CIF + ", " + Telefono +  ", " + Fax + ", " + CiudadFirmaConvenio  + ", " + FechaFirmaConvenio );
 					Empresa auxEmpresa = new Empresa(Num_Convenio, NIF, Nombre_Empresa, Representante_Empresa, Localidad, Provincia, Pais, Calle, Codigo_postal, CIF, Telefono, Fax, CiudadFirmaConvenio, FechaFirmaConvenio);
 					aux.add(auxEmpresa);
 				}
@@ -175,6 +206,8 @@ public class TestConexion {
 		int num = stmt.executeUpdate("INSERT INTO " + esquema + ".EMPRESA VALUES ("+"'" + Num_Convenio + "'"+  "," +"'"+ NIF + "'" + "," +"'"+ Nombre_Empresa + "'" + "," + "'"+"'" +  "," +"'"+ Representante_Empresa + "'" + "," + "'" + Localidad + "'"+  "," +"'"+ Provincia+ "'" + "," +"'"+ Pais+ "'" + "," +"'"+ Calle +"'" + "," + "'"+ Codigo_postal + "'" + "," + "'"+ CIF + "'" + "," +"'"+ Telefono + "'" + "," +"'"+ Fax + "'" + "," + "'"+ CiudadFirmaConvenio +"'" +  "," +"'"+ FechaFirmaConvenio + "'" +")");
 		return num;
 	}
+	
+	
 	
 	/**
 	 * CENTRO

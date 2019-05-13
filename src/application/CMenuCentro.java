@@ -97,7 +97,7 @@ public class CMenuCentro {
 		FXMLLoader loader = new FXMLLoader(Main.class.getResource("UIContactoCentro.fxml"));
 		AnchorPane ventanaDos = (AnchorPane) loader.load();
         Stage ventana = new Stage();
-        ventana.setTitle("Venta Dos");
+        ventana.setTitle("V2 Ciclo");
         Scene scene = new Scene(ventanaDos);
         ventana.setScene(scene);
         ventana.show();

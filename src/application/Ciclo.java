@@ -1,6 +1,10 @@
 package application;
 
+import javafx.collections.ObservableList;
+
 public class Ciclo {
+	
+	private ObservableList<Ciclo> ciclo;
 	
 	String clave_ciclo;
 	String nom_ciclo;
@@ -128,6 +132,10 @@ public class Ciclo {
 	public void setCod_centro(String cod_centro) {
 		this.cod_centro = cod_centro;
 	}
+	
+	public void addCiclo(Ciclo ciclo){
+    	this.ciclo.add(ciclo);
+    }
 	
 	
 	

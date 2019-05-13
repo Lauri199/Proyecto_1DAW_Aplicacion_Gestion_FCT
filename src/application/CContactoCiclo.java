@@ -54,16 +54,19 @@ public class CContactoCiclo {
 	private Stage ventanaTres;
     private Ciclo ciclo;
     private boolean okClicked = false;
+    private boolean Modificar = false;
+    CMenuCiclo MenuCiclo;
 
     public void setStageSecundario(Stage ventana) {
 		// TODO Auto-generated method stub
 		this.ventanaTres = ventana;
 	}
-	
-	
+    
+    	
 	public void setCiclo(Ciclo ciclo) {
         this.ciclo = ciclo;
 
+        System.out.println("setCiclo");
         Clave_Ciclo.setText(ciclo.getClave_ciclo());
         Nombre_Ciclo.setText(ciclo.getNom_ciclo());
         Familia_Profesional.setText(ciclo.getFamilia_prof());
@@ -76,6 +79,10 @@ public class CContactoCiclo {
         */
         ProgramaFormativo.setText(ciclo.getPrograma_formativo());
         Cod_Centro.setText(ciclo.getCod_centro());
+        
+        Modificar=true;
+        okClicked = true;
+        
     }
 	
 	public boolean isOkClicked() {
@@ -110,14 +117,30 @@ public class CContactoCiclo {
     }
     
     @FXML
-    private void InsertarCiclo() throws SQLException {
+    private void InsertarOModificarCiclo() throws SQLException {
     	conexionbbdd = new TestConexion();
-		try {
+    	if(MenuCiclo.MetodoEditarCiclo()==false) {
+			try {
+				conexionbbdd.InsertCiclo(Clave_Ciclo.getText(), Nombre_Ciclo.getText(), Familia_Profesional.getText(), Num_Cursos.getText(), Periodo_Practicas.getText(), ProgramaFormativo.getText(), Cod_Centro.getText());
+			} catch (SQLException e) {
+				// TODO Bloque catch generado automáticamente
+				e.printStackTrace();
+			}
+    	}else if(MenuCiclo.MetodoEditarCiclo()==true) {
+    		try {
+				conexionbbdd.ModificarCiclo(Clave_Ciclo.getText(), Nombre_Ciclo.getText(), Familia_Profesional.getText(), Num_Cursos.getText(), Periodo_Practicas.getText(), ProgramaFormativo.getText(), Cod_Centro.getText());
+			} catch (SQLException e) {
+				// TODO Bloque catch generado automáticamente
+				e.printStackTrace();
+			}
+    	}
+    	/* CON ESTE METODO FUNCIONA  (crea otra clase fxml para modificar)
+    	try {
 			conexionbbdd.InsertCiclo(Clave_Ciclo.getText(), Nombre_Ciclo.getText(), Familia_Profesional.getText(), Num_Cursos.getText(), Periodo_Practicas.getText(), ProgramaFormativo.getText(), Cod_Centro.getText());
 		} catch (SQLException e) {
 			// TODO Bloque catch generado automáticamente
 			e.printStackTrace();
-		}
+		}*/
 
     }
 

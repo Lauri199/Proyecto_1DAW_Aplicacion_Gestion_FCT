@@ -21,7 +21,7 @@
             <TableColumn fx:id="Cod_Centro" prefWidth="74.4000244140625" text="Cod Centro" />
          </columns>
       </TableView>
-      <Button layoutX="167.0" layoutY="306.0" mnemonicParsing="false" text="Modificar" />
+      <Button fx:id="Modificar" layoutX="167.0" layoutY="306.0" mnemonicParsing="false" onAction="#EditarCiclo" text="Modificar" />
       <Button fx:id="Agregar" layoutX="87.0" layoutY="306.0" mnemonicParsing="false" onAction="#ContactoCiclo" text="Nuevo" />
       <Button layoutX="264.0" layoutY="306.0" mnemonicParsing="false" text="Borrar" />
       <Button fx:id="Actualizar" layoutX="167.0" layoutY="345.0" mnemonicParsing="false" onAction="#ActualizaTabla" text="Actualizar" />
