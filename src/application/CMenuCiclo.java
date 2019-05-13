@@ -124,12 +124,12 @@ public class CMenuCiclo {
 		Ciclo selectedCiclo = Tabla.getSelectionModel().getSelectedItem();
 		if (selectedCiclo != null) {
 			System.out.println("editar ciclo");
-			FXMLLoader loader = new FXMLLoader(Main.class.getResource("UIContactoCiclo.fxml"));
+			FXMLLoader loader = new FXMLLoader(Main.class.getResource("UIContactoModificarCiclo.fxml"));
 			AnchorPane ventanaDos = (AnchorPane) loader.load();
 	        Stage ventana = new Stage();
 	        ventana.setTitle("Venta Dos");
 	        Scene scene = new Scene(ventanaDos);
-	        CContactoCiclo cicloseleccionado = loader.getController();
+	        CContactoModificarCiclo cicloseleccionado = loader.getController();
 	        cicloseleccionado.setCiclo(selectedCiclo);
 	        ventana.setScene(scene);
 	        ventana.show();

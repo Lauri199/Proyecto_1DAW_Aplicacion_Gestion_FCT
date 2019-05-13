@@ -90,6 +90,33 @@ public class Main extends Application {
 	
 	 }
 	 
+	 public boolean MostrarModificarContactoCiclo(Ciclo datosCicloaEditar) {
+		  try {
+		    // Load root layout from fxml file.
+		            FXMLLoader loader = new FXMLLoader();
+		            loader.setLocation(Main.class.getResource("UIContactoModificarCiclo.fxml"));
+		            rootLayout = (AnchorPane) loader.load();
+		            // Show the scene containing the root layout.
+		            Scene scene = new Scene(rootLayout);
+		            primaryStage.setScene(scene);
+		            
+		            CContactoModificarCiclo controller = loader.getController();
+		            controller.setCiclo(datosCicloaEditar);
+		            controller.setStageSecundario(primaryStage);
+		            
+		            primaryStage.show();
+		            
+		            
+		            
+		            return controller.isOkClicked();
+		           } catch(Exception e) {
+		   e.printStackTrace();
+		   
+		   return false;
+		  }
+		
+		 }
+	 
 	 
 	 public void NewCiclo(){
 	    	Ciclo CicloNew = new Ciclo(null, null, null, null, null, null, null, null, null, null);

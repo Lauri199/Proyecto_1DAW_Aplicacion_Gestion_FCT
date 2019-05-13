@@ -127,9 +127,9 @@ public class TestConexion {
 		
 		//INSERT INTO SCHEMA.NOMBRE_TABLA VALUES ();
 		
-		System.out.println("UPDATE customer SET City='Frankfurt', PostalCode=45672, Country='Alemania',Address='Zeil 112' WHERE CustomerID=1;");
-		System.out.println("UPDATE " + esquema + ".CICLOS SET. (" +"Clave_Ciclo='" + Clave_Ciclo + "'"+  "," +"Nombre_Ciclo='"+Nombre_Ciclo+ "'" + "," +"Familia_Profesional='"+Familia_Profesional+ "'" + "," +"Num_Cursos="+Num_Cursos + "," + "Periodo_Practicas='" + Periodo_Practicas + "'"+  "," +"CAPACIDADES_TERMINALES='"+"'" + "," +"ACT_ACTIVO_FORMATIVAS='"+"'" + "," +"CRITERIOS_EVALUACION='"+"'" + "," + "ProgramaFormativo='" + ProgramaFormativo+ "'" + "," + "Cod_Centro="+ Cod_Centro +")");
-		int num = stmt.executeUpdate("UPDATE " + esquema + ".CICLOS SET. (" +"Clave_Ciclo='" + Clave_Ciclo + "'"+  "," +"Nombre_Ciclo='"+Nombre_Ciclo+ "'" + "," +"Familia_Profesional='"+Familia_Profesional+ "'" + "," +"Num_Cursos="+Num_Cursos + "," + "Periodo_Practicas='" + Periodo_Practicas + "'"+  "," +"CAPACIDADES_TERMINALES='"+"'" + "," +"ACT_ACTIVO_FORMATIVAS='"+"'" + "," +"CRITERIOS_EVALUACION='"+"'" + "," + "ProgramaFormativo='" + ProgramaFormativo+ "'" + "," + "Cod_Centro="+ Cod_Centro +")");
+		
+		System.out.println("UPDATE " + esquema + ".CICLOS SET (" +"Clave_Ciclo='" + Clave_Ciclo + "'"+  ", " +"Nombre_Ciclo='"+Nombre_Ciclo+ "'" + ", " +"Familia_Profesional='"+Familia_Profesional+ "'" + ", " +"Num_Cursos="+Num_Cursos + ", " + "Periodo_Practicas='" + Periodo_Practicas + "'"+  ", " +"Capacidades_terminales='"+"'" + ", " +"Act_Activo_Formativas='"+"'" + ", " +"Criterios_Evaluacion='"+"'" + ", " + "ProgramaFormativo='" + ProgramaFormativo+ "'" + ", " + "Cod_Centro="+ Cod_Centro +");");
+		int num = stmt.executeUpdate("UPDATE " + esquema + ".CICLOS SET (" +"Clave_Ciclo='" + Clave_Ciclo + "'"+  ", " +"Nombre_Ciclo='"+Nombre_Ciclo+ "'" + ", " +"Familia_Profesional='"+Familia_Profesional+ "'" + ", " +"Num_Cursos="+Num_Cursos + ", " + "Periodo_Practicas='" + Periodo_Practicas + "'"+  ", " +"Capacidades_terminales='"+"'" + ", " +"Act_Activo_Formativas='"+"'" + ", " +"Criterios_Evaluacion='"+"'" + ", " + "ProgramaFormativo='" + ProgramaFormativo+ "'" + ", " + "Cod_Centro="+ Cod_Centro +");");
 		return num;
 	}
 	

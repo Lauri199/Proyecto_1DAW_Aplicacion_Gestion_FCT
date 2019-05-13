@@ -7,11 +7,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
-import javafx.event.ActionEvent;
 import javafx.stage.Stage;
 
-public class CContactoCiclo {
-	
+public class CContactoModificarCiclo {
 	@FXML
 	private Button add;
 	
@@ -117,19 +115,10 @@ public class CContactoCiclo {
     }
     
     @FXML
-    private void InsertarCiclo() throws SQLException {
+    private void ModificarCiclo() throws SQLException {
     	conexionbbdd = new TestConexion();
-    		/*
-    		try {
-				conexionbbdd.ModificarCiclo(Clave_Ciclo.getText(), Nombre_Ciclo.getText(), Familia_Profesional.getText(), Num_Cursos.getText(), Periodo_Practicas.getText(), ProgramaFormativo.getText(), Cod_Centro.getText());
-			} catch (SQLException e) {
-				// TODO Bloque catch generado automáticamente
-				e.printStackTrace();
-			}*/
-    	
-    	
     	try {
-			conexionbbdd.InsertCiclo(Clave_Ciclo.getText(), Nombre_Ciclo.getText(), Familia_Profesional.getText(), Num_Cursos.getText(), Periodo_Practicas.getText(), ProgramaFormativo.getText(), Cod_Centro.getText());
+			conexionbbdd.ModificarCiclo(Clave_Ciclo.getText(), Nombre_Ciclo.getText(), Familia_Profesional.getText(), Num_Cursos.getText(), Periodo_Practicas.getText(), ProgramaFormativo.getText(), Cod_Centro.getText());
 		} catch (SQLException e) {
 			// TODO Bloque catch generado automáticamente
 			e.printStackTrace();
@@ -186,7 +175,5 @@ public class CContactoCiclo {
             return false;
         }
     }
-    
-    
 
 }

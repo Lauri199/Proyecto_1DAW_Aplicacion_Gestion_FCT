@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CContactoModificarCiclo">
+   <children>
+      <TextField fx:id="Clave_Ciclo" layoutX="208.0" layoutY="80.0" />
+      <TextField fx:id="Nombre_Ciclo" layoutX="208.0" layoutY="124.0" />
+      <Label layoutX="118.0" layoutY="84.0" text="Clave del ciclo" />
+      <Label layoutX="99.0" layoutY="128.0" text="Nombre del ciclo" />
+      <Label layoutX="95.0" layoutY="168.0" text="Familia profesional" />
+      <Label layoutX="96.0" layoutY="212.0" text="Numero de cursos" />
+      <Label layoutX="83.0" layoutY="253.0" text="Periodo de practicas" />
+      <Label layoutX="83.0" layoutY="297.0" text="Programa Formativo" />
+      <TextField fx:id="Familia_Profesional" layoutX="208.0" layoutY="164.0" />
+      <TextField fx:id="Num_Cursos" layoutX="208.0" layoutY="208.0" />
+      <TextField fx:id="Periodo_Practicas" layoutX="208.0" layoutY="249.0" />
+      <TextField fx:id="ProgramaFormativo" layoutX="208.0" layoutY="293.0" />
+      <TableView layoutX="108.0" layoutY="388.0" prefHeight="93.0" prefWidth="200.0">
+         <columns>
+            <TableColumn prefWidth="75.0" text="Cod_Centro" />
+            <TableColumn prefWidth="123.20001220703125" text="Nombre" />
+         </columns>
+      </TableView>
+      <Button fx:id="add" layoutX="393.0" layoutY="469.0" mnemonicParsing="false" onAction="#ModificarCiclo" text="OK" />
+      <Text layoutX="151.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modificar Ciclo">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
+      <TextField fx:id="Cod_Centro" layoutX="208.0" layoutY="335.0" />
+      <Label layoutX="115.0" layoutY="339.0" text="Cod_centro" />
+   </children>
+</AnchorPane>

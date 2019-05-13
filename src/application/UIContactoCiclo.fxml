@@ -29,7 +29,7 @@
           <TableColumn prefWidth="123.20001220703125" text="Nombre" />
         </columns>
       </TableView>
-      <Button fx:id="add" layoutX="393.0" layoutY="460.0" mnemonicParsing="false" onAction="#InsertarOModificarCiclo" text="OK" />
+      <Button fx:id="add" layoutX="393.0" layoutY="460.0" mnemonicParsing="false" onAction="#InsertarCiclo" text="OK" />
       <Text layoutX="164.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nuevo Ciclo">
          <font>
             <Font size="21.0" />
