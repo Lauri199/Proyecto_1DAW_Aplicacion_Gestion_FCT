@@ -1,6 +1,7 @@
 package application;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 import javafx.collections.FXCollections;
@@ -142,13 +143,21 @@ public class CMenuCiclo {
 		
 	}
 	
-	/*@FXML
-	public void BorrarTabla(){
+	@FXML
+	public void BorrarTabla() throws SQLException{
 		Ciclo selectedCiclo = Tabla.getSelectionModel().getSelectedItem();
 		if (selectedCiclo != null) {
 			System.out.println("borrar ciclo");
 			conexionbbdd = new TestConexion();
-			Tabla.setItems(conexionbbdd.BorrarCiclo(this.ciclo.getClave_ciclo(), this.ciclo.getNom_ciclo(), this.ciclo.getFamilia_prof(), this.ciclo.getNum_cursos(), this.ciclo.getPeriod_pract(), this.ciclo.getCapac_term(), this.ciclo.getAct_form(), this.ciclo.getCriterios_eva(), this.ciclo.getPrograma_formativo(), this.ciclo.getCod_centro()));
+			if(conexionbbdd.BorrarCiclo(selectedCiclo.getClave_ciclo(), selectedCiclo.getNom_ciclo(), selectedCiclo.getFamilia_prof(), selectedCiclo.getNum_cursos(), selectedCiclo.getPeriod_pract(), selectedCiclo.getCapac_term(), selectedCiclo.getAct_form(), selectedCiclo.getCriterios_eva(), selectedCiclo.getPrograma_formativo(), selectedCiclo.getCod_centro())>0)
+			{
+				Alert alert = new Alert(AlertType.INFORMATION);
+	        	ShowAlertBorradoCiclo(alert);
+			}else {
+				Alert alert = new Alert(AlertType.INFORMATION);
+	        	ShowAlertErrorBorradoCiclo(alert);
+			}
+			//Tabla.setItems(conexionbbdd.BorrarCiclo(this.ciclo.getClave_ciclo(), this.ciclo.getNom_ciclo(), this.ciclo.getFamilia_prof(), this.ciclo.getNum_cursos(), this.ciclo.getPeriod_pract(), this.ciclo.getCapac_term(), this.ciclo.getAct_form(), this.ciclo.getCriterios_eva(), this.ciclo.getPrograma_formativo(), this.ciclo.getCod_centro()));
         	
            // Tabla.setItems(this.ciclo.getClave_ciclo(), this.ciclo.getNom_ciclo(), this.ciclo.getFamilia_prof(), this.ciclo.getNum_cursos(), this.ciclo.getPeriod_pract(), this.ciclo.getCapac_term(), this.ciclo.getAct_form(), this.ciclo.getCriterios_eva(), this.ciclo.getPrograma_formativo(), this.ciclo.getCod_centro());
         }
@@ -159,10 +168,30 @@ public class CMenuCiclo {
         	ShowAlertNoSelectionCiclo(alert);
         }
 		
-	}*/
+	}
 	
 	
 	
+	private void ShowAlertErrorBorradoCiclo(Alert alert) {
+		// TODO Apéndice de método generado automáticamente
+		alert.setTitle("Borrado");
+        alert.setHeaderText("Ha ocurrido un error al borrar este ciclo");
+        alert.setContentText("Hay alumnos estudiando este ciclo, no se puede borrar");
+
+        alert.showAndWait();
+		
+	}
+
+	private void ShowAlertBorradoCiclo(Alert alert) {
+		// TODO Apéndice de método generado automáticamente
+		alert.setTitle("Borrado");
+        alert.setHeaderText("Ciclo Borrado");
+        alert.setContentText("El ciclo de ha sido borrado");
+
+        alert.showAndWait();
+		
+	}
+
 	private void ShowAlertNoSelectionCiclo(Alert alert){
 
         alert.setTitle("No Seleccionado");

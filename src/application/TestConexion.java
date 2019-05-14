@@ -135,9 +135,8 @@ public class TestConexion {
 		
 		Statement stmt = conexion.createStatement();
 		
-		System.out.println("DELETE Employees WHERE EmployeeID = 9");
-		System.out.println("DELETE " + esquema + ".CICLOS WHERE CLAVE_CICLO LIKE" + "'"+ clave_Ciclo +"'" + ", " +"Nombre_Ciclo LIKE '"+Nombre_Ciclo+ "'" + ", " +"Familia_Profesional LIKE '"+Familia_Profesional+ "'" + ", " +"Num_Cursos="+Num_Cursos + ", " + "Periodo_Practicas LIKE '" + Periodo_Practicas + "'"+  ", " +"Capacidades_terminales LIKE '"+"'" + ", " +"Act_Activo_Formativas LIKE'"+"'" + ", " +"Criterios_Evaluacion LIKE '"+"'" + ", " + "ProgramaFormativo LIKE '" + ProgramaFormativo+ "'" + ", " + "Cod_Centro="+ Cod_Centro );
-		int num = stmt.executeUpdate("DELETE " + esquema + ".CICLOS WHERE CLAVE_CICLO LIKE" + "'"+ clave_Ciclo +"'" + ", " +"Nombre_Ciclo LIKE '"+Nombre_Ciclo+ "'" + ", " +"Familia_Profesional LIKE '"+Familia_Profesional+ "'" + ", " +"Num_Cursos="+Num_Cursos + ", " + "Periodo_Practicas LIKE '" + Periodo_Practicas + "'"+  ", " +"Capacidades_terminales LIKE '"+"'" + ", " +"Act_Activo_Formativas LIKE'"+"'" + ", " +"Criterios_Evaluacion LIKE '"+"'" + ", " + "ProgramaFormativo LIKE '" + ProgramaFormativo+ "'" + ", " + "Cod_Centro="+ Cod_Centro );
+		System.out.println("DELETE FROM " + esquema + ".CICLOS WHERE clave_Ciclo=" + "'"+ clave_Ciclo +"'" + ", " +"Nombre_Ciclo='"+Nombre_Ciclo+ "'" + ", " +"Familia_Profesional='"+Familia_Profesional+ "'" + ", " +"Num_Cursos="+Num_Cursos + ", " + "Periodo_Practicas='" + Periodo_Practicas + "'"+  ", " +"Capacidades_terminales='"+"'" + ", " +"Act_Activo_Formativas='"+"'" + ", " +"Criterios_Evaluacion='"+"'" + ", " + "ProgramaFormativo='" + ProgramaFormativo+ "'" + ", " + "Cod_Centro="+ Cod_Centro );
+		int num = stmt.executeUpdate("DELETE FROM " + esquema + ".CICLOS WHERE clave_Ciclo=" + "'"+ clave_Ciclo +"'" + ", " +"Nombre_Ciclo='"+Nombre_Ciclo+ "'" + ", " +"Familia_Profesional='"+Familia_Profesional+ "'" + ", " +"Num_Cursos="+Num_Cursos + ", " + "Periodo_Practicas='" + Periodo_Practicas + "'"+  ", " +"Capacidades_terminales='"+"'" + ", " +"Act_Activo_Formativas='"+"'" + ", " +"Criterios_Evaluacion='"+"'" + ", " + "ProgramaFormativo='" + ProgramaFormativo+ "'" + ", " + "Cod_Centro="+ Cod_Centro );
 		return num;
 	}
 	
@@ -206,6 +205,17 @@ public class TestConexion {
 		
 		System.out.println("UPDATE " + esquema + ".EMPRESA SET " +"Num_Convenio='" + Num_Convenio + "'"+  ", " +"NIF='"+NIF+ "'" + ", " +"Nombre_Empresa='"+Nombre_Empresa+ "'" + ", " + "Familia_Profesional='" + "'" + "+ " +"Representante_Empresa='"+Representante_Empresa + "'"+ ", " + "Localidad='" + Localidad + "'"+  ", " +"Provincia='"+ Provincia +"'" + ", " +"Pais='"+Pais+"'" + ", " +"Calle='"+Calle+"'" + ", " + "Codigo_postal='" + Codigo_postal+ "'" + ", " + "CIF='"+ CIF + "'"+ ", " + "Telefono='"+ Telefono + "'" + ", "+ "Fax='"+ Fax + "'" + ", "+ "CiudadFirmaConvenio='"+ CiudadFirmaConvenio + "'" + ", "+ "FechaFirmaConvenio='"+ FechaFirmaConvenio + "'" +" WHERE Num_Convenio='" + Num_Convenio + "'");
 		int num = stmt.executeUpdate("UPDATE " + esquema + ".EMPRESA SET " +"Num_Convenio='" + Num_Convenio + "'"+  ", " +"NIF='"+NIF+ "'" + ", " +"Nombre_Empresa='"+Nombre_Empresa+ "'" + ", " +"Representante_Empresa='"+Representante_Empresa + "'"+ ", " + "Localidad='" + Localidad + "'"+  ", " +"Provincia='"+ Provincia +"'" + ", " +"Pais='"+Pais+"'" + ", " +"Calle='"+Calle+"'" + ", " + "Codigo_postal='" + Codigo_postal+ "'" + ", " + "CIF='"+ CIF + "'"+ ", " + "Telefono='"+ Telefono + "'" + ", "+ "Fax='"+ Fax + "'" + ", "+ "CiudadFirmaConvenio='"+ CiudadFirmaConvenio + "'" + ", "+ "FechaFirmaConvenio='"+ FechaFirmaConvenio + "'" +" WHERE Num_Convenio='" + Num_Convenio + "'");
+		return num;
+	}
+	
+	public static int BorrarEmpresa(String Num_Convenio, String NIF, String Nombre_Empresa, String Representante_Empresa , String Localidad, String Provincia, String Pais, String Calle, String Codigo_postal, String CIF, String Telefono, String Fax, String CiudadFirmaConvenio, String FechaFirmaConvenio) throws SQLException{
+		
+		System.out.println("Voy a borrar un elemento en la tabla Empresa");
+		
+		Statement stmt = conexion.createStatement();
+		
+		System.out.println("DELETE FROM " + esquema + ".CICLOS WHERE " +"Num_Convenio='" + Num_Convenio + "'"+  ", " +"NIF='"+NIF+ "'" + ", " +"Nombre_Empresa='"+Nombre_Empresa+ "'" + ", " + "Familia_Profesional='" + "'" + "+ " +"Representante_Empresa='"+Representante_Empresa + "'"+ ", " + "Localidad='" + Localidad + "'"+  ", " +"Provincia='"+ Provincia +"'" + ", " +"Pais='"+Pais+"'" + ", " +"Calle='"+Calle+"'" + ", " + "Codigo_postal='" + Codigo_postal+ "'" + ", " + "CIF='"+ CIF + "'"+ ", " + "Telefono='"+ Telefono + "'" + ", "+ "Fax='"+ Fax + "'" + ", "+ "CiudadFirmaConvenio='"+ CiudadFirmaConvenio + "'" + ", "+ "FechaFirmaConvenio='"+ FechaFirmaConvenio + "'" +" WHERE Num_Convenio='" + Num_Convenio + "'");
+		int num = stmt.executeUpdate("DELETE FROM " + esquema + ".CICLOS WHERE " +"Num_Convenio='" + Num_Convenio + "'"+  ", " +"NIF='"+NIF+ "'" + ", " +"Nombre_Empresa='"+Nombre_Empresa+ "'" + ", " + "Familia_Profesional='" + "'" + "+ " +"Representante_Empresa='"+Representante_Empresa + "'"+ ", " + "Localidad='" + Localidad + "'"+  ", " +"Provincia='"+ Provincia +"'" + ", " +"Pais='"+Pais+"'" + ", " +"Calle='"+Calle+"'" + ", " + "Codigo_postal='" + Codigo_postal+ "'" + ", " + "CIF='"+ CIF + "'"+ ", " + "Telefono='"+ Telefono + "'" + ", "+ "Fax='"+ Fax + "'" + ", "+ "CiudadFirmaConvenio='"+ CiudadFirmaConvenio + "'" + ", "+ "FechaFirmaConvenio='"+ FechaFirmaConvenio + "'" +" WHERE Num_Convenio='" + Num_Convenio + "'");
 		return num;
 	}
 	
@@ -399,6 +409,8 @@ public class TestConexion {
 		int num = stmt.executeUpdate("UPDATE " + esquema + ".Tutor_Empresa SET " +"DNI_TE='" + DNI_TE + "'"+  ", " +"Nombre='"+Nombre+ "'" + ", " +"Apellido='"+Apellido+ "'" + ", " +"Telefono='"+Telefono + "'"+", " + "Gmail='" + Gmail + "'"+", " + "Num_Convenio='" + Num_Convenio + "'"+ " WHERE DNI_TE='" + DNI_TE + "'");
 		return num;
 	}
+
+	
 
 
 	
