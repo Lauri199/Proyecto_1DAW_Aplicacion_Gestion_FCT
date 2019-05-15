@@ -410,7 +410,7 @@ public class Main extends Application {
 		  }
 	 }
 	 
-	 /*public boolean NuevoContactoAlumno(Alumno datosTutorCentroaEditar) {
+	 public boolean NuevoContactoAlumno(Alumno datosTutorCentroaEditar) {
 		  try {
 		    // Load root layout from fxml file.
 			  FXMLLoader loader = new FXMLLoader();
@@ -430,6 +430,29 @@ public class Main extends Application {
 		  } catch(Exception e) {
 			  e.printStackTrace();
 			  return false;
+		  }
+		
+	 }
+	 
+	 /*public boolean ModificarContactoAlumno(Alumno datosAlumnoaEditar) {
+		  try {
+		    // Load root layout from fxml file.
+			  FXMLLoader loader = new FXMLLoader();
+			  loader.setLocation(Main.class.getResource("UIContactoModificarAlumno.fxml"));
+			  rootLayout = (AnchorPane) loader.load();
+			  // Show the scene containing the root layout.
+			  Scene scene = new Scene(rootLayout);
+			  primaryStage.setScene(scene);
+		            
+			  CContactoModificarAlumno controller = loader.getController();
+			  controller.setAlumno(datosAlumnoaEditar);
+			  controller.setStageSecundario(primaryStage);
+		            
+			  primaryStage.show();
+		      return controller.isOkClicked();
+		  } catch(Exception e) {
+			  e.printStackTrace();
+		   return false;
 		  }
 		
 	 }*/

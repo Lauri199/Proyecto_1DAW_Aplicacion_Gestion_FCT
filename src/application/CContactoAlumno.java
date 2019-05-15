@@ -45,7 +45,7 @@ public class CContactoAlumno {
 	}
     
     	
-	public void setCiclo(Alumno alumno) {
+	public void setAlumno(Alumno alumno) {
         this.alumno = alumno;
 
         System.out.println("setCiclo");

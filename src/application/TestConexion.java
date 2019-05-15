@@ -105,15 +105,15 @@ public class TestConexion {
 		
 	}
 	
-	public static int InsertCiclo(String Clave_Ciclo, String Nombre_Ciclo, String Familia_Profesional, String Num_Cursos, String Periodo_Practicas, String ProgramaFormativo, String Cod_Centro ) throws SQLException{
+	public static int InsertCiclo(String Clave_Ciclo, String Nombre_Ciclo, String Familia_Profesional, String Num_Cursos, String Periodo_Practicas, String ProgramaFormativo) throws SQLException{
 		
 		System.out.println("Voy a hacer un insert en la tabla Ciclos");
 		
 		Statement stmt = conexion.createStatement();
 		
 		
-		System.out.println("INSERT INTO " + esquema + ".CICLOS VALUES (" +"'" + Clave_Ciclo + "'"+  "," +"'"+Nombre_Ciclo+ "'" + "," +"'"+Familia_Profesional+ "'" + "," +Num_Cursos + "," + "'" + Periodo_Practicas + "'"+  "," +"'"+"'" + "," +"'"+"'" + "," +"'"+"'" + "," + "'" + ProgramaFormativo+ "'" + "," + Cod_Centro +")");
-		int num = stmt.executeUpdate("INSERT INTO " + esquema + ".CICLOS VALUES ("+"'" + Clave_Ciclo + "'"+  "," +"'"+Nombre_Ciclo+ "'" + "," +"'"+Familia_Profesional+ "'" + "," +Num_Cursos + "," + "'" + Periodo_Practicas + "'"+  "," +"'"+"'" + "," +"'"+"'" + "," +"'"+"'" + "," + "'"+ ProgramaFormativo+ "'" + "," + Cod_Centro +")");
+		System.out.println("INSERT INTO " + esquema + ".CICLOS (Clave_Ciclo, Nombre_Ciclo, Familia_Profesional, Num_Cursos, Periodo_Practicas, ProgramaFormativo) VALUES (" +"'" + Clave_Ciclo + "'"+  "," +"'"+Nombre_Ciclo+ "'" + "," +"'"+Familia_Profesional+ "'" + "," +Num_Cursos + "," + "'" + Periodo_Practicas + "'"+  "," +"'"+"'" + "," +"'"+"'" + "," +"'"+"'" + "," + "'" + ProgramaFormativo+ "'" +")");
+		int num = stmt.executeUpdate("INSERT INTO " + esquema + ".CICLOS (Clave_Ciclo, Nombre_Ciclo, Familia_Profesional, Num_Cursos, Periodo_Practicas, ProgramaFormativo) VALUES (" +"'" + Clave_Ciclo + "'"+  "," +"'"+Nombre_Ciclo+ "'" + "," +"'"+Familia_Profesional+ "'" + "," +Num_Cursos + "," + "'" + Periodo_Practicas + "'"+  "," +"'"+"'" + "," +"'"+"'" + "," +"'"+"'" + "," + "'" + ProgramaFormativo+ "'" +")");
 		return num;
 	}
 	
@@ -137,6 +137,38 @@ public class TestConexion {
 		
 		System.out.println("DELETE FROM " + esquema + ".CICLOS WHERE clave_Ciclo=" + "'"+ clave_Ciclo +"'" + ", " +"Nombre_Ciclo='"+Nombre_Ciclo+ "'" + ", " +"Familia_Profesional='"+Familia_Profesional+ "'" + ", " +"Num_Cursos="+Num_Cursos + ", " + "Periodo_Practicas='" + Periodo_Practicas + "'"+  ", " +"Capacidades_terminales='"+"'" + ", " +"Act_Activo_Formativas='"+"'" + ", " +"Criterios_Evaluacion='"+"'" + ", " + "ProgramaFormativo='" + ProgramaFormativo+ "'" + ", " + "Cod_Centro="+ Cod_Centro );
 		int num = stmt.executeUpdate("DELETE FROM " + esquema + ".CICLOS WHERE clave_Ciclo=" + "'"+ clave_Ciclo +"'" + ", " +"Nombre_Ciclo='"+Nombre_Ciclo+ "'" + ", " +"Familia_Profesional='"+Familia_Profesional+ "'" + ", " +"Num_Cursos="+Num_Cursos + ", " + "Periodo_Practicas='" + Periodo_Practicas + "'"+  ", " +"Capacidades_terminales='"+"'" + ", " +"Act_Activo_Formativas='"+"'" + ", " +"Criterios_Evaluacion='"+"'" + ", " + "ProgramaFormativo='" + ProgramaFormativo+ "'" + ", " + "Cod_Centro="+ Cod_Centro );
+		return num;
+	}
+	
+	public ObservableList<String> ConsultaCentros() {
+		
+		ObservableList<String> aux = FXCollections.observableArrayList();
+		
+		try {
+			Statement stmt = conexion.createStatement();
+			ResultSet rset = stmt.executeQuery("SELECT * FROM "+ esquema + ".Centro" );
+			while(rset.next()) {
+				aux.add(rset.getString(4));
+			}
+			rset.close();
+			stmt.close();
+			
+		}catch (SQLException s){
+			s.printStackTrace();
+		}
+		return aux;
+		
+	}
+	
+	public static int InsertCod_Centro( String Cod_Centro ) throws SQLException{
+		
+		System.out.println("Voy a hacer un insert en la tabla Ciclos");
+		
+		Statement stmt = conexion.createStatement();
+		
+		
+		System.out.println("INSERT INTO " + esquema + ".CICLOS (Cod_Centro) VALUES ("+ Cod_Centro +")");
+		int num = stmt.executeUpdate("INSERT INTO " + esquema + ".CICLOS (Cod_Centro) VALUES ("+ Cod_Centro +")");
 		return num;
 	}
 	

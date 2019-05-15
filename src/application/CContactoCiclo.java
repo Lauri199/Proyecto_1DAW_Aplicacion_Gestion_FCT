@@ -5,8 +5,11 @@ import java.sql.SQLException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.stage.Stage;
 
@@ -16,37 +19,39 @@ public class CContactoCiclo {
 	private Button add;
 	
 	@FXML
-	private TextField Clave_Ciclo ;
+	private TextField Clave_Ciclo;
 	
 	@FXML
-	private TextField Nombre_Ciclo ;
+	private TextField Nombre_Ciclo;
 	
 	@FXML
-	private TextField Familia_Profesional ;
+	private TextField Familia_Profesional;
 	
 	@FXML
-	private TextField Num_Cursos ;
+	private TextField Num_Cursos;
 	
 	@FXML
-	private TextField Periodo_Practicas ;
+	private TextField Periodo_Practicas;
 	
 	/*
 	
 	@FXML
-	private TextField Capacidades_terminales ;
+	private TextField Capacidades_terminales;
 	
 	@FXML
-	private TextField Act_Activo_Formativas ;
+	private TextField Act_Activo_Formativas;
 	
 	@FXML
-	private TextField Criterios_Evaluacion ;
+	private TextField Criterios_Evaluacion;
 	*/
 	
 	@FXML
-	private TextField ProgramaFormativo ;
+	private TextField ProgramaFormativo;
 	
 	@FXML
-	private TextField Cod_Centro ;
+	ChoiceBox<String> Cod_Centro;
+	
+	ObservableList<String> CentroList = FXCollections.observableArrayList("");
 
 	
 	TestConexion conexionbbdd;
@@ -76,7 +81,12 @@ public class CContactoCiclo {
         Criterios_Evaluacion.setText(ciclo.getCriterios_eva());
         */
         ProgramaFormativo.setText(ciclo.getPrograma_formativo());
-        Cod_Centro.setText(ciclo.getCod_centro());
+        
+        conexionbbdd = new TestConexion();
+		
+		CentroList = conexionbbdd.ConsultaCentros();
+		
+		Cod_Centro.setItems(CentroList);
         
         okClicked = true;
         
@@ -95,15 +105,25 @@ public class CContactoCiclo {
     @FXML
     private void InsertarCiclo() throws SQLException {
     	conexionbbdd = new TestConexion();
-    	
     	try {
-			conexionbbdd.InsertCiclo(Clave_Ciclo.getText(), Nombre_Ciclo.getText(), Familia_Profesional.getText(), Num_Cursos.getText(), Periodo_Practicas.getText(), ProgramaFormativo.getText(), Cod_Centro.getText());
+			conexionbbdd.InsertCiclo(Clave_Ciclo.getText(), Nombre_Ciclo.getText(), Familia_Profesional.getText(), Num_Cursos.getText(), Periodo_Practicas.getText(), ProgramaFormativo.getText());
+			
 		} catch (SQLException e) {
 			// TODO Bloque catch generado automáticamente
 			e.printStackTrace();
 		}
 
     }
+    
+    @FXML
+    private void InsertarCod_Centro() throws SQLException {
+    	conexionbbdd = new TestConexion();
+    	String aux = Cod_Centro.getSelectionModel().getSelectedItem();
+    	System.out.println("se ha seleccionado  " + aux);
+    	conexionbbdd.InsertCod_Centro(aux);
+    }
+    
+    
 
     
     private boolean isInputValid() {
