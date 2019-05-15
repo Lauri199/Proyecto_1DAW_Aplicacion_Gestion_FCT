@@ -261,7 +261,7 @@ public class Main extends Application {
 	 /**
 	  * TUTOR CENTRO
 	  */
-	 public void MostrarMenuTutorCentro() {
+	 public void MostrarMenuTutores() {
 		  try {
 		   
 		    // Load root layout from fxml file.
@@ -306,6 +306,133 @@ public class Main extends Application {
 		  }
 		
 	 }
+	 
+	 public boolean ModificarContactoTutorCentro(TutorCentro datosTutorCentroaEditar) {
+		  try {
+		    // Load root layout from fxml file.
+			  FXMLLoader loader = new FXMLLoader();
+			  loader.setLocation(Main.class.getResource("UIContactoModificarTutorCentro.fxml"));
+			  rootLayout = (AnchorPane) loader.load();
+			  // Show the scene containing the root layout.
+			  Scene scene = new Scene(rootLayout);
+			  primaryStage.setScene(scene);
+		            
+			  CContactoModificarTutorCentro controller = loader.getController();
+			  controller.setTutorCentro(datosTutorCentroaEditar);
+			  controller.setStageSecundario(primaryStage);
+		            
+			  primaryStage.show();
+		      return controller.isOkClicked();
+		  } catch(Exception e) {
+			  e.printStackTrace();
+		   return false;
+		  }
+		
+	 }
+	 
+	 /**
+	  * TUTOR EMPRESA
+	  */
+	 
+	 public boolean NuevoContactoTutorEmpresa(TutorEmpresa datosTutorCentroaEditar) {
+		  try {
+		    // Load root layout from fxml file.
+			  FXMLLoader loader = new FXMLLoader();
+			  loader.setLocation(Main.class.getResource("UIContactoTutorEmpresa.fxml"));
+			  rootLayout = (AnchorPane) loader.load();
+			  // Show the scene containing the root layout.
+			  Scene scene = new Scene(rootLayout);
+			  primaryStage.setScene(scene);
+		            
+			  CContactoTutorEmpresa controller = loader.getController();
+			  controller.setTutorEmpresa(datosTutorCentroaEditar);
+			  controller.setStageSecundario(primaryStage);
+		            
+			  primaryStage.show();
+		            
+			  return controller.isOkClicked();
+		  } catch(Exception e) {
+			  e.printStackTrace();
+			  return false;
+		  }
+		
+	 }
+	 
+	 public boolean ModificarContactoTutorEmpresa(TutorEmpresa datosTutorEmpresaaEditar) {
+		  try {
+		    // Load root layout from fxml file.
+			  FXMLLoader loader = new FXMLLoader();
+			  loader.setLocation(Main.class.getResource("UIContactoModificarTutorEmpresa.fxml"));
+			  rootLayout = (AnchorPane) loader.load();
+			  // Show the scene containing the root layout.
+			  Scene scene = new Scene(rootLayout);
+			  primaryStage.setScene(scene);
+		            
+			  CContactoModificarTutorEmpresa controller = loader.getController();
+			  controller.setTutorEmpresa(datosTutorEmpresaaEditar);
+			  controller.setStageSecundario(primaryStage);
+		            
+			  primaryStage.show();
+		      return controller.isOkClicked();
+		  } catch(Exception e) {
+			  e.printStackTrace();
+		   return false;
+		  }
+		
+	 }
+	 
+	 
+	 
+	 
+	 /**
+	  * ALUMNO
+	  */
+	 
+	 public void MostrarMenuAlumno() {
+		  try {
+		   
+		    // Load root layout from fxml file.
+			  FXMLLoader loader = new FXMLLoader();
+			  loader.setLocation(Main.class.getResource("UIMenuAlumnos.fxml"));
+			  rootLayout = (AnchorPane) loader.load();
+			  // Show the scene containing the root layout.
+			  Scene scene = new Scene(rootLayout);
+			  primaryStage.setScene(scene);
+		            
+			  CMenuAlumnos controller = loader.getController();
+			  //controller.setListaCiclo(listaCiclo);
+			  controller.setMain(this);
+		            
+		            
+			  primaryStage.show();
+		  } catch(Exception e) {
+			  e.printStackTrace();
+		  }
+	 }
+	 
+	 /*public boolean NuevoContactoAlumno(Alumno datosTutorCentroaEditar) {
+		  try {
+		    // Load root layout from fxml file.
+			  FXMLLoader loader = new FXMLLoader();
+			  loader.setLocation(Main.class.getResource("UIContactoTutorEmpresa.fxml"));
+			  rootLayout = (AnchorPane) loader.load();
+			  // Show the scene containing the root layout.
+			  Scene scene = new Scene(rootLayout);
+			  primaryStage.setScene(scene);
+		            
+			  CContactoAlumno controller = loader.getController();
+			  controller.setAlumno(datosTutorCentroaEditar);
+			  controller.setStageSecundario(primaryStage);
+		            
+			  primaryStage.show();
+		            
+			  return controller.isOkClicked();
+		  } catch(Exception e) {
+			  e.printStackTrace();
+			  return false;
+		  }
+		
+	 }*/
 	 
  
 }
