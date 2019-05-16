@@ -5,21 +5,21 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CMenuAlumnos">
    <children>
-      <TableView layoutX="77.0" layoutY="62.0" prefHeight="200.0" prefWidth="245.0">
+      <TableView fx:id="Tabla" layoutX="77.0" layoutY="62.0" prefHeight="200.0" prefWidth="245.0">
          <columns>
-            <TableColumn prefWidth="84.0" text="DNI" />
-            <TableColumn prefWidth="74.39996337890625" text="Nombre" />
-            <TableColumn prefWidth="89.60003662109375" text="Apellido" />
-            <TableColumn prefWidth="56.00006103515625" text="Tiempo Empleado" />
-            <TableColumn prefWidth="75.0" text="DNI Tutor Centro" />
-            <TableColumn prefWidth="75.0" text="DNI Tutor Empresa" />
+            <TableColumn fx:id="DNI_ALUM" prefWidth="84.0" text="DNI" />
+            <TableColumn fx:id="Nombre" prefWidth="74.39996337890625" text="Nombre" />
+            <TableColumn fx:id="Apellido" prefWidth="89.60003662109375" text="Apellido" />
+            <TableColumn fx:id="Tiempo_Empleado" prefWidth="56.00006103515625" text="Tiempo Empleado" />
+            <TableColumn fx:id="DNI_TC" prefWidth="75.0" text="DNI Tutor Centro" />
+            <TableColumn fx:id="DNI_TE" prefWidth="75.0" text="DNI Tutor Empresa" />
          </columns>
       </TableView>
-      <Button layoutX="167.0" layoutY="312.0" mnemonicParsing="false" text="Modificar" />
-      <Button layoutX="87.0" layoutY="312.0" mnemonicParsing="false" text="Nuevo" />
-      <Button layoutX="264.0" layoutY="312.0" mnemonicParsing="false" text="Borrar" />
+      <Button fx:id="Modificar" layoutX="167.0" layoutY="312.0" mnemonicParsing="false" onAction="#EditarAlumno" text="Modificar" />
+      <Button fx:id="Agregar" layoutX="87.0" layoutY="312.0" mnemonicParsing="false" onAction="#ContactoAlumno" text="Nuevo" />
+      <Button fx:id="Borrar" layoutX="264.0" layoutY="312.0" mnemonicParsing="false" text="Borrar" />
+      <Button fx:id="Actualizar" layoutX="166.0" layoutY="345.0" mnemonicParsing="false" onAction="#ActualizaTabla" text="Actualizar" />
    </children>
 </AnchorPane>

@@ -434,7 +434,7 @@ public class Main extends Application {
 		
 	 }
 	 
-	 /*public boolean ModificarContactoAlumno(Alumno datosAlumnoaEditar) {
+	 public boolean ModificarContactoAlumno(Alumno datosAlumnoaEditar) {
 		  try {
 		    // Load root layout from fxml file.
 			  FXMLLoader loader = new FXMLLoader();
@@ -455,7 +455,7 @@ public class Main extends Application {
 		   return false;
 		  }
 		
-	 }*/
+	 }
 	 
  
 }

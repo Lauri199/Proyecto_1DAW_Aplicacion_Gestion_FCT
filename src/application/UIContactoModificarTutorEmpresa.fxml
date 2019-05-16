@@ -27,17 +27,24 @@
          </font>
       </Text>
       <Button fx:id="add" layoutX="353.0" layoutY="566.0" mnemonicParsing="false" onAction="#ModificarTutorCentro" text="OK" />
-      <TextField fx:id="Num_Convenio" layoutX="131.0" layoutY="309.0" />
-      <Label layoutX="34.0" layoutY="313.0" text="Nº de convenio" />
-      <TableView layoutX="87.0" layoutY="366.0" prefHeight="200.0" prefWidth="226.0">
+      <TableView fx:id="Tabla" layoutX="70.0" layoutY="350.0" prefHeight="200.0" prefWidth="245.0">
          <columns>
-            <TableColumn prefWidth="75.0" text="DNI" />
-            <TableColumn prefWidth="76.800048828125" text="Nombre" />
-            <TableColumn prefWidth="74.39996337890625" text="Apellido" />
-            <TableColumn prefWidth="75.0" text="Telefono" />
-            <TableColumn prefWidth="75.0" text="Gmail" />
-            <TableColumn prefWidth="75.0" text="Nº Convenio" />
+            <TableColumn fx:id="Num_ConvenioColum" prefWidth="91.20001220703125" text="Num Convenio" />
+            <TableColumn fx:id="NIF" prefWidth="45.60003662109375" text="NIF" />
+            <TableColumn fx:id="Nombre_Empresa" prefWidth="108.79998779296875" text="Nombre Empresa" />
+            <TableColumn fx:id="Representante_Empresa" prefWidth="56.00006103515625" text="Representante" />
+            <TableColumn fx:id="Localidad" prefWidth="75.0" text="Localidad" />
+            <TableColumn fx:id="Provincia" prefWidth="75.0" text="Provincia" />
+            <TableColumn fx:id="Pais" prefWidth="75.0" text="Pais" />
+            <TableColumn fx:id="Calle" prefWidth="75.0" text="Calle" />
+            <TableColumn fx:id="Codigo_postal" prefWidth="75.0" text="CP" />
+            <TableColumn fx:id="CIF" prefWidth="75.0" text="CIF" />
+            <TableColumn fx:id="TelefonoColum" prefWidth="75.0" text="Telf" />
+            <TableColumn fx:id="Fax" prefWidth="75.0" text="Fax" />
+            <TableColumn fx:id="CiudadFirmaConvenio" prefWidth="75.0" text="Ciudad Firma" />
+            <TableColumn fx:id="FechaFirmaConvenio" prefWidth="75.0" text="Fecha firma" />
          </columns>
       </TableView>
+      <Button fx:id="Actualizar" layoutX="319.0" layoutY="350.0" mnemonicParsing="false" onAction="#ActualizaTabla" text="Actualizar" />
    </children>
 </AnchorPane>

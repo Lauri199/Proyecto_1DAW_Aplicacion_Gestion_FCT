@@ -79,7 +79,7 @@ public class CMenuAlumnos {
 		this.ProgramaSecundario = ProgramaSecundario;
 	}
 	
-	public void ContactoCiclo(ActionEvent event) throws IOException{
+	public void ContactoAlumno(ActionEvent event) throws IOException{
 
 		FXMLLoader loader = new FXMLLoader(Main.class.getResource("UIContactoAlumno.fxml"));
 		AnchorPane ventanaDos = (AnchorPane) loader.load();
@@ -91,10 +91,10 @@ public class CMenuAlumnos {
 	}
 		
 	
-	/*@FXML
+	@FXML
 	public void ActualizaTabla(){
 		conexionbbdd = new TestConexion();
-		Tabla.setItems(conexionbbdd.ConsultaAlumnos());
+		Tabla.setItems(conexionbbdd.ConsultaAlumno());
 	}
 	
 	
@@ -108,21 +108,20 @@ public class CMenuAlumnos {
 	        Stage ventana = new Stage();
 	        ventana.setTitle("Venta Dos");
 	        Scene scene = new Scene(ventanaDos);
-	        CContactoModificarCiclo cicloseleccionado = loader.getController();
-	        cicloseleccionado.setAlumno(selectedAlumno);
+	        CContactoModificarAlumno alumnoseleccionado = loader.getController();
+	        alumnoseleccionado.setAlumno(selectedAlumno);
 	        ventana.setScene(scene);
 	        ventana.show();
         	
-           // Tabla.setItems(this.ciclo.getClave_ciclo(), this.ciclo.getNom_ciclo(), this.ciclo.getFamilia_prof(), this.ciclo.getNum_cursos(), this.ciclo.getPeriod_pract(), this.ciclo.getCapac_term(), this.ciclo.getAct_form(), this.ciclo.getCriterios_eva(), this.ciclo.getPrograma_formativo(), this.ciclo.getCod_centro());
         }
         else
         {
         	// No se ha seleccionado nada.
         	Alert alert = new Alert(AlertType.ERROR);
-        	ShowAlertNoSelectionCiclo(alert);
+        	ShowAlertNoSelectionAlumno(alert);
         }
 		
-	}*/
+	}
 	
 	
 	/*@FXML
@@ -147,11 +146,11 @@ public class CMenuAlumnos {
 	
 	
 	
-	private void ShowAlertNoSelectionCiclo(Alert alert){
+	private void ShowAlertNoSelectionAlumno(Alert alert){
 
         alert.setTitle("No Seleccionado");
-        alert.setHeaderText("Ciclo no seleccionado");
-        alert.setContentText("Por favor!!! Seleccione un ciclo de la tabla");
+        alert.setHeaderText("Alumno no seleccionado");
+        alert.setContentText("Por favor!!! Seleccione un Alumno de la tabla");
 
         alert.showAndWait();
     }

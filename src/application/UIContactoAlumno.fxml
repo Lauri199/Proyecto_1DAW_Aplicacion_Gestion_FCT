@@ -9,48 +9,74 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CContactoAlumno">
    <children>
-      <TextField layoutX="183.0" layoutY="61.0" />
-      <TextField layoutX="183.0" layoutY="105.0" />
-      <Label layoutX="144.0" layoutY="65.0" text="DNI" />
-      <Label layoutX="122.0" layoutY="109.0" text="Nombre" />
-      <Label layoutX="122.0" layoutY="149.0" text="Apellido" />
-      <Label layoutX="71.0" layoutY="193.0" text="Tiempo empleado" />
-      <TextField layoutX="183.0" layoutY="145.0" />
-      <TextField layoutX="183.0" layoutY="189.0" />
-      <TableView layoutX="101.0" layoutY="292.0" prefHeight="156.0" prefWidth="223.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="DNI" />
-          <TableColumn prefWidth="75.0" text="Nombre" />
-            <TableColumn prefWidth="75.0" text="Apellido" />
-        </columns>
-      </TableView>
-      <TableView layoutX="101.0" layoutY="487.0" prefHeight="156.0" prefWidth="223.0">
+      <TextField fx:id="DNI_ALUM" layoutX="198.0" layoutY="61.0" />
+      <TextField fx:id="Nombre" layoutX="198.0" layoutY="105.0" />
+      <Label layoutX="159.0" layoutY="65.0" text="DNI" />
+      <Label layoutX="137.0" layoutY="109.0" text="Nombre" />
+      <Label layoutX="137.0" layoutY="149.0" text="Apellido" />
+      <Label layoutX="86.0" layoutY="193.0" text="Tiempo empleado" />
+      <TextField fx:id="Apellido" layoutX="198.0" layoutY="145.0" />
+      <TextField fx:id="Tiempo_Empleado" layoutX="198.0" layoutY="189.0" />
+      <TableView fx:id="Tabla_TC" layoutX="24.0" layoutY="302.0" prefHeight="156.0" prefWidth="226.0">
          <columns>
-            <TableColumn prefWidth="75.0" text="DNI" />
-            <TableColumn prefWidth="75.0" text="Nombre" />
-            <TableColumn prefWidth="75.0" text="Apellido" />
+            <TableColumn fx:id="DNI_TC" prefWidth="75.0" text="DNI" />
+            <TableColumn fx:id="Nombre_TC" prefWidth="76.800048828125" text="Nombre" />
+            <TableColumn fx:id="Apellido_TC" prefWidth="74.39996337890625" text="Apellido" />
+            <TableColumn fx:id="Telefono_TC" prefWidth="75.0" text="Telefono" />
+            <TableColumn fx:id="Gmail_TC" prefWidth="75.0" text="Gmail" />
          </columns>
       </TableView>
-      <Text layoutX="92.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selecciona un tutor del centro educativo">
+      <TableView fx:id="Tabla_TE" layoutX="297.0" layoutY="302.0" prefHeight="156.0" prefWidth="226.0">
+         <columns>
+            <TableColumn fx:id="DNI_TE" prefWidth="75.0" text="DNI" />
+            <TableColumn fx:id="Nombre_TE" prefWidth="76.800048828125" text="Nombre" />
+            <TableColumn fx:id="Apellido_TE" prefWidth="74.39996337890625" text="Apellido" />
+            <TableColumn fx:id="Telefono_TE" prefWidth="75.0" text="Telefono" />
+            <TableColumn fx:id="Gmail_TE" prefWidth="75.0" text="Gmail" />
+            <TableColumn fx:id="Num_Convenio_TE" prefWidth="75.0" text="Nº Convenio" />
+         </columns>
+      </TableView>
+      <TableView fx:id="Tabla_Ciclo" layoutX="133.0" layoutY="498.0" prefHeight="200.0" prefWidth="278.0">
+         <columns>
+            <TableColumn fx:id="Clave_Ciclo" prefWidth="75.0" text="Clave Ciclo" />
+            <TableColumn fx:id="Nombre_Ciclo" prefWidth="89.60003662109375" text="Nombre Ciclo" />
+            <TableColumn fx:id="Fam_Prof" prefWidth="115.19999694824219" text="Familia Profesional" />
+            <TableColumn fx:id="Num_Cursos" prefWidth="84.79998779296875" text="Num Cursos" />
+            <TableColumn fx:id="Period_Pract" prefWidth="72.800048828125" text="Period Pract" />
+            <TableColumn fx:id="Cap_terminales" prefWidth="104.0" text="Capac terminales" />
+            <TableColumn fx:id="Act_Form" prefWidth="131.99993896484375" text="Act Activo Formativas" />
+            <TableColumn fx:id="Criterio" prefWidth="85.60009765625" text="Criterios de Eva" />
+            <TableColumn fx:id="Programa_Formativo" prefWidth="122.4000244140625" text="Programa_Formativo" />
+            <TableColumn fx:id="Cod_Centro" prefWidth="74.4000244140625" text="Cod Centro" />
+         </columns>
+      </TableView>
+      <Text layoutX="19.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selecciona un tutor del centro educativo">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text layoutX="108.0" layoutY="473.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selecciona un tutor de la empresa">
+      <Text layoutX="305.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selecciona un tutor de la empresa">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text layoutX="147.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nuevo Alumno">
+      <Text layoutX="203.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nuevo Alumno">
          <font>
             <Font size="21.0" />
          </font>
       </Text>
-      <Button layoutX="393.0" layoutY="630.0" mnemonicParsing="false" text="OK" />
-      <TextField layoutX="183.0" layoutY="233.0" />
-      <Label layoutX="140.0" layoutY="237.0" text="Curso" />
+      <Button fx:id="add" layoutX="505.0" layoutY="698.0" mnemonicParsing="false" onAction="#InsertarAlumno" text="OK" />
+      <TextField fx:id="Curso" layoutX="198.0" layoutY="233.0" />
+      <Label layoutX="155.0" layoutY="237.0" text="Curso" />
+      <Text layoutX="209.0" layoutY="494.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selecciona un ciclo">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Button fx:id="Actualizar_TC" layoutX="28.0" layoutY="466.0" mnemonicParsing="false" onAction="#ActualizaTablaTutorCentro" text="Actualizar" />
+      <Button fx:id="Actualizar_TE" layoutX="453.0" layoutY="466.0" mnemonicParsing="false" onAction="#ActualizaTablaTutorEmpresa" text="Actualizar" />
+      <Button fx:id="ActualizarCiclo" layoutX="419.0" layoutY="506.0" mnemonicParsing="false" onAction="#ActualizaTablaCiclo" text="Actualizar" />
    </children>
 </AnchorPane>

@@ -105,15 +105,15 @@ public class TestConexion {
 		
 	}
 	
-	public static int InsertCiclo(String Clave_Ciclo, String Nombre_Ciclo, String Familia_Profesional, String Num_Cursos, String Periodo_Practicas, String ProgramaFormativo) throws SQLException{
+	public static int InsertCiclo(String Clave_Ciclo, String Nombre_Ciclo, String Familia_Profesional, String Num_Cursos, String Periodo_Practicas, String ProgramaFormativo, String Cod_Centro) throws SQLException{
 		
 		System.out.println("Voy a hacer un insert en la tabla Ciclos");
 		
 		Statement stmt = conexion.createStatement();
 		
 		
-		System.out.println("INSERT INTO " + esquema + ".CICLOS (Clave_Ciclo, Nombre_Ciclo, Familia_Profesional, Num_Cursos, Periodo_Practicas, ProgramaFormativo) VALUES (" +"'" + Clave_Ciclo + "'"+  "," +"'"+Nombre_Ciclo+ "'" + "," +"'"+Familia_Profesional+ "'" + "," +Num_Cursos + "," + "'" + Periodo_Practicas + "'"+  "," +"'"+"'" + "," +"'"+"'" + "," +"'"+"'" + "," + "'" + ProgramaFormativo+ "'" +")");
-		int num = stmt.executeUpdate("INSERT INTO " + esquema + ".CICLOS (Clave_Ciclo, Nombre_Ciclo, Familia_Profesional, Num_Cursos, Periodo_Practicas, ProgramaFormativo) VALUES (" +"'" + Clave_Ciclo + "'"+  "," +"'"+Nombre_Ciclo+ "'" + "," +"'"+Familia_Profesional+ "'" + "," +Num_Cursos + "," + "'" + Periodo_Practicas + "'"+  "," +"'"+"'" + "," +"'"+"'" + "," +"'"+"'" + "," + "'" + ProgramaFormativo+ "'" +")");
+		System.out.println("INSERT INTO " + esquema + ".CICLOS VALUES (" +"'" + Clave_Ciclo + "'"+  "," +"'"+Nombre_Ciclo+ "'" + "," +"'"+ Familia_Profesional+ "'" + "," +Num_Cursos + "," + "'" + Periodo_Practicas + "'"+  "," +"'"+"'" + "," +"'"+"'" + "," +"'"+"'" + "," + "'" + ProgramaFormativo+ "'" + ", " + Cod_Centro + ")");
+		int num = stmt.executeUpdate("INSERT INTO " + esquema + ".CICLOS VALUES (" +"'" + Clave_Ciclo + "'"+  "," +"'"+Nombre_Ciclo+ "'" + "," +"'"+ Familia_Profesional+ "'" + "," +Num_Cursos + "," + "'" + Periodo_Practicas + "'"+  "," +"'"+"'" + "," +"'"+"'" + "," +"'"+"'" + "," + "'" + ProgramaFormativo+ "'" + ", " + Cod_Centro + ")");
 		return num;
 	}
 	
@@ -140,37 +140,9 @@ public class TestConexion {
 		return num;
 	}
 	
-	public ObservableList<String> ConsultaCentros() {
-		
-		ObservableList<String> aux = FXCollections.observableArrayList();
-		
-		try {
-			Statement stmt = conexion.createStatement();
-			ResultSet rset = stmt.executeQuery("SELECT * FROM "+ esquema + ".Centro" );
-			while(rset.next()) {
-				aux.add(rset.getString(4));
-			}
-			rset.close();
-			stmt.close();
-			
-		}catch (SQLException s){
-			s.printStackTrace();
-		}
-		return aux;
-		
-	}
 	
-	public static int InsertCod_Centro( String Cod_Centro ) throws SQLException{
-		
-		System.out.println("Voy a hacer un insert en la tabla Ciclos");
-		
-		Statement stmt = conexion.createStatement();
-		
-		
-		System.out.println("INSERT INTO " + esquema + ".CICLOS (Cod_Centro) VALUES ("+ Cod_Centro +")");
-		int num = stmt.executeUpdate("INSERT INTO " + esquema + ".CICLOS (Cod_Centro) VALUES ("+ Cod_Centro +")");
-		return num;
-	}
+	
+	
 	
 	
 	
@@ -439,6 +411,94 @@ public class TestConexion {
 		
 		System.out.println("UPDATE " + esquema + ".Tutor_Empresa SET " +"DNI_TE='" + DNI_TE + "'"+  ", " +"Nombre='"+Nombre+ "'" + ", " +"Apellido='"+Apellido+ "'" + ", " +"Telefono='"+Telefono + "'"+", " + "Gmail='" + Gmail + "'"+", " + "Num_Convenio='" + Num_Convenio + "'"+ " WHERE DNI_TE='" + DNI_TE + "'");
 		int num = stmt.executeUpdate("UPDATE " + esquema + ".Tutor_Empresa SET " +"DNI_TE='" + DNI_TE + "'"+  ", " +"Nombre='"+Nombre+ "'" + ", " +"Apellido='"+Apellido+ "'" + ", " +"Telefono='"+Telefono + "'"+", " + "Gmail='" + Gmail + "'"+", " + "Num_Convenio='" + Num_Convenio + "'"+ " WHERE DNI_TE='" + DNI_TE + "'");
+		return num;
+	}
+	
+	
+	/**
+	 * ALUMNOS
+	 */
+	
+	public ObservableList<Alumno> ConsultaAlumno() {
+		
+		ObservableList<Alumno> aux = FXCollections.observableArrayList();
+		
+		try {
+			Statement stmt = conexion.createStatement();
+			ResultSet rset = stmt.executeQuery("SELECT * FROM " +esquema +".Alumnos" );
+			while(rset.next()) {
+				
+				String DNI_ALUM = rset.getString(1);
+				String Nombre = rset.getString(2);
+				String Apellido = rset.getString(3);
+				String TiempoEmpleado = rset.getString(4);
+				String DNI_TC  = rset.getString(5);
+				String DNI_TE  = rset.getString(6);
+				
+				
+				System.out.println(DNI_ALUM + ", " + Nombre + ", " +Apellido + ", " +TiempoEmpleado + ", " +DNI_TC + ", " +DNI_TE );
+				Alumno auxTC = new Alumno(DNI_ALUM, Nombre, Apellido, TiempoEmpleado, DNI_TC, DNI_TE  );
+				aux.add(auxTC);
+			}
+			rset.close();
+			stmt.close();
+			
+		}catch (SQLException s){
+			s.printStackTrace();
+		}
+		return aux;
+		
+	}
+
+	public static int InsertAlumno(String DNI_ALUM, String Nombre, String Apellido, String TiempoEmpleado, String DNI_TC, String DNI_TE ) throws SQLException{
+		
+		System.out.println("Voy a hacer un insert en la tabla Alumnos");
+		
+		Statement stmt = conexion.createStatement();
+		
+		
+		System.out.println("INSERT INTO " + esquema + ".Alumnos VALUES (" +"'" + DNI_ALUM + "'"+  "," +"'"+Nombre+ "'" + "," +"'"+Apellido+ "'" + "," +"'"+TiempoEmpleado + "'" + "," + "'" + DNI_TC + "'"+"," + "'" + DNI_TE + "'"+ ")");
+		int num = stmt.executeUpdate("INSERT INTO " + esquema + ".Alumnos VALUES (" +"'" + DNI_ALUM + "'"+  "," +"'"+Nombre+ "'" + "," +"'"+Apellido+ "'" + "," +"'"+TiempoEmpleado + "'" + "," + "'" + DNI_TC + "'"+"," + "'" + DNI_TE + "'"+ ")");
+		return num;
+	}
+	
+	public static int ModificarAlumno(String DNI_ALUM, String Nombre, String Apellido, String TiempoEmpleado, String DNI_TC, String DNI_TE ) throws SQLException{
+		
+		System.out.println("Voy a hacer un insert en la tabla Alumnos modificando sus datos");
+		
+		Statement stmt = conexion.createStatement();
+		
+		
+		System.out.println("UPDATE " + esquema + ".Alumnos SET " +"DNI_ALUM='" + DNI_ALUM + "'"+  ", " +"Nombre='"+Nombre+ "'" + ", " +"Apellido='"+Apellido+ "'" + ", " +"Tiempo_Empleado ='"+TiempoEmpleado + "'"+", " + "DNI_TC='" + DNI_TC + "'"+", " + "DNI_TE='" + DNI_TE + "'"+ " WHERE DNI_ALUM='" + DNI_ALUM + "'");
+		int num = stmt.executeUpdate("UPDATE " + esquema + ".Alumnos SET " +"DNI_ALUM='" + DNI_ALUM + "'"+  ", " +"Nombre='"+Nombre+ "'" + ", " +"Apellido='"+Apellido+ "'" + ", " +"Tiempo_Empleado ='"+TiempoEmpleado + "'"+", " + "DNI_TC='" + DNI_TC + "'"+", " + "DNI_TE='" + DNI_TE + "'"+ " WHERE DNI_ALUM='" + DNI_ALUM + "'");
+		return num;
+	}
+	
+	/**
+	 * CURSAN
+	 */
+	
+	public static int InsertCursan(String Clave_Ciclo, String DNI_ALUM , String Curso) throws SQLException{
+		
+		System.out.println("Voy a hacer un insert en la tabla Tutor Centro");
+		
+		Statement stmt = conexion.createStatement();
+		
+		
+		System.out.println("INSERT INTO " + esquema + ".Cursan VALUES (" +"'" + Clave_Ciclo + "'"+  "," +"'"+DNI_ALUM+ "'" + "," +"'"+Curso+ "'" + ")");
+		int num = stmt.executeUpdate("INSERT INTO " + esquema + ".Cursan VALUES (" +"'" + Clave_Ciclo + "'"+  "," +"'"+DNI_ALUM+ "'" + "," +"'"+Curso+ "'" + ")");
+		return num;
+	}
+	
+	public static int ModificarCursan(String Clave_Ciclo, String DNI_ALUM , String Curso) throws SQLException{
+		
+		System.out.println("Voy a hacer un insert en la tabla Tutor Centro modificando sus datos");
+		
+		Statement stmt = conexion.createStatement();
+		
+		
+		System.out.println("UPDATE " + esquema + ".Cursan SET " +"Clave_Ciclo='" + Clave_Ciclo + "'"+  ", " +"DNI_ALUM='"+DNI_ALUM+ "'" + ", " +"Curso='"+Curso+ "'" + " WHERE DNI_ALUM='" + DNI_ALUM + "'" + " AND " + "Clave_Ciclo='" + Clave_Ciclo + "'");
+		int num = stmt.executeUpdate("UPDATE " + esquema + ".Cursan SET " +"Clave_Ciclo='" + Clave_Ciclo + "'"+  ", " +"DNI_ALUM='"+DNI_ALUM+ "'" + ", " +"Curso='"+Curso+ "'" + " WHERE DNI_ALUM='" + DNI_ALUM + "'" + " AND " + "Clave_Ciclo='" + Clave_Ciclo + "'");
 		return num;
 	}
 

@@ -5,8 +5,11 @@ import java.sql.SQLException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 public class CContactoTutorEmpresa {
@@ -29,8 +32,56 @@ public class CContactoTutorEmpresa {
 	@FXML
 	private TextField Gmail;
 	
+	
+	
 	@FXML
-	private TextField Num_Convenio;
+	private TableView<Empresa> Tabla;
+	
+	@FXML
+	private TableColumn<Empresa,String> Num_ConvenioColum;
+
+	@FXML
+	private TableColumn<Empresa,String> NIF;
+
+	@FXML
+	private TableColumn<Empresa,String> Nombre_Empresa;
+	
+	@FXML
+	private TableColumn<Empresa,String> Representante_Empresa;
+	
+	@FXML
+	private TableColumn<Empresa,String> Localidad;
+	
+	@FXML
+	private TableColumn<Empresa,String> Provincia;
+	
+	@FXML
+	private TableColumn<Empresa,String> Pais;
+	
+	@FXML
+	private TableColumn<Empresa,String> Calle;
+	
+	@FXML
+	private TableColumn<Empresa,String> Codigo_postal;
+	
+	@FXML
+	private TableColumn<Empresa,String> CIF;
+	
+	@FXML
+	private TableColumn<Empresa,String> TelefonoColum;
+	
+	@FXML
+	private TableColumn<Empresa,String> Fax;
+	
+	@FXML
+	private TableColumn<Empresa,String> CiudadFirmaConvenio;
+	
+	@FXML
+	private TableColumn<Empresa,String> FechaFirmaConvenio;
+	
+	
+	@FXML
+	private Button Actualizar;
 
 	
 	TestConexion conexionbbdd;
@@ -38,6 +89,31 @@ public class CContactoTutorEmpresa {
 	private Stage ventanaTres;
     private TutorEmpresa tutorempresa;
     private boolean okClicked = false;
+    
+    @FXML
+	public void initialize(){
+		Num_ConvenioColum.setCellValueFactory(new PropertyValueFactory<Empresa,String>("num_convenio"));
+		NIF.setCellValueFactory(new PropertyValueFactory<Empresa,String>("nif"));
+		Nombre_Empresa.setCellValueFactory(new PropertyValueFactory<Empresa,String>("nombre"));
+		Representante_Empresa.setCellValueFactory(new PropertyValueFactory<Empresa,String>("representante"));
+		Localidad.setCellValueFactory(new PropertyValueFactory<Empresa,String>("localidad"));
+		Provincia.setCellValueFactory(new PropertyValueFactory<Empresa,String>("provincia"));
+		Pais.setCellValueFactory(new PropertyValueFactory<Empresa,String>("pais"));
+		Calle.setCellValueFactory(new PropertyValueFactory<Empresa,String>("calle"));
+		Codigo_postal.setCellValueFactory(new PropertyValueFactory<Empresa,String>("codigo_postal"));
+		CIF.setCellValueFactory(new PropertyValueFactory<Empresa,String>("cif"));
+		TelefonoColum.setCellValueFactory(new PropertyValueFactory<Empresa,String>("telefono"));
+		Fax.setCellValueFactory(new PropertyValueFactory<Empresa,String>("fax"));
+		CiudadFirmaConvenio.setCellValueFactory(new PropertyValueFactory<Empresa,String>("ciudad_firma_convenio"));
+		FechaFirmaConvenio.setCellValueFactory(new PropertyValueFactory<Empresa,String>("fecha_firma_convenio"));
+		
+	}
+    
+    @FXML
+	public void ActualizaTabla(){
+		conexionbbdd = new TestConexion();
+		Tabla.setItems(conexionbbdd.ConsultaEmpresas());
+	}
 
     public void setStageSecundario(Stage ventana) {
 		// TODO Auto-generated method stub
@@ -48,13 +124,12 @@ public class CContactoTutorEmpresa {
 	public void setTutorEmpresa(TutorEmpresa tutorempresa) {
         this.tutorempresa = tutorempresa;
 
-        System.out.println("setCiclo");
+        System.out.println("setTutorEmpresa");
         DNI_TE.setText(tutorempresa.getDni());
         Nombre.setText(tutorempresa.getNombre());
         Apellido.setText(tutorempresa.getApellido());
         Telefono.setText(tutorempresa.getTelefono());
         Gmail.setText(tutorempresa.getGmail());
-        Num_Convenio.setText(tutorempresa.getNum_convenio());
         
         okClicked = true;
         
@@ -75,12 +150,30 @@ public class CContactoTutorEmpresa {
     	conexionbbdd = new TestConexion();
     	
     	try {
-			conexionbbdd.InsertTutorEmpresa(DNI_TE.getText(), Nombre.getText(), Apellido.getText(), Telefono.getText(), Gmail.getText(), Num_Convenio.getText());
+    		
+    		Empresa selectedEmpresa = Tabla.getSelectionModel().getSelectedItem();
+    		if (selectedEmpresa != null) {
+    			conexionbbdd.InsertTutorEmpresa(DNI_TE.getText(), Nombre.getText(), Apellido.getText(), Telefono.getText(), Gmail.getText(), selectedEmpresa.num_convenio);
+    		}else {
+    			Alert alert = new Alert(AlertType.ERROR);
+            	ShowAlertNoSelectionEmpresa(alert);
+    		}
+    		
+			
 		} catch (SQLException e) {
 			// TODO Bloque catch generado automáticamente
 			e.printStackTrace();
 		}
 
+    }
+    
+    private void ShowAlertNoSelectionEmpresa(Alert alert){
+
+        alert.setTitle("No Seleccionado");
+        alert.setHeaderText("Empresa no seleccionada");
+        alert.setContentText("Por favor!!! Seleccione un ciclo de la tabla");
+
+        alert.showAndWait();
     }
 
     

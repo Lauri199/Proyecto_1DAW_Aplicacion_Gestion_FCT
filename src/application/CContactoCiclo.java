@@ -49,9 +49,7 @@ public class CContactoCiclo {
 	private TextField ProgramaFormativo;
 	
 	@FXML
-	ChoiceBox<String> Cod_Centro;
-	
-	ObservableList<String> CentroList = FXCollections.observableArrayList("");
+	private TextField Cod_Centro;
 
 	
 	TestConexion conexionbbdd;
@@ -83,10 +81,6 @@ public class CContactoCiclo {
         ProgramaFormativo.setText(ciclo.getPrograma_formativo());
         
         conexionbbdd = new TestConexion();
-		
-		CentroList = conexionbbdd.ConsultaCentros();
-		
-		Cod_Centro.setItems(CentroList);
         
         okClicked = true;
         
@@ -102,25 +96,18 @@ public class CContactoCiclo {
     	ventanaTres.close();
     }
     
+    
     @FXML
     private void InsertarCiclo() throws SQLException {
     	conexionbbdd = new TestConexion();
     	try {
-			conexionbbdd.InsertCiclo(Clave_Ciclo.getText(), Nombre_Ciclo.getText(), Familia_Profesional.getText(), Num_Cursos.getText(), Periodo_Practicas.getText(), ProgramaFormativo.getText());
+			conexionbbdd.InsertCiclo(Clave_Ciclo.getText(), Nombre_Ciclo.getText(), Familia_Profesional.getText(), Num_Cursos.getText(), Periodo_Practicas.getText(), ProgramaFormativo.getText(), Cod_Centro.getText());
 			
 		} catch (SQLException e) {
 			// TODO Bloque catch generado automáticamente
 			e.printStackTrace();
 		}
 
-    }
-    
-    @FXML
-    private void InsertarCod_Centro() throws SQLException {
-    	conexionbbdd = new TestConexion();
-    	String aux = Cod_Centro.getSelectionModel().getSelectedItem();
-    	System.out.println("se ha seleccionado  " + aux);
-    	conexionbbdd.InsertCod_Centro(aux);
     }
     
     
@@ -136,7 +123,7 @@ public class CContactoCiclo {
             errorMessage += "Nombre del ciclo no válido!\n";
         }
         if (Familia_Profesional.getText() == null || Familia_Profesional.getText().length() != 0) {
-            errorMessage += "Familia profesional no válida!\n";
+            errorMessage += "Familia Profesional no válida!\n";
         }
         
         if (Num_Cursos.getText() == null || Num_Cursos.getText().length() == 0) {
@@ -159,6 +146,10 @@ public class CContactoCiclo {
         */
         if (ProgramaFormativo.getText() == null || ProgramaFormativo.getText().length() != 0) {
             errorMessage += "Programa Formativo no válido!\n";
+        }
+        
+        if (Cod_Centro.getText() == null || Cod_Centro.getText().length() != 0) {
+            errorMessage += "Codigo del Centro no válido!\n";
         }
         
         
