@@ -457,6 +457,79 @@ public class Main extends Application {
 		
 	 }
 	 
+	 /**
+	  * PRACTICAS
+	  */
+	 
+	 public void MostrarMenuPracticas() {
+		  try {
+		   
+		    // Load root layout from fxml file.
+			  FXMLLoader loader = new FXMLLoader();
+			  loader.setLocation(Main.class.getResource("UIMenuAsignar.fxml"));
+			  rootLayout = (AnchorPane) loader.load();
+			  // Show the scene containing the root layout.
+			  Scene scene = new Scene(rootLayout);
+			  primaryStage.setScene(scene);
+		            
+			  CMenuAlumnos controller = loader.getController();
+			  //controller.setListaCiclo(listaCiclo);
+			  controller.setMain(this);
+		            
+		            
+			  primaryStage.show();
+		  } catch(Exception e) {
+			  e.printStackTrace();
+		  }
+	 }
+	 
+	 public boolean NuevoContactoPracticas(Practicas datosPracticaaEditar) {
+		  try {
+		    // Load root layout from fxml file.
+			  FXMLLoader loader = new FXMLLoader();
+			  loader.setLocation(Main.class.getResource("UIContactoPracticas.fxml"));
+			  rootLayout = (AnchorPane) loader.load();
+			  // Show the scene containing the root layout.
+			  Scene scene = new Scene(rootLayout);
+			  primaryStage.setScene(scene);
+		            
+			  CContactoPracticas controller = loader.getController();
+			  controller.setPractica(datosPracticaaEditar);
+			  controller.setStageSecundario(primaryStage);
+		            
+			  primaryStage.show();
+		            
+			  return controller.isOkClicked();
+		  } catch(Exception e) {
+			  e.printStackTrace();
+			  return false;
+		  }
+		
+	 }
+	 
+	 public boolean ModificarContactoPracticas(Practicas datosPracticaaEditar) {
+		  try {
+		    // Load root layout from fxml file.
+			  FXMLLoader loader = new FXMLLoader();
+			  loader.setLocation(Main.class.getResource("UIContactoModificarPractica.fxml"));
+			  rootLayout = (AnchorPane) loader.load();
+			  // Show the scene containing the root layout.
+			  Scene scene = new Scene(rootLayout);
+			  primaryStage.setScene(scene);
+		            
+			  CContactoModificarPractica controller = loader.getController();
+			  controller.setPractica(datosPracticaaEditar);
+			  controller.setStageSecundario(primaryStage);
+		            
+			  primaryStage.show();
+		      return controller.isOkClicked();
+		  } catch(Exception e) {
+			  e.printStackTrace();
+		   return false;
+		  }
+		
+	 }
+	 
  
 }
 

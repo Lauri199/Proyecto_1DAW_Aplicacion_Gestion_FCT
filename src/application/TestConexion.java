@@ -501,6 +501,67 @@ public class TestConexion {
 		int num = stmt.executeUpdate("UPDATE " + esquema + ".Cursan SET " +"Clave_Ciclo='" + Clave_Ciclo + "'"+  ", " +"DNI_ALUM='"+DNI_ALUM+ "'" + ", " +"Curso='"+Curso+ "'" + " WHERE DNI_ALUM='" + DNI_ALUM + "'" + " AND " + "Clave_Ciclo='" + Clave_Ciclo + "'");
 		return num;
 	}
+	
+	
+public ObservableList<Practicas> ConsultaPracticas() {
+		
+		ObservableList<Practicas> aux = FXCollections.observableArrayList();
+		
+		try {
+			Statement stmt = conexion.createStatement();
+			ResultSet rset = stmt.executeQuery("SELECT * FROM " +esquema +".Asignan" );
+			while(rset.next()) {
+				
+				String Num_Convenio = rset.getString(1);
+				String DNI_ALUM = rset.getString(2);
+				String Fecha_Inicio = rset.getString(3);
+				String Fecha_Terminacion  = rset.getString(4);
+				String Fecha_Final = rset.getString(5);
+				String Dias_Semana = rset.getString(6);
+				String Tipo_Horario = rset.getString(7);
+				String Horas_al_dia = rset.getString(8);
+				String Total_horas = rset.getString(9);
+				String Hora_Inicio = rset.getString(10);
+				String Hora_terminacion = rset.getString(11);
+				
+				
+				System.out.println(Num_Convenio + ", " + DNI_ALUM  + ", " +Fecha_Inicio  + ", " +Fecha_Terminacion  + ", " +Fecha_Final   + ", " + Dias_Semana   + ", " + Tipo_Horario   + ", " + Horas_al_dia   + ", " + Total_horas   + ", " + Hora_Inicio + ", "+ Hora_terminacion);
+				Practicas auxPracticas = new Practicas(Num_Convenio, DNI_ALUM , Fecha_Inicio , Fecha_Terminacion , Fecha_Final , Dias_Semana , Tipo_Horario , Horas_al_dia , Total_horas , Hora_Inicio, Hora_terminacion  );
+				aux.add(auxPracticas);
+			}
+			rset.close();
+			stmt.close();
+			
+		}catch (SQLException s){
+			s.printStackTrace();
+		}
+		return aux;
+		
+	}
+	
+	public static int InsertPracticas(String Num_Convenio, String DNI_ALUM, String Fecha_Inicio, String Fecha_Terminacion, String Fecha_Final, String Dias_Semana, String Tipo_Horario, String Horas_al_dia, String Total_horas, String Hora_Inicio, String Hora_terminacion) throws SQLException{
+		
+		System.out.println("Voy a hacer un insert en la tabla Ciclos");
+		
+		Statement stmt = conexion.createStatement();
+		
+		
+		System.out.println("INSERT INTO " + esquema + ".Asignan VALUES (" +"'" + Num_Convenio + "'"+  "," +"'"+DNI_ALUM+ "'" + "," +"'"+ Fecha_Inicio+ "'" + "," +Fecha_Terminacion + "'" + "," + "'" + Fecha_Final + "'"+  "," +"'"+Dias_Semana+"'" + "," +"'"+Tipo_Horario+"'" + "," +"'"+Horas_al_dia+"'" + "," + "'" + Total_horas+ "'" + ", " + Hora_Inicio + "'" + ", " + "'" + Hora_terminacion+"'"+")");
+		int num = stmt.executeUpdate("INSERT INTO " + esquema + ".Asignan VALUES (" +"'" + Num_Convenio + "'"+  "," +"'"+DNI_ALUM+ "'" + "," +"'"+ Fecha_Inicio+ "'" + "," +Fecha_Terminacion + "," + "'" + Fecha_Final + "'"+  "," +"'"+Dias_Semana+"'" + "," +"'"+Tipo_Horario+"'" + "," +"'"+Horas_al_dia+"'" + "," + "'" + Total_horas+ "'" + ", " + Hora_Inicio + "'" + ", " + "'" + Hora_terminacion+"'"+")");
+		return num;
+	}
+	
+	public static int ModificarPracticas(String Num_Convenio, String DNI_ALUM, String Fecha_Inicio, String Fecha_Terminacion, String Fecha_Final, String Dias_Semana, String Tipo_Horario, String Horas_al_dia, String Total_horas, String Hora_Inicio, String Hora_terminacion) throws SQLException{
+		
+		System.out.println("Voy a hacer un insert en la tabla Ciclos modificando sus datos");
+		
+		Statement stmt = conexion.createStatement();
+		
+		
+		System.out.println("UPDATE " + esquema + ".Asignan SET " +"Num_Convenio='" + Num_Convenio + "'"+  ", " +"DNI_ALUM='"+DNI_ALUM+ "'" + ", " +"Fecha_Inicio='"+Fecha_Inicio+ "'" + ", " +"Fecha_Terminacion='"+Fecha_Terminacion + "'" + ", " + "Fecha_Final='" + Fecha_Final + "'"+  ", " +"Dias_Semana='"+Dias_Semana+"'" + ", " +"Tipo_Horario='"+Tipo_Horario+"'" + ", " +"Horas_al_dia="+Horas_al_dia + ", " + "Total_horas=" + Total_horas+ ", " + "Hora_Inicio='"+ Hora_Inicio + "'" + ", " + "Hora_terminacion='"+ Hora_terminacion+ "'" +" WHERE Num_Convenio='" + Num_Convenio + "'");
+		int num = stmt.executeUpdate("UPDATE " + esquema + ".Asignan SET " +"Num_Convenio='" + Num_Convenio + "'"+  ", " +"DNI_ALUM='"+DNI_ALUM+ "'" + ", " +"Fecha_Inicio='"+Fecha_Inicio+ "'" + ", " +"Fecha_Terminacion='"+Fecha_Terminacion + "'" + ", " + "Fecha_Final='" + Fecha_Final + "'"+  ", " +"Dias_Semana='"+Dias_Semana+"'" + ", " +"Tipo_Horario='"+Tipo_Horario+"'" + ", " +"Horas_al_dia="+Horas_al_dia + ", " + "Total_horas=" + Total_horas+ ", " + "Hora_Inicio='"+ Hora_Inicio + "'" + ", " + "Hora_terminacion='"+ Hora_terminacion+ "'" +" WHERE Num_Convenio='" + Num_Convenio + "'");
+		return num;
+	}
 
 	
 

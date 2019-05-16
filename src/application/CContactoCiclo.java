@@ -122,7 +122,7 @@ public class CContactoCiclo {
         if (Nombre_Ciclo.getText() == null || Nombre_Ciclo.getText().length() == 0) {
             errorMessage += "Nombre del ciclo no válido!\n";
         }
-        if (Familia_Profesional.getText() == null || Familia_Profesional.getText().length() != 0) {
+        if (Familia_Profesional.getText() == null || Familia_Profesional.getText().length() == 0) {
             errorMessage += "Familia Profesional no válida!\n";
         }
         
@@ -144,11 +144,11 @@ public class CContactoCiclo {
             errorMessage += "Criterios de evaluacion no válidos!\n";
         }
         */
-        if (ProgramaFormativo.getText() == null || ProgramaFormativo.getText().length() != 0) {
+        if (ProgramaFormativo.getText() == null || ProgramaFormativo.getText().length() == 0) {
             errorMessage += "Programa Formativo no válido!\n";
         }
         
-        if (Cod_Centro.getText() == null || Cod_Centro.getText().length() != 0) {
+        if (Cod_Centro.getText() == null || Cod_Centro.getText().length() == 0) {
             errorMessage += "Codigo del Centro no válido!\n";
         }
         

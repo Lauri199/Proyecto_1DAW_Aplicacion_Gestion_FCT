@@ -5,26 +5,26 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CMenuPracticas">
    <children>
-      <TableView layoutX="77.0" layoutY="62.0" prefHeight="200.0" prefWidth="245.0">
+      <TableView fx:id="Tabla" layoutX="77.0" layoutY="62.0" prefHeight="200.0" prefWidth="245.0">
          <columns>
-            <TableColumn prefWidth="91.20001220703125" text="Num Convenio" />
-            <TableColumn prefWidth="79.20001220703125" text="DNI Alumo" />
-            <TableColumn prefWidth="76.0" text="Fech Inicio" />
-            <TableColumn prefWidth="56.00006103515625" text="Fech Terminacion" />
-            <TableColumn prefWidth="75.0" text="Fech Final" />
-            <TableColumn prefWidth="75.0" text="Dias Semana" />
-            <TableColumn prefWidth="75.0" text="Tipo Horario" />
-            <TableColumn prefWidth="75.0" text="Horas al día" />
-            <TableColumn prefWidth="75.0" text="Total de horas" />
-            <TableColumn prefWidth="75.0" text="Hora Inicio" />
-            <TableColumn prefWidth="75.0" text="Hora terminacion" />
+            <TableColumn fx:id="Num_Convenio" prefWidth="91.20001220703125" text="Num Convenio" />
+            <TableColumn fx:id="DNI_ALUM" prefWidth="79.20001220703125" text="DNI Alumo" />
+            <TableColumn fx:id="Fecha_Inicio" prefWidth="76.0" text="Fech Inicio" />
+            <TableColumn fx:id="Fecha_Terminacion" prefWidth="56.00006103515625" text="Fech Terminacion" />
+            <TableColumn fx:id="Fecha_Final" prefWidth="75.0" text="Fech Final" />
+            <TableColumn fx:id="Dias_Semana" prefWidth="75.0" text="Dias Semana" />
+            <TableColumn fx:id="Tipo_Horario" prefWidth="75.0" text="Tipo Horario" />
+            <TableColumn fx:id="Horas_al_dia" prefWidth="75.0" text="Horas al día" />
+            <TableColumn fx:id="Total_horas" prefWidth="75.0" text="Total de horas" />
+            <TableColumn fx:id="Hora_Inicio" prefWidth="75.0" text="Hora Inicio" />
+            <TableColumn fx:id="Hora_terminacion" prefWidth="75.0" text="Hora terminacion" />
          </columns>
       </TableView>
-      <Button layoutX="167.0" layoutY="312.0" mnemonicParsing="false" text="Modificar" />
-      <Button layoutX="87.0" layoutY="312.0" mnemonicParsing="false" text="Nuevo" />
-      <Button layoutX="264.0" layoutY="312.0" mnemonicParsing="false" text="Borrar" />
+      <Button fx:id="Modificar" layoutX="167.0" layoutY="312.0" mnemonicParsing="false" onAction="#EditarPractica" text="Modificar" />
+      <Button fx:id="Agregar" layoutX="87.0" layoutY="312.0" mnemonicParsing="false" onAction="#ContactoPracticas" text="Nuevo" />
+      <Button fx:id="Borrar" layoutX="264.0" layoutY="312.0" mnemonicParsing="false" text="Borrar" />
+      <Button fx:id="Actualizar" layoutX="166.0" layoutY="351.0" mnemonicParsing="false" onAction="#ActualizaTabla" text="Actualizar" />
    </children>
 </AnchorPane>

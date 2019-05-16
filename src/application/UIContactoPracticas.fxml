@@ -9,50 +9,66 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="580.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CContactoPracticas">
    <children>
-      <TextField layoutX="181.0" layoutY="31.0" />
-      <TextField layoutX="179.0" layoutY="75.0" />
-      <Label layoutX="87.0" layoutY="35.0" text="Fecha de Inicio" />
-      <Label layoutX="50.0" layoutY="79.0" text="Fecha de Terminación" />
-      <Label layoutX="103.0" layoutY="119.0" text="Fecha Final" />
-      <Label layoutX="66.0" layoutY="163.0" text="Dias de la semana" />
-      <Label layoutX="80.0" layoutY="204.0" text="Tipo de horario" />
-      <Label layoutX="101.0" layoutY="248.0" text="Horas al día" />
-      <Label layoutX="89.0" layoutY="289.0" text="Total de horas" />
-      <Label layoutX="89.0" layoutY="333.0" text="Hora de inicio" />
-      <TextField layoutX="179.0" layoutY="115.0" />
-      <TextField layoutX="179.0" layoutY="159.0" />
-      <TextField layoutX="179.0" layoutY="200.0" />
-      <TextField layoutX="181.0" layoutY="244.0" />
-      <TextField layoutX="181.0" layoutY="285.0" />
-      <TextField layoutX="181.0" layoutY="329.0" />
-      <TextField layoutX="181.0" layoutY="371.0" />
-      <Label layoutX="59.0" layoutY="375.0" text="Hora de terminación" />
-      <TableView layoutX="21.0" layoutY="430.0" prefHeight="190.0" prefWidth="150.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="Nº convenio" />
-          <TableColumn prefWidth="75.0" text="Empresa" />
-        </columns>
-      </TableView>
-      <TableView layoutX="191.0" layoutY="430.0" prefHeight="190.0" prefWidth="226.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="DNI Alumno" />
-          <TableColumn prefWidth="75.0" text="Nombre" />
-            <TableColumn prefWidth="75.0" text="Apellido" />
-        </columns>
-      </TableView>
-      <Button layoutX="393.0" layoutY="630.0" mnemonicParsing="false" text="OK" />
-      <Text layoutX="179.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prácticas">
+      <TextField fx:id="Fecha_Inicio" layoutX="257.0" layoutY="72.0" />
+      <TextField fx:id="Fecha_Terminacion" layoutX="255.0" layoutY="116.0" />
+      <Label layoutX="163.0" layoutY="76.0" text="Fecha de Inicio" />
+      <Label layoutX="126.0" layoutY="120.0" text="Fecha de Terminación" />
+      <Label layoutX="179.0" layoutY="160.0" text="Fecha Final" />
+      <Label layoutX="142.0" layoutY="204.0" text="Dias de la semana" />
+      <Label layoutX="156.0" layoutY="245.0" text="Tipo de horario" />
+      <Label layoutX="177.0" layoutY="289.0" text="Horas al día" />
+      <Label layoutX="165.0" layoutY="330.0" text="Total de horas" />
+      <Label layoutX="165.0" layoutY="374.0" text="Hora de inicio" />
+      <TextField fx:id="Fecha_Final" layoutX="255.0" layoutY="156.0" />
+      <TextField fx:id="Dias_Semana" layoutX="255.0" layoutY="200.0" />
+      <TextField fx:id="Tipo_Horario" layoutX="255.0" layoutY="241.0" />
+      <TextField fx:id="Horas_al_dia" layoutX="257.0" layoutY="285.0" />
+      <TextField fx:id="Total_horas" layoutX="257.0" layoutY="326.0" />
+      <TextField fx:id="Hora_Inicio" layoutX="257.0" layoutY="370.0" />
+      <TextField fx:id="Hora_terminacion" layoutX="257.0" layoutY="412.0" />
+      <Label layoutX="135.0" layoutY="416.0" text="Hora de terminación" />
+      <Button fx:id="add" layoutX="533.0" layoutY="691.0" mnemonicParsing="false" onAction="#InsertarPracticas" text="OK" />
+      <Text layoutX="243.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prácticas">
          <font>
             <Font size="21.0" />
          </font>
       </Text>
-      <Text layoutX="57.0" layoutY="421.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selecciona una empresa y un alumno que vaya a hacer las prácticas">
+      <Text layoutX="72.0" layoutY="462.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selecciona una empresa y un alumno que vaya a hacer las prácticas">
          <font>
-            <Font size="11.0" />
+            <Font size="15.0" />
          </font>
       </Text>
+      <TableView fx:id="Tabla_Empresa" layoutX="52.0" layoutY="504.0" prefHeight="200.0" prefWidth="202.0">
+         <columns>
+            <TableColumn fx:id="Num_Convenio" prefWidth="91.20001220703125" text="Num Convenio" />
+            <TableColumn fx:id="Nombre_Empresa" prefWidth="108.79998779296875" text="Nombre Empresa" />
+            <TableColumn fx:id="NIF" prefWidth="45.60003662109375" text="NIF" />
+            <TableColumn fx:id="Representante_Empresa" prefWidth="56.00006103515625" text="Representante" />
+            <TableColumn fx:id="Localidad" prefWidth="75.0" text="Localidad" />
+            <TableColumn fx:id="Provincia" prefWidth="75.0" text="Provincia" />
+            <TableColumn fx:id="Pais" prefWidth="75.0" text="Pais" />
+            <TableColumn fx:id="Calle" prefWidth="75.0" text="Calle" />
+            <TableColumn fx:id="Codigo_postal" prefWidth="75.0" text="CP" />
+            <TableColumn fx:id="CIF" prefWidth="75.0" text="CIF" />
+            <TableColumn fx:id="TelefonoColum" prefWidth="75.0" text="Telf" />
+            <TableColumn fx:id="Fax" prefWidth="75.0" text="Fax" />
+            <TableColumn fx:id="CiudadFirmaConvenio" prefWidth="75.0" text="Ciudad Firma" />
+            <TableColumn fx:id="FechaFirmaConvenio" prefWidth="75.0" text="Fecha firma" />
+         </columns>
+      </TableView>
+      <TableView fx:id="Tabla_Alum" layoutX="281.0" layoutY="504.0" prefHeight="200.0" prefWidth="245.0">
+         <columns>
+            <TableColumn fx:id="DNI_ALUM" prefWidth="84.0" text="DNI" />
+            <TableColumn fx:id="Nombre" prefWidth="74.39996337890625" text="Nombre" />
+            <TableColumn fx:id="Apellido" prefWidth="89.60003662109375" text="Apellido" />
+            <TableColumn fx:id="Tiempo_Empleado" prefWidth="56.00006103515625" text="Tiempo Empleado" />
+            <TableColumn fx:id="DNI_TC" prefWidth="75.0" text="DNI Tutor Centro" />
+            <TableColumn fx:id="DNI_TE" prefWidth="75.0" text="DNI Tutor Empresa" />
+         </columns>
+      </TableView>
+      <Button fx:id="Actualizar_Empresa" layoutX="52.0" layoutY="479.0" mnemonicParsing="false" onAction="#ActualizaTablaEmpresa" text="Actualizar" />
+      <Button fx:id="Actualizar_Alumno" layoutX="290.0" layoutY="479.0" mnemonicParsing="false" onAction="#ActualizaTablaAlumno" text="Actualizar" />
    </children>
 </AnchorPane>
