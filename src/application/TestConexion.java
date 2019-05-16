@@ -561,6 +561,8 @@ public ObservableList<Practicas> ConsultaPracticas() {
 		System.out.println("UPDATE " + esquema + ".Asignan SET " +"Num_Convenio='" + Num_Convenio + "'"+  ", " +"DNI_ALUM='"+DNI_ALUM+ "'" + ", " +"Fecha_Inicio='"+Fecha_Inicio+ "'" + ", " +"Fecha_Terminacion='"+Fecha_Terminacion + "'" + ", " + "Fecha_Final='" + Fecha_Final + "'"+  ", " +"Dias_Semana='"+Dias_Semana+"'" + ", " +"Tipo_Horario='"+Tipo_Horario+"'" + ", " +"Horas_al_dia="+Horas_al_dia + ", " + "Total_horas=" + Total_horas+ ", " + "Hora_Inicio='"+ Hora_Inicio + "'" + ", " + "Hora_terminacion='"+ Hora_terminacion+ "'" +" WHERE Num_Convenio='" + Num_Convenio + "'");
 		int num = stmt.executeUpdate("UPDATE " + esquema + ".Asignan SET " +"Num_Convenio='" + Num_Convenio + "'"+  ", " +"DNI_ALUM='"+DNI_ALUM+ "'" + ", " +"Fecha_Inicio='"+Fecha_Inicio+ "'" + ", " +"Fecha_Terminacion='"+Fecha_Terminacion + "'" + ", " + "Fecha_Final='" + Fecha_Final + "'"+  ", " +"Dias_Semana='"+Dias_Semana+"'" + ", " +"Tipo_Horario='"+Tipo_Horario+"'" + ", " +"Horas_al_dia="+Horas_al_dia + ", " + "Total_horas=" + Total_horas+ ", " + "Hora_Inicio='"+ Hora_Inicio + "'" + ", " + "Hora_terminacion='"+ Hora_terminacion+ "'" +" WHERE Num_Convenio='" + Num_Convenio + "'");
 		return num;
+		
+		
 	}
 
 	
