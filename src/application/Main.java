@@ -533,7 +533,7 @@ public class Main extends Application {
 	 /**
 	  * ANEXOS
 	  */
-	 public void MostrarMenuaNEXOS() {
+	 public void MostrarMenuAnexos() {
 		  try {
 		   
 		    // Load root layout from fxml file.
@@ -544,7 +544,7 @@ public class Main extends Application {
 			  Scene scene = new Scene(rootLayout);
 			  primaryStage.setScene(scene);
 		            
-			  CMenuAlumnos controller = loader.getController();
+			  CMenuAnexos controller = loader.getController();
 			  //controller.setListaCiclo(listaCiclo);
 			  controller.setMain(this);
 		            
