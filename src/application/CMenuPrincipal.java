@@ -105,4 +105,15 @@ public class CMenuPrincipal {
         ventana.setScene(scene);
         ventana.show();
 	}
+	
+	public void MenuAnexos(ActionEvent event) throws IOException{
+
+		FXMLLoader loader = new FXMLLoader(Main.class.getResource("UIMenuAnexos.fxml"));
+		AnchorPane ventanaDos = (AnchorPane) loader.load();
+        Stage ventana = new Stage();
+        ventana.setTitle("Venta Dos");
+        Scene scene = new Scene(ventanaDos);
+        ventana.setScene(scene);
+        ventana.show();
+	}
 }

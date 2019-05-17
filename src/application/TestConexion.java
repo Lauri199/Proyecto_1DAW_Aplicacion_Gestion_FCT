@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.Properties;
 
 import javafx.collections.FXCollections;
@@ -159,6 +160,8 @@ public class TestConexion {
 				ResultSet rset = stmt.executeQuery("SELECT * FROM " +esquema +".Empresa" );
 				while(rset.next()) {
 					
+					SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+					
 					String Num_Convenio = rset.getString(1);
 					String NIF = rset.getString(2);
 					String Nombre_Empresa = rset.getString(3);
@@ -172,7 +175,7 @@ public class TestConexion {
 					String Telefono = rset.getString(11);
 					String Fax = rset.getString(12);
 					String CiudadFirmaConvenio = rset.getString(13);
-					String FechaFirmaConvenio = rset.getString(14);
+					String FechaFirmaConvenio = sdf.format(rset.getDate(14));
 					
 					
 					System.out.println(Num_Convenio + ", " + NIF + ", " +Nombre_Empresa + ", " +Representante_Empresa + ", " +Localidad  + ", " + Provincia  + ", " + Pais  + ", " + Calle  + ", " + Codigo_postal  + ", " + CIF + ", " + Telefono +  ", " + Fax + ", " + CiudadFirmaConvenio  + ", " + FechaFirmaConvenio );
@@ -470,7 +473,7 @@ public class TestConexion {
 		
 		
 		System.out.println("UPDATE " + esquema + ".Alumnos SET " +"DNI_ALUM='" + DNI_ALUM + "'"+  ", " +"Nombre='"+Nombre+ "'" + ", " +"Apellido='"+Apellido+ "'" + ", " +"Tiempo_Empleado ='"+TiempoEmpleado + "'"+", " + "DNI_TC='" + DNI_TC + "'"+", " + "DNI_TE='" + DNI_TE + "'"+ " WHERE DNI_ALUM='" + DNI_ALUM + "'");
-		int num = stmt.executeUpdate("UPDATE " + esquema + ".Alumnos SET " +"DNI_ALUM='" + DNI_ALUM + "'"+  ", " +"Nombre='"+Nombre+ "'" + ", " +"Apellido='"+Apellido+ "'" + ", " +"Tiempo_Empleado ='"+TiempoEmpleado + "'"+", " + "DNI_TC='" + DNI_TC + "'"+", " + "DNI_TE='" + DNI_TE + "'"+ " WHERE DNI_ALUM='" + DNI_ALUM + "'");
+		int num = stmt.executeUpdate("UPDATE " + esquema + ".Alumnos SET " +"DNI_ALUM='" + DNI_ALUM + "'"+  ", " +"Nombre='"+Nombre+ "'" + ", " +"Apellido='"+Apellido+ "'" + ", " +"Tiempo_Empleado  ='"+TiempoEmpleado + "'"+", " + "DNI_TC='" + DNI_TC + "'"+", " + "DNI_TE='" + DNI_TE + "'"+ " WHERE DNI_ALUM='" + DNI_ALUM + "'");
 		return num;
 	}
 	
@@ -512,11 +515,14 @@ public ObservableList<Practicas> ConsultaPracticas() {
 			ResultSet rset = stmt.executeQuery("SELECT * FROM " +esquema +".Asignan" );
 			while(rset.next()) {
 				
+				SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+				
+				
 				String Num_Convenio = rset.getString(1);
 				String DNI_ALUM = rset.getString(2);
-				String Fecha_Inicio = rset.getString(3);
-				String Fecha_Terminacion  = rset.getString(4);
-				String Fecha_Final = rset.getString(5);
+				String Fecha_Inicio = sdf.format(rset.getDate(3));
+				String Fecha_Terminacion  = sdf.format(rset.getDate(4));
+				String Fecha_Final = sdf.format(rset.getDate(5));
 				String Dias_Semana = rset.getString(6);
 				String Tipo_Horario = rset.getString(7);
 				String Horas_al_dia = rset.getString(8);

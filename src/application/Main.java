@@ -530,6 +530,31 @@ public class Main extends Application {
 		
 	 }
 	 
+	 /**
+	  * ANEXOS
+	  */
+	 public void MostrarMenuaNEXOS() {
+		  try {
+		   
+		    // Load root layout from fxml file.
+			  FXMLLoader loader = new FXMLLoader();
+			  loader.setLocation(Main.class.getResource("UIMenuAnexos.fxml"));
+			  rootLayout = (AnchorPane) loader.load();
+			  // Show the scene containing the root layout.
+			  Scene scene = new Scene(rootLayout);
+			  primaryStage.setScene(scene);
+		            
+			  CMenuAlumnos controller = loader.getController();
+			  //controller.setListaCiclo(listaCiclo);
+			  controller.setMain(this);
+		            
+		            
+			  primaryStage.show();
+		  } catch(Exception e) {
+			  e.printStackTrace();
+		  }
+	 }
+	 
  
 }
 
