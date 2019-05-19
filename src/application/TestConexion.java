@@ -228,6 +228,11 @@ public class TestConexion {
 	
 	
 	
+	
+	
+	
+	
+	
 	/**
 	 * CENTRO
 	 */
@@ -296,6 +301,12 @@ public class TestConexion {
 		return num;
 	}
 
+	
+	
+	
+	
+	
+	
 
 
 
@@ -358,11 +369,19 @@ public class TestConexion {
 	}
 	
 	
+	
+
+	
+	
+	
+	
+	
 	/**
 	 * TUTOR EMPRESA
 	 */
 	
-	public ObservableList<TutorEmpresa> ConsultaTutorEmpresa() {
+	
+	public ObservableList<TutorEmpresa> ConsultaTodosTutorEmpresa() {
 		
 		ObservableList<TutorEmpresa> aux = FXCollections.observableArrayList();
 		
@@ -393,6 +412,80 @@ public class TestConexion {
 		
 	}
 	
+	public ObservableList<TutorEmpresa> ConsultaTutorEmpresaSeleccionado(String nombreempresa) {
+		
+		ObservableList<TutorEmpresa> aux = FXCollections.observableArrayList();
+		
+		try {
+			Statement stmt = conexion.createStatement();
+			ResultSet rset = stmt.executeQuery("SELECT * FROM "+ esquema + ".Tutor_Empresa, " + esquema + ".Empresa WHERE Empresa.Num_Convenio = Tutor_Empresa.Num_Convenio AND Empresa.Nombre_Empresa = '" + nombreempresa +"'");
+			while(rset.next()) {
+				
+				String DNI_TE = rset.getString(1);
+				String Nombre = rset.getString(2);
+				String Apellido = rset.getString(3);
+				String Telefono = rset.getString(4);
+				String Gmail = rset.getString(5);
+				String Num_Convenio = rset.getString(6);
+				
+				
+				System.out.println(DNI_TE + ", " + Nombre + ", " +Apellido + ", " +Telefono + ", " +Gmail + ", " +Num_Convenio);
+				TutorEmpresa auxTC = new TutorEmpresa(DNI_TE, Nombre, Apellido, Telefono, Gmail, Num_Convenio );
+				aux.add(auxTC);
+			}
+			rset.close();
+			stmt.close();
+			
+		}catch (SQLException s){
+			s.printStackTrace();
+		}
+		return aux;
+		
+	}
+	
+	public ObservableList<Empresa> ConsultaEmpresasParaContactoTE(String nombreempresas) {
+		
+		ObservableList<Empresa> aux = FXCollections.observableArrayList();
+		
+		try {
+			Statement stmt = conexion.createStatement();
+			ResultSet rset = stmt.executeQuery("SELECT * FROM "+ esquema + ".Empresa, " + esquema + ".Tutor_Empresa WHERE Empresa.Num_Convenio = Tutor_Empresa.Num_Convenio AND Empresa.Nombre_Empresa = '" + nombreempresas +"'");
+			while(rset.next()) {
+				
+				SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+				
+				String Num_Convenio = rset.getString(1);
+				String NIF = rset.getString(2);
+				String Nombre_Empresa = rset.getString(3);
+				String Representante_Empresa = rset.getString(4);
+				String Localidad = rset.getString(5);
+				String Provincia = rset.getString(6);
+				String Pais = rset.getString(7);
+				String Calle = rset.getString(8);
+				String Codigo_postal = rset.getString(9);
+				String CIF = rset.getString(10);
+				String Telefono = rset.getString(11);
+				String Fax = rset.getString(12);
+				String CiudadFirmaConvenio = rset.getString(13);
+				String FechaFirmaConvenio = sdf.format(rset.getDate(14));
+				
+				
+				System.out.println(Num_Convenio + ", " + NIF + ", " +Nombre_Empresa + ", " +Representante_Empresa + ", " +Localidad  + ", " + Provincia  + ", " + Pais  + ", " + Calle  + ", " + Codigo_postal  + ", " + CIF + ", " + Telefono +  ", " + Fax + ", " + CiudadFirmaConvenio  + ", " + FechaFirmaConvenio );
+				Empresa auxEmpresa = new Empresa(Num_Convenio, NIF, Nombre_Empresa, Representante_Empresa, Localidad, Provincia, Pais, Calle, Codigo_postal, CIF, Telefono, Fax, CiudadFirmaConvenio, FechaFirmaConvenio);
+				aux.add(auxEmpresa);
+			}
+			rset.close();
+			stmt.close();
+			
+		}catch (SQLException s){
+			s.printStackTrace();
+		}
+		return aux;
+		
+	}
+	
+	
+	
 	public static int InsertTutorEmpresa(String DNI_TC, String Nombre, String Apellido, String Telefono, String Gmail, String Num_Convenio ) throws SQLException{
 		
 		System.out.println("Voy a hacer un insert en la tabla Tutor Centro");
@@ -415,6 +508,27 @@ public class TestConexion {
 		System.out.println("UPDATE " + esquema + ".Tutor_Empresa SET " +"DNI_TE='" + DNI_TE + "'"+  ", " +"Nombre='"+Nombre+ "'" + ", " +"Apellido='"+Apellido+ "'" + ", " +"Telefono='"+Telefono + "'"+", " + "Gmail='" + Gmail + "'"+", " + "Num_Convenio='" + Num_Convenio + "'"+ " WHERE DNI_TE='" + DNI_TE + "'");
 		int num = stmt.executeUpdate("UPDATE " + esquema + ".Tutor_Empresa SET " +"DNI_TE='" + DNI_TE + "'"+  ", " +"Nombre='"+Nombre+ "'" + ", " +"Apellido='"+Apellido+ "'" + ", " +"Telefono='"+Telefono + "'"+", " + "Gmail='" + Gmail + "'"+", " + "Num_Convenio='" + Num_Convenio + "'"+ " WHERE DNI_TE='" + DNI_TE + "'");
 		return num;
+	}
+	
+	public ObservableList<String> ConsultaNombreEmpresas() {
+		
+		ObservableList<String> aux = FXCollections.observableArrayList();
+		
+		try {
+			Statement stmt = conexion.createStatement();
+			ResultSet rset = stmt.executeQuery("SELECT * FROM "  + esquema + ".Empresa" );
+			while(rset.next()) {
+				aux.add(rset.getString(3));
+
+			}
+			rset.close();
+			stmt.close();
+			
+		}catch (SQLException s){
+			s.printStackTrace();
+		}
+		return aux;
+		
 	}
 	
 	

@@ -107,7 +107,7 @@ public class CMenuPrincipal {
 	}
 	
 	public void MenuAnexos(ActionEvent event) throws IOException{
-
+		System.out.println("Abriendo ventana");
 		FXMLLoader loader = new FXMLLoader(Main.class.getResource("UIMenuAnexos.fxml"));
 		AnchorPane ventanaDos = (AnchorPane) loader.load();
         Stage ventana = new Stage();

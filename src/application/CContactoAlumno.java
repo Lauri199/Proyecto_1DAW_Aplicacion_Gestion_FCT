@@ -154,6 +154,13 @@ public class CContactoAlumno {
 		Criterio.setCellValueFactory(new PropertyValueFactory<Ciclo,String>("criterios_eva"));
 		Programa_Formativo.setCellValueFactory(new PropertyValueFactory<Ciclo,String>("programa_formativo"));
 		Cod_Centro.setCellValueFactory(new PropertyValueFactory<Ciclo,String>("cod_centro"));
+		
+		conexionbbdd = new TestConexion();
+		Tabla_TC.setItems(conexionbbdd.ConsultaTutorCentro());
+		Tabla_TE.setItems(conexionbbdd.ConsultaTodosTutorEmpresa());
+		Tabla_Ciclo.setItems(conexionbbdd.ConsultaCiclos());
+		
+		
 	}
     
     @FXML
@@ -165,7 +172,7 @@ public class CContactoAlumno {
     @FXML
 	public void ActualizaTablaTutorEmpresa(){
 		conexionbbdd = new TestConexion();
-		Tabla_TE.setItems(conexionbbdd.ConsultaTutorEmpresa());
+		Tabla_TE.setItems(conexionbbdd.ConsultaTodosTutorEmpresa());
 	}
     
     @FXML

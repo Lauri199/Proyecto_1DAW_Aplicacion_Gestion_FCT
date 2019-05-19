@@ -2,9 +2,12 @@ package application;
 
 import java.sql.SQLException;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -31,6 +34,11 @@ public class CContactoTutorEmpresa {
 	
 	@FXML
 	private TextField Gmail;
+	
+	@FXML
+	ChoiceBox<String> NombreEmpresa;
+	
+	ObservableList<String> EmpresasList = FXCollections.observableArrayList("");
 	
 	
 	
@@ -80,8 +88,7 @@ public class CContactoTutorEmpresa {
 	private TableColumn<Empresa,String> FechaFirmaConvenio;
 	
 	
-	@FXML
-	private Button Actualizar;
+	
 
 	
 	TestConexion conexionbbdd;
@@ -107,12 +114,22 @@ public class CContactoTutorEmpresa {
 		CiudadFirmaConvenio.setCellValueFactory(new PropertyValueFactory<Empresa,String>("ciudad_firma_convenio"));
 		FechaFirmaConvenio.setCellValueFactory(new PropertyValueFactory<Empresa,String>("fecha_firma_convenio"));
 		
+		conexionbbdd = new TestConexion();
+		//Tabla.setItems(conexionbbdd.ConsultaEmpresas());
+		
+		EmpresasList = conexionbbdd.ConsultaNombreEmpresas();
+		
+		NombreEmpresa.setItems(EmpresasList);
+		
 	}
     
     @FXML
 	public void ActualizaTabla(){
 		conexionbbdd = new TestConexion();
-		Tabla.setItems(conexionbbdd.ConsultaEmpresas());
+		String aux = NombreEmpresa.getSelectionModel().getSelectedItem();
+		System.out.println("se ha seleccionado  " + aux);
+		
+		Tabla.setItems(conexionbbdd.ConsultaEmpresasParaContactoTE(aux));
 	}
 
     public void setStageSecundario(Stage ventana) {

@@ -3,7 +3,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.fx.ide.jdt.core.JAVAFX_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/daw1.AI-ROBOT-O7/Desktop/DAW1 Laura/Base de datos/3º EVA/ojdbc6.jar"/>
-	<classpathentry kind="lib" path="C:/Users/daw1.AI-ROBOT-O7/Desktop/itext-5.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Laura/Desktop/DAW1/Programación/3º EVA/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Laura/Desktop/DAW1/PROYECTO/itext-5.0.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Alert.AlertType;
@@ -72,7 +73,9 @@ public class CMenuTutorCentroyEmpresa {
 	private TableColumn<TutorEmpresa,String> Num_Convenio_TE;
 
 	@FXML
-	private Button Actualizar_TE;
+	ChoiceBox<String> NombreEmpresa;
+	
+	ObservableList<String> EmpresasList = FXCollections.observableArrayList("");
 	
 	@FXML
 	private Button Borrar_TE;
@@ -111,6 +114,15 @@ private ObservableList<TutorEmpresa> data2 = FXCollections.observableArrayList()
 		Telefono_TE.setCellValueFactory(new PropertyValueFactory<TutorEmpresa,String>("telefono"));
 		Gmail_TE.setCellValueFactory(new PropertyValueFactory<TutorEmpresa,String>("gmail"));
 		Num_Convenio_TE.setCellValueFactory(new PropertyValueFactory<TutorEmpresa,String>("num_convenio"));
+		
+		conexionbbdd = new TestConexion();
+		
+		Tabla_TC.setItems(conexionbbdd.ConsultaTutorCentro());
+		Tabla_TE.setItems(conexionbbdd.ConsultaTodosTutorEmpresa());
+		
+		EmpresasList = conexionbbdd.ConsultaNombreEmpresas();
+		
+		NombreEmpresa.setItems(EmpresasList);
 	}
 	
 	public void setMain(Main ProgramaSecundario) {
@@ -197,7 +209,10 @@ private ObservableList<TutorEmpresa> data2 = FXCollections.observableArrayList()
 	@FXML
 	public void ActualizaTablaTutorEmpresa(){
 		conexionbbdd = new TestConexion();
-		Tabla_TE.setItems(conexionbbdd.ConsultaTutorEmpresa());
+		String aux = NombreEmpresa.getSelectionModel().getSelectedItem();
+		System.out.println("se ha seleccionado  " + aux);
+		
+		Tabla_TE.setItems(conexionbbdd.ConsultaTutorEmpresaSeleccionado(aux));
 	}
 	
 	

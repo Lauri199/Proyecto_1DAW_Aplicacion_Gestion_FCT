@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -11,16 +12,16 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CContactoTutorEmpresa">
    <children>
-      <TextField fx:id="DNI_TE" layoutX="151.0" layoutY="106.0" />
-      <TextField fx:id="Nombre" layoutX="151.0" layoutY="150.0" />
-      <Label layoutX="112.0" layoutY="110.0" text="DNI" />
-      <Label layoutX="90.0" layoutY="154.0" text="Nombre" />
-      <Label layoutX="90.0" layoutY="194.0" text="Apellido" />
-      <Label layoutX="89.0" layoutY="238.0" text="Telefono" />
-      <Label layoutX="106.0" layoutY="279.0" text="Gmail" />
-      <TextField fx:id="Apellido" layoutX="151.0" layoutY="190.0" />
-      <TextField fx:id="Telefono" layoutX="151.0" layoutY="234.0" />
-      <TextField fx:id="Gmail" layoutX="151.0" layoutY="275.0" />
+      <TextField fx:id="DNI_TE" layoutX="127.0" layoutY="105.0" />
+      <TextField fx:id="Nombre" layoutX="127.0" layoutY="149.0" />
+      <Label layoutX="88.0" layoutY="109.0" text="DNI" />
+      <Label layoutX="66.0" layoutY="153.0" text="Nombre" />
+      <Label layoutX="66.0" layoutY="193.0" text="Apellido" />
+      <Label layoutX="65.0" layoutY="237.0" text="Telefono" />
+      <Label layoutX="82.0" layoutY="278.0" text="Gmail" />
+      <TextField fx:id="Apellido" layoutX="127.0" layoutY="189.0" />
+      <TextField fx:id="Telefono" layoutX="127.0" layoutY="233.0" />
+      <TextField fx:id="Gmail" layoutX="127.0" layoutY="274.0" />
       <Text layoutX="85.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nuevo Tutor de Empresa">
          <font>
             <Font size="21.0" />
@@ -42,9 +43,9 @@
             <TableColumn fx:id="TelefonoColum" prefWidth="75.0" text="Telf" />
             <TableColumn fx:id="Fax" prefWidth="75.0" text="Fax" />
             <TableColumn fx:id="CiudadFirmaConvenio" prefWidth="75.0" text="Ciudad Firma" />
-            <TableColumn fx:id="FechaFirmaConvenio" prefWidth="75.0" text="Fecha firma" />
+            <TableColumn fx:id="FechaFirmaConvenio" prefWidth="75.0" text="Fecha Firma" />
          </columns>
       </TableView>
-      <Button fx:id="Actualizar" layoutX="327.0" layoutY="366.0" mnemonicParsing="false" onAction="#ActualizaTabla" text="Actualizar" />
+      <ChoiceBox fx:id="NombreEmpresa" layoutX="126.0" layoutY="324.0" onDragDetected="#ActualizaTabla" onDragDone="#ActualizaTabla" prefWidth="150.0" />
    </children>
 </AnchorPane>
