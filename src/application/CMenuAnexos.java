@@ -23,16 +23,14 @@ public class CMenuAnexos {
 	
 	//Direccion de donde se guardan los anexos
 	//C:\Users\Laura\git\Proyecto_1DAW_Aplicacion_Gestion_FCT\Proyecto_1DAW_Aplicacion_Gestion_FCT 
-		public static void GenerarAnexos(String[] args) throws FileNotFoundException, DocumentException {
+		public void GenerarAnexos() throws FileNotFoundException, DocumentException {
 			System.out.println("Metodo generar anexos");
-			DatosColegio coledata = new DatosColegio("DAVID","PEREZ ALONSO","03866873K","COLEGIO VALLE DEL MIRO","CC123445","MADRID","C/ CLARA CAMPOAMOR","28032","12345678","12345678","123456789","VALDEMORO", "SUROESTE");
-			DatosEmpresa empdata = new DatosEmpresa("DAVID","PEREZ ALONSO", "03866873K","INDRA","CC123445","MADRID","C/ CLARA CAMPOAMOR","28032","12345678","12345678","123456789","VALDEMORO");
-			DatosAlumnos alumno = new DatosAlumnos("18/19","IFS02","DAW","20/03/2019", "20/06/2019","5", "09:00","15:00h", "14:00","18:00", 8, 370, "Valdemoro", "C/ Murillo 17", "Juan Carlos","Mataix Gilbert","123456789P", "Pedro", "Camacho Ortega", "1111111111T","arturo", "Casado");
-
-			AnexoI anexoI = new AnexoI(coledata, empdata);
-			AnexoII anexoII = new AnexoII(coledata, empdata, alumno);
-			anexoI.generarAnexoI("", "");
-			anexoII.generarAnexoII("", "");
+			TestConexion conexionbbdd = new TestConexion();
+			
+			AnexoI anexoI = conexionbbdd.ConsultaAnexoI();
+			AnexoII anexoII =conexionbbdd.ConsultaAnexoII();
+			anexoI.generarAnexoI("AnexoI", "C:\\Users\\daw1.AI-ROBOT-O7\\");
+			anexoII.generarAnexoII("AnexoII", "C:\\Users\\daw1.AI-ROBOT-O7\\");
 
 		}
 		

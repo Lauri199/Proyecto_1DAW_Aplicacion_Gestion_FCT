@@ -1,6 +1,7 @@
 package application;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -145,13 +146,63 @@ public class CMenuCentro {
 		
 	}
 	
+	@FXML
+	public void BorrarTabla() throws SQLException{
+		Centro selectedCentro = Tabla.getSelectionModel().getSelectedItem();
+		if (selectedCentro != null) {
+			System.out.println("borrar ciclo");
+			conexionbbdd = new TestConexion();
+			try {
+				if(conexionbbdd.BorrarCentro(selectedCentro.getCod_centro())>0)
+				{
+					Alert alert = new Alert(AlertType.INFORMATION);
+		        	ShowAlertBorradoCiclo(alert);
+				}
+			}catch(Exception e){
+				Alert alert = new Alert(AlertType.INFORMATION);
+	        	ShowAlertErrorBorradoCentro(alert);
+			}
+			//Tabla.setItems(conexionbbdd.BorrarCiclo(this.ciclo.getClave_ciclo(), this.ciclo.getNom_ciclo(), this.ciclo.getFamilia_prof(), this.ciclo.getNum_cursos(), this.ciclo.getPeriod_pract(), this.ciclo.getCapac_term(), this.ciclo.getAct_form(), this.ciclo.getCriterios_eva(), this.ciclo.getPrograma_formativo(), this.ciclo.getCod_centro()));
+        	
+           // Tabla.setItems(this.ciclo.getClave_ciclo(), this.ciclo.getNom_ciclo(), this.ciclo.getFamilia_prof(), this.ciclo.getNum_cursos(), this.ciclo.getPeriod_pract(), this.ciclo.getCapac_term(), this.ciclo.getAct_form(), this.ciclo.getCriterios_eva(), this.ciclo.getPrograma_formativo(), this.ciclo.getCod_centro());
+        }else
+        {
+        	// Nothing selected.
+        	Alert alert = new Alert(AlertType.ERROR);
+        	ShowAlertNoSelectionCentro(alert);
+        }
+		
+	}
+	
+	
+	
+	private void ShowAlertErrorBorradoCentro(Alert alert) {
+		// TODO Apéndice de método generado automáticamente
+		alert.setTitle("Borrado");
+        alert.setHeaderText("Ha ocurrido un error al borrar este centro");
+        alert.setContentText("Hay ciclos en este centro, no se puede borrar");
+
+        alert.showAndWait();
+		
+	}
+
+	private void ShowAlertBorradoCiclo(Alert alert) {
+		// TODO Apéndice de método generado automáticamente
+		alert.setTitle("Borrado");
+        alert.setHeaderText("Ciclo Borrado");
+        alert.setContentText("El ciclo de ha sido borrado");
+
+        alert.showAndWait();
+		
+	}
+	
 	
 	
 	private void ShowAlertNoSelectionCentro(Alert alert){
 
         alert.setTitle("No Seleccionado");
         alert.setHeaderText("Centro no seleccionado");
-        alert.setContentText("Por favor!!! Seleccione un ciclo de la tabla");
+        alert.setContentText("Por favor!!! Seleccione un centro de la tabla");
 
         alert.showAndWait();
     }

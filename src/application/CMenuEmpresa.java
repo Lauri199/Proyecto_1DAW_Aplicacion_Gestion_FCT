@@ -1,6 +1,7 @@
 package application;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -151,11 +152,57 @@ public class CMenuEmpresa {
 		
 	}
 	
+	@FXML
+	public void BorrarTabla() throws SQLException{
+		Empresa selectedEmpresa = Tabla.getSelectionModel().getSelectedItem();
+		if (selectedEmpresa != null) {
+			System.out.println("borrar Empresa");
+			conexionbbdd = new TestConexion();
+			try {
+				if(conexionbbdd.BorrarEmpresa(selectedEmpresa.getNum_convenio())>0)
+				{
+					Alert alert = new Alert(AlertType.INFORMATION);
+		        	ShowAlertBorradoEmpresa(alert);
+				}
+			}catch(Exception e){
+				Alert alert = new Alert(AlertType.INFORMATION);
+	        	ShowAlertErrorBorradoEmpresa(alert);
+			}
+			
+		}else
+        {
+        	// Nothing selected.
+        	Alert alert = new Alert(AlertType.ERROR);
+        	ShowAlertNoSelectionEmpresa(alert);
+        }
+		
+	}
+	
+	private void ShowAlertErrorBorradoEmpresa(Alert alert) {
+		// TODO Apéndice de método generado automáticamente
+		alert.setTitle("Borrado");
+        alert.setHeaderText("Ha ocurrido un error al borrar esta empresa");
+        alert.setContentText("Hay alumnos realizando las practicas en esta empresa, no se puede borrar");
+
+        alert.showAndWait();
+		
+	}
+	
+	private void ShowAlertBorradoEmpresa(Alert alert) {
+		// TODO Apéndice de método generado automáticamente
+		alert.setTitle("Borrado");
+        alert.setHeaderText("Empresa Borrada");
+        alert.setContentText("La empresa ha sido borrada");
+
+        alert.showAndWait();
+		
+	}
+	
 	private void ShowAlertNoSelectionEmpresa(Alert alert){
 
         alert.setTitle("No Seleccionado");
         alert.setHeaderText("Empresa no seleccionada");
-        alert.setContentText("Por favor!!! Seleccione un ciclo de la tabla");
+        alert.setContentText("Por favor!!! Seleccione una empresa de la tabla");
 
         alert.showAndWait();
     }

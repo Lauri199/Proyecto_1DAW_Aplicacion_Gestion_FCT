@@ -1,6 +1,7 @@
 package application;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -124,24 +125,51 @@ public class CMenuAlumnos {
 	}
 	
 	
-	/*@FXML
-	public void BorrarTabla(){
-		Ciclo selectedCiclo = Tabla.getSelectionModel().getSelectedItem();
-		if (selectedCiclo != null) {
-			System.out.println("borrar ciclo");
+	@FXML
+	public void BorrarTabla() throws SQLException{
+		Alumno selectedAlumno = Tabla.getSelectionModel().getSelectedItem();
+		if (selectedAlumno != null) {
+			System.out.println("borrar Empresa");
 			conexionbbdd = new TestConexion();
-			Tabla.setItems(conexionbbdd.BorrarCiclo(this.ciclo.getClave_ciclo(), this.ciclo.getNom_ciclo(), this.ciclo.getFamilia_prof(), this.ciclo.getNum_cursos(), this.ciclo.getPeriod_pract(), this.ciclo.getCapac_term(), this.ciclo.getAct_form(), this.ciclo.getCriterios_eva(), this.ciclo.getPrograma_formativo(), this.ciclo.getCod_centro()));
-        	
-           // Tabla.setItems(this.ciclo.getClave_ciclo(), this.ciclo.getNom_ciclo(), this.ciclo.getFamilia_prof(), this.ciclo.getNum_cursos(), this.ciclo.getPeriod_pract(), this.ciclo.getCapac_term(), this.ciclo.getAct_form(), this.ciclo.getCriterios_eva(), this.ciclo.getPrograma_formativo(), this.ciclo.getCod_centro());
-        }
-        else
+			try {
+				if(conexionbbdd.BorrarAlumno(selectedAlumno.getDni_alum())>0)
+				{
+					Alert alert = new Alert(AlertType.INFORMATION);
+					ShowAlertBorradoAlumno(alert);
+				}
+			}catch(Exception e){
+				Alert alert = new Alert(AlertType.INFORMATION);
+				ShowAlertErrorBorradoAlumno(alert);
+			}
+			
+		}else
         {
         	// Nothing selected.
         	Alert alert = new Alert(AlertType.ERROR);
-        	ShowAlertNoSelectionCiclo(alert);
+        	ShowAlertNoSelectionAlumno(alert);
         }
 		
-	}*/
+	}
+	
+	private void ShowAlertErrorBorradoAlumno(Alert alert) {
+		// TODO Apéndice de método generado automáticamente
+		alert.setTitle("Borrado");
+        alert.setHeaderText("Ha ocurrido un error al borrar este alumno");
+        alert.setContentText("Este alumno esta cursando un ciclo, no se puede borrar");
+
+        alert.showAndWait();
+		
+	}
+	
+	private void ShowAlertBorradoAlumno(Alert alert) {
+		// TODO Apéndice de método generado automáticamente
+		alert.setTitle("Borrado");
+        alert.setHeaderText("Alumno Borrado");
+        alert.setContentText("El alumno ha sido borrado");
+
+        alert.showAndWait();
+		
+	}
 	
 	
 	

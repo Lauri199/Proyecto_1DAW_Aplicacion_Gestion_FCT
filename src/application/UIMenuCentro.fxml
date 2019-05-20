@@ -25,7 +25,7 @@
       </TableView>
       <Button fx:id="Modificar" layoutX="167.0" layoutY="305.0" mnemonicParsing="false" onAction="#EditarCentro" text="Modificar" />
       <Button fx:id="Agregar" layoutX="87.0" layoutY="305.0" mnemonicParsing="false" onAction="#ContactoCentro" text="Nuevo" />
-      <Button layoutX="264.0" layoutY="305.0" mnemonicParsing="false" text="Borrar" />
+      <Button fx:id="Borrar" layoutX="264.0" layoutY="305.0" mnemonicParsing="false" onAction="#BorrarTabla" text="Borrar" />
       <Button fx:id="Actualizar" layoutX="166.0" layoutY="349.0" mnemonicParsing="false" onAction="#ActualizaTabla" text="Actualizar" />
    </children>
 </AnchorPane>

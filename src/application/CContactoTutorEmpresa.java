@@ -115,7 +115,7 @@ public class CContactoTutorEmpresa {
 		FechaFirmaConvenio.setCellValueFactory(new PropertyValueFactory<Empresa,String>("fecha_firma_convenio"));
 		
 		conexionbbdd = new TestConexion();
-		//Tabla.setItems(conexionbbdd.ConsultaEmpresas());
+		Tabla.setItems(conexionbbdd.ConsultaEmpresas());
 		
 		EmpresasList = conexionbbdd.ConsultaNombreEmpresas();
 		
@@ -188,7 +188,7 @@ public class CContactoTutorEmpresa {
 
         alert.setTitle("No Seleccionado");
         alert.setHeaderText("Empresa no seleccionada");
-        alert.setContentText("Por favor!!! Seleccione un ciclo de la tabla");
+        alert.setContentText("Por favor!!! Seleccione una empresa de la tabla");
 
         alert.showAndWait();
     }

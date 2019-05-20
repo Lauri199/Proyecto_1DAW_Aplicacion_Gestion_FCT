@@ -149,19 +149,20 @@ public class CMenuCiclo {
 		if (selectedCiclo != null) {
 			System.out.println("borrar ciclo");
 			conexionbbdd = new TestConexion();
-			if(conexionbbdd.BorrarCiclo(selectedCiclo.getClave_ciclo(), selectedCiclo.getNom_ciclo(), selectedCiclo.getFamilia_prof(), selectedCiclo.getNum_cursos(), selectedCiclo.getPeriod_pract(), selectedCiclo.getCapac_term(), selectedCiclo.getAct_form(), selectedCiclo.getCriterios_eva(), selectedCiclo.getPrograma_formativo(), selectedCiclo.getCod_centro())>0)
-			{
-				Alert alert = new Alert(AlertType.INFORMATION);
-	        	ShowAlertBorradoCiclo(alert);
-			}else {
+			try {
+				if(conexionbbdd.BorrarCiclo(selectedCiclo.getClave_ciclo(), selectedCiclo.getNom_ciclo(), selectedCiclo.getFamilia_prof(), selectedCiclo.getNum_cursos(), selectedCiclo.getPeriod_pract(), selectedCiclo.getCapac_term(), selectedCiclo.getAct_form(), selectedCiclo.getCriterios_eva(), selectedCiclo.getPrograma_formativo(), selectedCiclo.getCod_centro())>0)
+				{
+					Alert alert = new Alert(AlertType.INFORMATION);
+		        	ShowAlertBorradoCiclo(alert);
+				}
+			}catch(Exception e){
 				Alert alert = new Alert(AlertType.INFORMATION);
 	        	ShowAlertErrorBorradoCiclo(alert);
 			}
 			//Tabla.setItems(conexionbbdd.BorrarCiclo(this.ciclo.getClave_ciclo(), this.ciclo.getNom_ciclo(), this.ciclo.getFamilia_prof(), this.ciclo.getNum_cursos(), this.ciclo.getPeriod_pract(), this.ciclo.getCapac_term(), this.ciclo.getAct_form(), this.ciclo.getCriterios_eva(), this.ciclo.getPrograma_formativo(), this.ciclo.getCod_centro()));
         	
            // Tabla.setItems(this.ciclo.getClave_ciclo(), this.ciclo.getNom_ciclo(), this.ciclo.getFamilia_prof(), this.ciclo.getNum_cursos(), this.ciclo.getPeriod_pract(), this.ciclo.getCapac_term(), this.ciclo.getAct_form(), this.ciclo.getCriterios_eva(), this.ciclo.getPrograma_formativo(), this.ciclo.getCod_centro());
-        }
-        else
+        }else
         {
         	// Nothing selected.
         	Alert alert = new Alert(AlertType.ERROR);

@@ -27,7 +27,7 @@
       </TableView>
       <Button fx:id="Modificar_TE" layoutX="167.0" layoutY="265.0" mnemonicParsing="false" onAction="#EditarTutorEmpresa" text="Modificar" />
       <Button fx:id="Agregar_TE" layoutX="87.0" layoutY="265.0" mnemonicParsing="false" onAction="#ContactoTutorEmpresa" text="Nuevo" />
-      <Button fx:id="Borrar_TE" layoutX="264.0" layoutY="265.0" mnemonicParsing="false" text="Borrar" />
+      <Button fx:id="Borrar_TE" layoutX="264.0" layoutY="265.0" mnemonicParsing="false" onAction="#BorrarTablaTE" text="Borrar" />
       <Text layoutX="147.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tutor de Centro">
          <font>
             <Font size="15.0" />
@@ -44,7 +44,7 @@
       </TableView>
       <Button fx:id="Modificar_TC" layoutX="167.0" layoutY="587.0" mnemonicParsing="false" onAction="#EditarTutorCentro" text="Modificar" />
       <Button fx:id="Agregar_TC" layoutX="87.0" layoutY="587.0" mnemonicParsing="false" onAction="#ContactoTutorCentro" text="Nuevo" />
-      <Button fx:id="Borrar_TC" layoutX="264.0" layoutY="587.0" mnemonicParsing="false" text="Borrar" />
+      <Button fx:id="Borrar_TC" layoutX="264.0" layoutY="587.0" mnemonicParsing="false" onAction="#BorrarTablaTC" text="Borrar" />
       <Button fx:id="Actualizar_TC" layoutX="166.0" layoutY="623.0" mnemonicParsing="false" onAction="#ActualizaTablaTutorCentro" text="Actualizar" />
       <ChoiceBox fx:id="NombreEmpresa" layoutX="318.0" layoutY="51.0" onDragDetected="#ActualizaTablaTutorEmpresa" onDragDone="#ActualizaTablaTutorEmpresa" prefHeight="26.0" prefWidth="95.0" />
    </children>

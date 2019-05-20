@@ -140,65 +140,63 @@ public class CMenuPracticas {
         {
         	// No se ha seleccionado nada.
         	Alert alert = new Alert(AlertType.ERROR);
-        	ShowAlertNoSelectionCiclo(alert);
+        	ShowAlertNoSelectionPractica(alert);
         }
 		
 	}
 	
-	/*@FXML
+	@FXML
 	public void BorrarTabla() throws SQLException{
-		Practicas selectedPracticas = Tabla.getSelectionModel().getSelectedItem();
-		if (selectedPracticas != null) {
-			System.out.println("borrar ciclo");
+		Practicas selectedPractica = Tabla.getSelectionModel().getSelectedItem();
+		if (selectedPractica != null) {
+			System.out.println("borrar Practica");
 			conexionbbdd = new TestConexion();
-			if(conexionbbdd.BorrarCiclo(selectedPracticas.getClave_ciclo(), selectedCiclo.getNom_ciclo(), selectedCiclo.getFamilia_prof(), selectedCiclo.getNum_cursos(), selectedCiclo.getPeriod_pract(), selectedCiclo.getCapac_term(), selectedCiclo.getAct_form(), selectedCiclo.getCriterios_eva(), selectedCiclo.getPrograma_formativo(), selectedCiclo.getCod_centro())>0)
-			{
+			try {
+				if(conexionbbdd.BorrarPractica(selectedPractica.getDni_alum(), selectedPractica.getNum_convenio() )>0)
+				{
+					Alert alert = new Alert(AlertType.INFORMATION);
+					ShowAlertBorradoPractica(alert);
+				}
+			}catch(Exception e){
 				Alert alert = new Alert(AlertType.INFORMATION);
-	        	ShowAlertBorradoCiclo(alert);
-			}else {
-				Alert alert = new Alert(AlertType.INFORMATION);
-	        	ShowAlertErrorBorradoCiclo(alert);
+				ShowAlertErrorBorradoPractica(alert);
 			}
-			//Tabla.setItems(conexionbbdd.BorrarCiclo(this.ciclo.getClave_ciclo(), this.ciclo.getNom_ciclo(), this.ciclo.getFamilia_prof(), this.ciclo.getNum_cursos(), this.ciclo.getPeriod_pract(), this.ciclo.getCapac_term(), this.ciclo.getAct_form(), this.ciclo.getCriterios_eva(), this.ciclo.getPrograma_formativo(), this.ciclo.getCod_centro()));
-        	
-           // Tabla.setItems(this.ciclo.getClave_ciclo(), this.ciclo.getNom_ciclo(), this.ciclo.getFamilia_prof(), this.ciclo.getNum_cursos(), this.ciclo.getPeriod_pract(), this.ciclo.getCapac_term(), this.ciclo.getAct_form(), this.ciclo.getCriterios_eva(), this.ciclo.getPrograma_formativo(), this.ciclo.getCod_centro());
-        }
-        else
+			
+		}else
         {
         	// Nothing selected.
         	Alert alert = new Alert(AlertType.ERROR);
-        	ShowAlertNoSelectionCiclo(alert);
+        	ShowAlertNoSelectionPractica(alert);
         }
 		
-	}*/
+	}
 	
-	
-	
-	private void ShowAlertErrorBorradoCiclo(Alert alert) {
+	private void ShowAlertErrorBorradoPractica(Alert alert) {
 		// TODO Apéndice de método generado automáticamente
 		alert.setTitle("Borrado");
-        alert.setHeaderText("Ha ocurrido un error al borrar este ciclo");
-        alert.setContentText("Hay alumnos estudiando este ciclo, no se puede borrar");
+        alert.setHeaderText("Ha ocurrido un error al borrar esta practica");
+        alert.setContentText("Estos Alumnos siguen haciendo estas practicas, no se pueden borrar");
 
         alert.showAndWait();
 		
 	}
-
-	private void ShowAlertBorradoCiclo(Alert alert) {
+	
+	private void ShowAlertBorradoPractica(Alert alert) {
 		// TODO Apéndice de método generado automáticamente
 		alert.setTitle("Borrado");
-        alert.setHeaderText("Ciclo Borrado");
-        alert.setContentText("El ciclo de ha sido borrado");
+        alert.setHeaderText("Practica Borrada");
+        alert.setContentText("La practica ha sido borrada");
 
         alert.showAndWait();
 		
 	}
+	
 
-	private void ShowAlertNoSelectionCiclo(Alert alert){
+	private void ShowAlertNoSelectionPractica(Alert alert){
 
         alert.setTitle("No Seleccionado");
-        alert.setHeaderText("Ciclo no seleccionado");
-        alert.setContentText("Por favor!!! Seleccione un ciclo de la tabla");
+        alert.setHeaderText("Elemento no seleccionado");
+        alert.setContentText("Por favor!!! Seleccione un elemento de la tabla");
 
         alert.showAndWait();
     }

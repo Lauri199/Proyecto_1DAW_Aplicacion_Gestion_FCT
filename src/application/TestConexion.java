@@ -68,6 +68,146 @@ public class TestConexion {
 	}
 	
 	/**
+	 * ANEXOS
+	 */
+	
+	public AnexoI ConsultaAnexoI() {
+	
+		AnexoI aux = null;
+		
+		try {
+			Statement stmt = conexion.createStatement();
+			ResultSet rset = stmt.executeQuery("SELECT Empresa.Num_Convenio, Centro.Representante_Centro, Centro.NIF, Centro.NombreCentro, Centro.Cod_Centro, Centro.Ciudad, Centro.Provincia, Centro.Calle, Centro.Codigo_Postal, Centro.CIF, Centro.Telefono, Centro.Fax, Centro.DAT, Empresa.Representante_Empresa, Empresa.NIF, Empresa.Nombre_Empresa, Empresa.Localidad, Empresa.Provincia, Empresa.Pais, Empresa.Calle, Empresa.Codigo_Postal, Empresa.CIF, Empresa.Telefono, Empresa.Fax FROM " + esquema + ".Empresa, " + esquema + ".Centro, " + esquema + ".Ciclos, " + esquema + ".Cursan, " + esquema + ".Alumnos, " + esquema + ".Asignan WHERE Centro.Cod_Centro=Ciclos.Cod_Centro AND Ciclos.Clave_Ciclo=Cursan.Clave_Ciclo AND Cursan.DNI_ALUM=Alumnos.DNI_ALUM AND Alumnos.DNI_ALUM=Asignan.DNI_ALUM AND Asignan.Num_Convenio=Empresa.Num_Convenio AND Empresa.Num_Convenio='12345G'\r\n" + 
+					"" );
+			while(rset.next()) {
+				
+				String Num_Convenio = rset.getString(1);
+				String Representante_Centro = rset.getString(2);
+				String Apellidos = "";
+				String NIF = rset.getString(3);
+				String NombreCentro = rset.getString(4);
+				String Cod_Centro = rset.getString(5);
+				String Ciudad = rset.getString(6);
+				String Provincia = rset.getString(7);
+				String Calle = rset.getString(8);
+				String Codigo_Postal = rset.getString(9);
+				String CIF = rset.getString(10);
+				String Telefono = rset.getString(11);
+				String Fax = rset.getString(12);
+				String DAT = rset.getString(12);
+				String Representante_Empresa = rset.getString(13);
+				String Apellido_Representante_Empresa="";
+				String NIF_Empresa = rset.getString(14);
+				String Nombre_Empresa = rset.getString(15);
+				String Localidad = rset.getString(16);
+				String Provincia_Empresa = rset.getString(17);
+				String Pais = rset.getString(18);
+				String Calle_Empresa = rset.getString(19);
+				String Codigo_Postal_Empresa = rset.getString(20);
+				String CIF_Empresa = rset.getString(21);
+				String Telefono_Empresa = rset.getString(22);
+				String Fax_Empresa = rset.getString(23);
+				
+	
+				DatosColegio auxDatosColegio = new DatosColegio(Representante_Centro, Apellidos, NIF, NombreCentro, Cod_Centro, Provincia, Calle, Codigo_Postal, CIF, Telefono, Fax, Ciudad, DAT);
+				DatosEmpresa auxDatosEmpresa = new DatosEmpresa(Representante_Empresa, Apellido_Representante_Empresa, NIF_Empresa, Nombre_Empresa, Num_Convenio, Provincia_Empresa, Calle_Empresa, Codigo_Postal_Empresa, CIF_Empresa, Telefono_Empresa, Fax_Empresa, Localidad);
+				//AnexoI auxAnexo = new AnexoI(Num_Convenio, Representante_Centro, NIF, NombreCentro, Cod_Centro, Ciudad, Provincia, Calle, Codigo_Postal, CIF, Telefono, Fax, Representante_Centro, NIF_Empresa, Nombre_Empresa, Localidad, Provincia_Empresa, Pais, Calle_Empresa, Codigo_Postal_Empresa, CIF_Empresa, Telefono_Empresa, Fax_Empresa);
+				
+				aux = new AnexoI(auxDatosColegio, auxDatosEmpresa);
+				
+			}
+			rset.close();
+			stmt.close();
+			
+		}catch (SQLException s){
+			s.printStackTrace();
+		}
+		return aux;
+		
+	}
+	
+	
+	public AnexoII ConsultaAnexoII() {
+		
+		AnexoII aux = null;
+		
+		try {
+			Statement stmt = conexion.createStatement();
+			ResultSet rset = stmt.executeQuery("SELECT Ce.DAT, E.Num_Convenio, Ce.NombreCentro, E.Nombre_Empresa, Ci.Clave_Ciclo, Ci.Nombre_Ciclo, A.Fecha_Inicio, A.Fecha_Terminacion, A.Dias_Semana, A.Tipo_Horario, A.Horas_al_dia, a.Total_horas, A.Hora_Inicio, A.Hora_terminacion, E.Localidad, E.Calle, Ce.NIF, TE.Nombre, TE.Apellido, E.CiudadFirmaConvenio, E.FechaFirmaConvenio, Ce.Representante_Centro, E.Representante_Empresa, Ce.Cod_Centro, Ce.Provincia, E.NIF, Ce.Codigo_Postal, Ce.CIF, Ce.Telefono, Ce.Fax, Ce.Ciudad, E.Provincia, E.Codigo_Postal, E.CIF, E.Telefono, E.Fax, C.Curso, Ce.Calle, Alum.Nombre, Alum.Apellido, Alum.DNI_ALUM, TC.DNI_TC, TC.Nombre, TC.Apellido, TE.DNI_TE FROM "+ esquema + ".Empresa E, " + esquema + ".Centro Ce, " + esquema + ".Ciclos Ci, " + esquema + ".Cursan C, "+ esquema + ".Alumnos Alum, "+ esquema + ".Asignan A, "+ esquema + ".Tutor_Empresa TE, " + esquema + ".Tutor_Centro TC WHERE Ce.Cod_Centro=Ci.Cod_Centro AND Ci.Clave_Ciclo=C.Clave_Ciclo AND C.DNI_ALUM=Alum.DNI_ALUM AND Alum.DNI_ALUM=A.DNI_ALUM AND A.Num_Convenio=E.Num_Convenio AND TE.Num_Convenio=E.Num_Convenio AND TC.DNI_TC=Alum.DNI_TC AND E.Num_Convenio='12345G'");
+			while(rset.next()) {
+				
+				SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+				
+				String DAT = rset.getString(1);
+				String Num_Convenio = rset.getString(2);
+				String NombreCentro = rset.getString(3);
+				String Nombre_Empresa = rset.getString(4);
+				String Clave_Ciclo = rset.getString(5);
+				String Nombre_Ciclo = rset.getString(6);
+				String FechaInicio = sdf.format(rset.getDate(7));
+				String Fecha_Terminacion = sdf.format(rset.getDate(8));
+				String Dias_Semana = rset.getString(9);
+				String Tipo_Horario = rset.getString(10);
+				int Horas_al_dia = rset.getInt(11);
+				int Total_horas = rset.getInt(12);
+				String Hora_Inicio = rset.getString(13);
+				String Hora_terminacion = rset.getString(14);
+				String horainiciotarde="";
+				String horafintarde="";
+				String Localidad = rset.getString(15);
+				String Calle_Empresa = rset.getString(16);
+				String NIF = rset.getString(17);
+				String Nombre_TE = rset.getString(18);
+				String Apellidos_TE = rset.getString(19);
+				String CiudadFirmaConvenio = rset.getString(20);
+				String FechaFirmaConvenio = rset.getString(21);
+				String Representante_Centro = rset.getString(22);
+				String Apellidos = "";
+				String Representante_Empresa = rset.getString(23);
+				String Apellido_Representante_Empresa="";
+				String Cod_Centro = rset.getString(24);
+				String Provincia = rset.getString(25);
+				String NIF_Empresa = rset.getString(26);
+				String Codigo_Postal = rset.getString(27);
+				String CIF = rset.getString(28);
+				String Telefono = rset.getString(29);
+				String Fax = rset.getString(30);
+				String Ciudad = rset.getString(31);
+				String Provincia_Empresa = rset.getString(32);
+				String Codigo_Postal_Empresa = rset.getString(33);
+				String CIF_Empresa = rset.getString(34);
+				String Telefono_Empresa = rset.getString(35);
+				String Fax_Empresa = rset.getString(36);
+				String Curso = rset.getString(36);
+				String Calle = rset.getString(37);
+				String Nombre_Alum = rset.getString(38);
+				String Apellido_Alum = rset.getString(39);
+				String DNI_ALUM = rset.getString(40);
+				String DNI_TC = rset.getString(41);
+				String Nombre_TC = rset.getString(42);
+				String Apellido_TC = rset.getString(43);
+				String DNI_TE = rset.getString(44);
+				
+				
+				DatosColegio auxDatosColegio = new DatosColegio(Representante_Centro, Apellidos, NIF, NombreCentro, Cod_Centro, Provincia, Calle, Codigo_Postal, CIF, Telefono, Fax, Ciudad, DAT);
+				DatosEmpresa auxDatosEmpresa = new DatosEmpresa(Representante_Empresa, Apellido_Representante_Empresa, NIF_Empresa, Nombre_Empresa, Num_Convenio, Provincia_Empresa, Calle_Empresa, Codigo_Postal_Empresa, CIF_Empresa, Telefono_Empresa, Fax_Empresa, Localidad);
+				DatosAlumnos auxDatosAlumnos = new DatosAlumnos(Curso, Clave_Ciclo, Nombre_Ciclo, FechaInicio, Fecha_Terminacion, Dias_Semana, Hora_Inicio, horainiciotarde, Hora_terminacion, horafintarde, Horas_al_dia, Total_horas, Localidad, Calle, Nombre_Alum, Apellido_Alum, DNI_ALUM, Nombre_TC, Apellido_TC, DNI_TC, Nombre_TE, Apellidos_TE);
+				//AnexoI auxAnexo = new AnexoI(Num_Convenio, Representante_Centro, NIF, NombreCentro, Cod_Centro, Ciudad, Provincia, Calle, Codigo_Postal, CIF, Telefono, Fax, Representante_Centro, NIF_Empresa, Nombre_Empresa, Localidad, Provincia_Empresa, Pais, Calle_Empresa, Codigo_Postal_Empresa, CIF_Empresa, Telefono_Empresa, Fax_Empresa);
+				
+				aux = new AnexoII(auxDatosColegio, auxDatosEmpresa, auxDatosAlumnos);
+				
+			}
+			rset.close();
+			stmt.close();
+			
+		}catch (SQLException s){
+			s.printStackTrace();
+		}
+		return aux;
+		
+	}
+	
+	/**
 	 * CICLO
 	 */
 		
@@ -136,8 +276,8 @@ public class TestConexion {
 		
 		Statement stmt = conexion.createStatement();
 		
-		System.out.println("DELETE FROM " + esquema + ".CICLOS WHERE clave_Ciclo=" + "'"+ clave_Ciclo +"'" + ", " +"Nombre_Ciclo='"+Nombre_Ciclo+ "'" + ", " +"Familia_Profesional='"+Familia_Profesional+ "'" + ", " +"Num_Cursos="+Num_Cursos + ", " + "Periodo_Practicas='" + Periodo_Practicas + "'"+  ", " +"Capacidades_terminales='"+"'" + ", " +"Act_Activo_Formativas='"+"'" + ", " +"Criterios_Evaluacion='"+"'" + ", " + "ProgramaFormativo='" + ProgramaFormativo+ "'" + ", " + "Cod_Centro="+ Cod_Centro );
-		int num = stmt.executeUpdate("DELETE FROM " + esquema + ".CICLOS WHERE clave_Ciclo=" + "'"+ clave_Ciclo +"'" + ", " +"Nombre_Ciclo='"+Nombre_Ciclo+ "'" + ", " +"Familia_Profesional='"+Familia_Profesional+ "'" + ", " +"Num_Cursos="+Num_Cursos + ", " + "Periodo_Practicas='" + Periodo_Practicas + "'"+  ", " +"Capacidades_terminales='"+"'" + ", " +"Act_Activo_Formativas='"+"'" + ", " +"Criterios_Evaluacion='"+"'" + ", " + "ProgramaFormativo='" + ProgramaFormativo+ "'" + ", " + "Cod_Centro="+ Cod_Centro );
+		System.out.println("DELETE FROM " + esquema + ".CICLOS WHERE clave_Ciclo=" + "'"+ clave_Ciclo +"'");
+		int num = stmt.executeUpdate("DELETE FROM " + esquema + ".CICLOS WHERE clave_Ciclo=" + "'"+ clave_Ciclo +"'");
 		return num;
 	}
 	
@@ -215,14 +355,14 @@ public class TestConexion {
 		return num;
 	}
 	
-	public static int BorrarEmpresa(String Num_Convenio, String NIF, String Nombre_Empresa, String Representante_Empresa , String Localidad, String Provincia, String Pais, String Calle, String Codigo_postal, String CIF, String Telefono, String Fax, String CiudadFirmaConvenio, String FechaFirmaConvenio) throws SQLException{
+	public static int BorrarEmpresa(String Num_Convenio) throws SQLException{
 		
 		System.out.println("Voy a borrar un elemento en la tabla Empresa");
 		
 		Statement stmt = conexion.createStatement();
 		
-		System.out.println("DELETE FROM " + esquema + ".CICLOS WHERE " +"Num_Convenio='" + Num_Convenio + "'"+  ", " +"NIF='"+NIF+ "'" + ", " +"Nombre_Empresa='"+Nombre_Empresa+ "'" + ", " + "Familia_Profesional='" + "'" + "+ " +"Representante_Empresa='"+Representante_Empresa + "'"+ ", " + "Localidad='" + Localidad + "'"+  ", " +"Provincia='"+ Provincia +"'" + ", " +"Pais='"+Pais+"'" + ", " +"Calle='"+Calle+"'" + ", " + "Codigo_postal='" + Codigo_postal+ "'" + ", " + "CIF='"+ CIF + "'"+ ", " + "Telefono='"+ Telefono + "'" + ", "+ "Fax='"+ Fax + "'" + ", "+ "CiudadFirmaConvenio='"+ CiudadFirmaConvenio + "'" + ", "+ "FechaFirmaConvenio='"+ FechaFirmaConvenio + "'" +" WHERE Num_Convenio='" + Num_Convenio + "'");
-		int num = stmt.executeUpdate("DELETE FROM " + esquema + ".CICLOS WHERE " +"Num_Convenio='" + Num_Convenio + "'"+  ", " +"NIF='"+NIF+ "'" + ", " +"Nombre_Empresa='"+Nombre_Empresa+ "'" + ", " + "Familia_Profesional='" + "'" + "+ " +"Representante_Empresa='"+Representante_Empresa + "'"+ ", " + "Localidad='" + Localidad + "'"+  ", " +"Provincia='"+ Provincia +"'" + ", " +"Pais='"+Pais+"'" + ", " +"Calle='"+Calle+"'" + ", " + "Codigo_postal='" + Codigo_postal+ "'" + ", " + "CIF='"+ CIF + "'"+ ", " + "Telefono='"+ Telefono + "'" + ", "+ "Fax='"+ Fax + "'" + ", "+ "CiudadFirmaConvenio='"+ CiudadFirmaConvenio + "'" + ", "+ "FechaFirmaConvenio='"+ FechaFirmaConvenio + "'" +" WHERE Num_Convenio='" + Num_Convenio + "'");
+		System.out.println("DELETE FROM " + esquema + ".EMPRESA WHERE Num_Convenio='" + Num_Convenio + "'");
+		int num = stmt.executeUpdate("DELETE FROM " + esquema + ".EMPRESA WHERE Num_Convenio='" + Num_Convenio + "'");
 		return num;
 	}
 	
@@ -300,6 +440,16 @@ public class TestConexion {
 		int num = stmt.executeUpdate("UPDATE " + esquema + ".Centro SET " +"Cod_Centro=" + Cod_Centro + ", " +"Representante_Centro='"+Representante_Centro+ "'" + ", " +"NIF='"+NIF+ "'" + ", " +"NombreCentro='"+NombreCentro + "'" + ", " + "Ciudad='" + Ciudad + "'"+  ", " +"Provincia='"+Provincia+"'" + ", " +"Calle='"+Calle+"'" + ", " +"Codigo_postal='"+Codigo_postal+"'" + ", " + "CIF='" + CIF+ "'" + ", " + "Telefono='"+ Telefono + "'" + ", " + "Fax='"+ Fax + "'" + ", " + "DAT='"+ DAT + "'" + " WHERE Cod_Centro=" + Cod_Centro);
 		return num;
 	}
+	public static int BorrarCentro(String Cod_Centro) throws SQLException{
+		
+		System.out.println("Voy a borrar un elemento en la tabla Centro");
+		
+		Statement stmt = conexion.createStatement();
+		
+		System.out.println("DELETE FROM " + esquema + ".Centro WHERE Cod_Centro='" + Cod_Centro + "'");
+		int num = stmt.executeUpdate("DELETE FROM " + esquema + ".Centro WHERE Cod_Centro='" + Cod_Centro + "'");
+		return num;
+	}
 
 	
 	
@@ -365,6 +515,16 @@ public class TestConexion {
 		
 		System.out.println("UPDATE " + esquema + ".Tutor_Centro SET " +"DNI_TC='" + DNI_TC + "'"+  ", " +"Nombre='"+Nombre+ "'" + ", " +"Apellido='"+Apellido+ "'" + ", " +"Telefono='"+Telefono + "'"+", " + "Gmail='" + Gmail + "'"+ " WHERE DNI_TC='" + DNI_TC + "'");
 		int num = stmt.executeUpdate("UPDATE " + esquema + ".Tutor_Centro SET " +"DNI_TC='" + DNI_TC + "'"+  ", " +"Nombre='"+Nombre+ "'" + ", " +"Apellido='"+Apellido+ "'" + ", " +"Telefono='"+Telefono + "'"+", " + "Gmail='" + Gmail + "'"+ " WHERE DNI_TC='" + DNI_TC + "'");
+		return num;
+	}
+	public static int BorrarTutorCentro(String DNI_TC ) throws SQLException{
+		
+		System.out.println("Voy a borrar un elemento en la tabla Tutor_Centro");
+		
+		Statement stmt = conexion.createStatement();
+		
+		System.out.println("DELETE FROM " + esquema + ".Tutor_Centro WHERE DNI_TC ='" + DNI_TC + "'");
+		int num = stmt.executeUpdate("DELETE FROM " + esquema + ".Tutor_Centro WHERE DNI_TC ='" + DNI_TC + "'");
 		return num;
 	}
 	
@@ -510,6 +670,17 @@ public class TestConexion {
 		return num;
 	}
 	
+	public static int BorrarTutorEmpresa(String DNI_TE ) throws SQLException{
+		
+		System.out.println("Voy a borrar un elemento en la tabla Tutor_Empresa");
+		
+		Statement stmt = conexion.createStatement();
+		
+		System.out.println("DELETE FROM " + esquema + ".Tutor_Empresa WHERE DNI_TE ='" + DNI_TE + "'");
+		int num = stmt.executeUpdate("DELETE FROM " + esquema + ".Tutor_Empresa WHERE DNI_TE ='" + DNI_TE + "'");
+		return num;
+	}
+	
 	public ObservableList<String> ConsultaNombreEmpresas() {
 		
 		ObservableList<String> aux = FXCollections.observableArrayList();
@@ -591,6 +762,17 @@ public class TestConexion {
 		return num;
 	}
 	
+	public static int BorrarAlumno(String DNI_ALUM ) throws SQLException{
+		
+		System.out.println("Voy a borrar un elemento en la tabla Alumnos");
+		
+		Statement stmt = conexion.createStatement();
+		
+		System.out.println("DELETE FROM " + esquema + ".Alumnos WHERE DNI_ALUM ='" + DNI_ALUM + "'");
+		int num = stmt.executeUpdate("DELETE FROM " + esquema + ".Alumnos WHERE DNI_ALUM ='" + DNI_ALUM + "'");
+		return num;
+	}
+	
 	/**
 	 * CURSAN
 	 */
@@ -620,7 +802,7 @@ public class TestConexion {
 	}
 	
 	
-public ObservableList<Practicas> ConsultaPracticas() {
+	public ObservableList<Practicas> ConsultaPracticas() {
 		
 		ObservableList<Practicas> aux = FXCollections.observableArrayList();
 		
@@ -683,6 +865,17 @@ public ObservableList<Practicas> ConsultaPracticas() {
 		return num;
 		
 		
+	}
+	
+	public static int BorrarPractica(String DNI_ALUM, String Num_Convenio) throws SQLException{
+		
+		System.out.println("Voy a borrar un elemento en la tabla Asignan");
+		
+		Statement stmt = conexion.createStatement();
+		
+		System.out.println("DELETE FROM " + esquema + ".Asignan WHERE DNI_ALUM ='" + DNI_ALUM + "'" + "Num_Convenio ='" + Num_Convenio + "'");
+		int num = stmt.executeUpdate("DELETE FROM " + esquema + ".Asignan WHERE DNI_ALUM ='" + DNI_ALUM + "'" + "Num_Convenio ='" + Num_Convenio + "'");
+		return num;
 	}
 
 	

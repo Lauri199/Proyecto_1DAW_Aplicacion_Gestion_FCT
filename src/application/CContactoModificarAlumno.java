@@ -237,8 +237,8 @@ public class CContactoModificarAlumno {
     private void ShowAlertNoSelectionCiclo(Alert alert){
 
         alert.setTitle("No Seleccionado");
-        alert.setHeaderText("Empresa no seleccionada");
-        alert.setContentText("Por favor!!! Seleccione un ciclo de la tabla");
+        alert.setHeaderText("Elemento o elementos no seleccionada");
+        alert.setContentText("Por favor!!! Seleccione todos los elementos de todas las tablas");
 
         alert.showAndWait();
     }

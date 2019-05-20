@@ -1,6 +1,7 @@
 package application;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -174,24 +175,31 @@ private ObservableList<TutorEmpresa> data2 = FXCollections.observableArrayList()
 		
 	}
 	
-	/*@FXML
-	public void BorrarTabla(){
-		Ciclo selectedCiclo = Tabla.getSelectionModel().getSelectedItem();
-		if (selectedCiclo != null) {
-			System.out.println("borrar ciclo");
+	@FXML
+	public void BorrarTablaTC() throws SQLException{
+		TutorCentro selectedTC = Tabla_TC.getSelectionModel().getSelectedItem();
+		if (selectedTC != null) {
+			System.out.println("borrar Tutor Centro");
 			conexionbbdd = new TestConexion();
-			Tabla.setItems(conexionbbdd.BorrarCiclo(this.ciclo.getClave_ciclo(), this.ciclo.getNom_ciclo(), this.ciclo.getFamilia_prof(), this.ciclo.getNum_cursos(), this.ciclo.getPeriod_pract(), this.ciclo.getCapac_term(), this.ciclo.getAct_form(), this.ciclo.getCriterios_eva(), this.ciclo.getPrograma_formativo(), this.ciclo.getCod_centro()));
-        	
-           // Tabla.setItems(this.ciclo.getClave_ciclo(), this.ciclo.getNom_ciclo(), this.ciclo.getFamilia_prof(), this.ciclo.getNum_cursos(), this.ciclo.getPeriod_pract(), this.ciclo.getCapac_term(), this.ciclo.getAct_form(), this.ciclo.getCriterios_eva(), this.ciclo.getPrograma_formativo(), this.ciclo.getCod_centro());
-        }
-        else
+			try {
+				if(conexionbbdd.BorrarTutorCentro(selectedTC.getDni())>0)
+				{
+					Alert alert = new Alert(AlertType.INFORMATION);
+		        	ShowAlertBorradoTC(alert);
+				}
+			}catch(Exception e){
+				Alert alert = new Alert(AlertType.INFORMATION);
+	        	ShowAlertErrorBorradoTC(alert);
+			}
+			
+		}else
         {
         	// Nothing selected.
         	Alert alert = new Alert(AlertType.ERROR);
-        	ShowAlertNoSelectionCiclo(alert);
+        	ShowAlertNoSelectionTutorCentro(alert);
         }
 		
-	}*/
+	}
 	
 	
 	public void ContactoTutorEmpresa(ActionEvent event) throws IOException{
@@ -240,6 +248,32 @@ private ObservableList<TutorEmpresa> data2 = FXCollections.observableArrayList()
 		
 	}
 	
+	@FXML
+	public void BorrarTablaTE() throws SQLException{
+		TutorEmpresa selectedTE = Tabla_TE.getSelectionModel().getSelectedItem();
+		if (selectedTE != null) {
+			System.out.println("borrar Tutor Empresa");
+			conexionbbdd = new TestConexion();
+			try {
+				if(conexionbbdd.BorrarTutorEmpresa(selectedTE.getDni())>0)
+				{
+					Alert alert = new Alert(AlertType.INFORMATION);
+		        	ShowAlertBorradoTE(alert);
+				}
+			}catch(Exception e){
+				Alert alert = new Alert(AlertType.INFORMATION);
+	        	ShowAlertErrorBorradoTE(alert);
+			}
+			
+		}else
+        {
+        	// Nothing selected.
+        	Alert alert = new Alert(AlertType.ERROR);
+        	ShowAlertNoSelectionTutorEmpresa(alert);
+        }
+		
+	}
+	
 	
 	
 	private void ShowAlertNoSelectionTutorEmpresa(Alert alert){
@@ -251,6 +285,26 @@ private ObservableList<TutorEmpresa> data2 = FXCollections.observableArrayList()
         alert.showAndWait();
     }
 	
+	private void ShowAlertErrorBorradoTE(Alert alert) {
+		// TODO Apéndice de método generado automáticamente
+		alert.setTitle("Borrado");
+        alert.setHeaderText("Ha ocurrido un error al borrar este Tutor de la Empresa");
+        alert.setContentText("Hay tutores que estan a cargo de varios alumnos, no se puede borrar");
+
+        alert.showAndWait();
+		
+	}
+	
+	private void ShowAlertBorradoTE(Alert alert) {
+		// TODO Apéndice de método generado automáticamente
+		alert.setTitle("Borrado");
+        alert.setHeaderText("Tutor de la empresa borrado");
+        alert.setContentText("El tutor ha sido borrado");
+
+        alert.showAndWait();
+		
+	}
+	
 	private void ShowAlertNoSelectionTutorCentro(Alert alert){
 
         alert.setTitle("No Seleccionado");
@@ -259,6 +313,26 @@ private ObservableList<TutorEmpresa> data2 = FXCollections.observableArrayList()
 
         alert.showAndWait();
     }
+	
+	private void ShowAlertErrorBorradoTC(Alert alert) {
+		// TODO Apéndice de método generado automáticamente
+		alert.setTitle("Borrado");
+        alert.setHeaderText("Ha ocurrido un error al borrar este Tutor del Centro");
+        alert.setContentText("Hay tutores que estan a cargo de varios alumnos, no se puede borrar");
+
+        alert.showAndWait();
+		
+	}
+	
+	private void ShowAlertBorradoTC(Alert alert) {
+		// TODO Apéndice de método generado automáticamente
+		alert.setTitle("Borrado");
+        alert.setHeaderText("Tutor del centro borrado");
+        alert.setContentText("El tutor ha sido borrado");
+
+        alert.showAndWait();
+		
+	}
 	
 	public boolean isOkClicked() {
     	return okClicked;
