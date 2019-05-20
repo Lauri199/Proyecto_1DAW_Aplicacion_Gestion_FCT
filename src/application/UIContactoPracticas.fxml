@@ -40,7 +40,7 @@
             <Font size="15.0" />
          </font>
       </Text>
-      <TableView fx:id="Tabla_Empresa" layoutX="52.0" layoutY="504.0" prefHeight="200.0" prefWidth="202.0">
+      <TableView fx:id="Tabla_Empresa" layoutX="55.0" layoutY="483.0" prefHeight="200.0" prefWidth="202.0">
          <columns>
             <TableColumn fx:id="Num_Convenio" prefWidth="91.20001220703125" text="Num Convenio" />
             <TableColumn fx:id="Nombre_Empresa" prefWidth="108.79998779296875" text="Nombre Empresa" />
@@ -58,7 +58,7 @@
             <TableColumn fx:id="FechaFirmaConvenio" prefWidth="75.0" text="Fecha firma" />
          </columns>
       </TableView>
-      <TableView fx:id="Tabla_Alum" layoutX="281.0" layoutY="504.0" prefHeight="200.0" prefWidth="245.0">
+      <TableView fx:id="Tabla_Alum" layoutX="283.0" layoutY="483.0" prefHeight="200.0" prefWidth="245.0">
          <columns>
             <TableColumn fx:id="DNI_ALUM" prefWidth="84.0" text="DNI" />
             <TableColumn fx:id="Nombre" prefWidth="74.39996337890625" text="Nombre" />
@@ -68,7 +68,5 @@
             <TableColumn fx:id="DNI_TE" prefWidth="75.0" text="DNI Tutor Empresa" />
          </columns>
       </TableView>
-      <Button fx:id="Actualizar_Empresa" layoutX="52.0" layoutY="479.0" mnemonicParsing="false" onAction="#ActualizaTablaEmpresa" text="Actualizar" />
-      <Button fx:id="Actualizar_Alumno" layoutX="290.0" layoutY="479.0" mnemonicParsing="false" onAction="#ActualizaTablaAlumno" text="Actualizar" />
    </children>
 </AnchorPane>

@@ -75,12 +75,13 @@ public class CContactoTutorCentro {
 		} catch (SQLException e) {
 			// TODO Bloque catch generado automáticamente
 			e.printStackTrace();
+			isInputValid();
 		}
 
     }
 
     
-    private boolean isInputValid() {
+    private void isInputValid() {
         String errorMessage = "";
 
         if (DNI_TC.getText() == null || DNI_TC.getText().length() == 0) {
@@ -89,7 +90,7 @@ public class CContactoTutorCentro {
         if (Nombre.getText() == null || Nombre.getText().length() == 0) {
             errorMessage += "Nombre no válido!\n";
         }
-        if (Apellido.getText() == null || Apellido.getText().length() != 0) {
+        if (Apellido.getText() == null || Apellido.getText().length() == 0) {
             errorMessage += "Apellido no válido!\n";
         }
         
@@ -101,16 +102,15 @@ public class CContactoTutorCentro {
         }
         
         
-        if (errorMessage.length() == 0) {
-            return true;
-        } else {
+        if (errorMessage.length() != 0) {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Campos incorrectos!!");
             alert.setContentText("Por favor, corrija campos incorrectos");
+            alert.setContentText(errorMessage);
 
             alert.showAndWait();
-            return false;
+            
         }
     }
 

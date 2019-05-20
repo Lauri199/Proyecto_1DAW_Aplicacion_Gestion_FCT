@@ -32,6 +32,7 @@ public class Main extends Application {
 	            Scene scene = new Scene(rootLayout);
 	            primaryStage.setScene(scene);
 	            primaryStage.show();
+	            scene.getStylesheets().add("MiHojaEstilos.css");
 	           } catch(Exception e) {
 	   e.printStackTrace();
 	  }
@@ -58,6 +59,7 @@ public class Main extends Application {
 	            
 	            
 		  primaryStage.show();
+		  scene.getStylesheets().add("MiHojaEstilos.css");
 	  } catch(Exception e) {
 		  e.printStackTrace();
 	  }
@@ -78,6 +80,7 @@ public class Main extends Application {
 		  controller.setStageSecundario(primaryStage);
 	            
 		  primaryStage.show();
+		  scene.getStylesheets().add("MiHojaEstilos.css");
 	            
 		  return controller.isOkClicked();
 	  } catch(Exception e) {
@@ -102,6 +105,7 @@ public class Main extends Application {
 			  controller.setStageSecundario(primaryStage);
 		            
 			  primaryStage.show();
+			  scene.getStylesheets().add("MiHojaEstilos.css");
 		      return controller.isOkClicked();
 		  } catch(Exception e) {
 			  e.printStackTrace();
@@ -131,6 +135,7 @@ public class Main extends Application {
 		            
 		            
 			  primaryStage.show();
+			  scene.getStylesheets().add("MiHojaEstilos.css");
 		  } catch(Exception e) {
 			  e.printStackTrace();
 		  }
@@ -151,6 +156,7 @@ public class Main extends Application {
 			  controller.setStageSecundario(primaryStage);
 		            
 			  primaryStage.show();
+			  scene.getStylesheets().add("MiHojaEstilos.css");
 		            
 			  return controller.isOkClicked();
 		  } catch(Exception e) {
@@ -176,6 +182,7 @@ public class Main extends Application {
 			  controller.setStageSecundario(primaryStage);
 		            
 			  primaryStage.show();
+			  scene.getStylesheets().add("MiHojaEstilos.css");
 		      return controller.isOkClicked();
 		  } catch(Exception e) {
 			  e.printStackTrace();
@@ -205,6 +212,7 @@ public class Main extends Application {
 		            
 		            
 			  primaryStage.show();
+			  scene.getStylesheets().add("MiHojaEstilos.css");
 		  } catch(Exception e) {
 			  e.printStackTrace();
 		  }
@@ -225,6 +233,7 @@ public class Main extends Application {
 			  controller.setStageSecundario(primaryStage);
 		            
 			  primaryStage.show();
+			  scene.getStylesheets().add("MiHojaEstilos.css");
 		            
 			  return controller.isOkClicked();
 		  } catch(Exception e) {
@@ -249,6 +258,7 @@ public class Main extends Application {
 			  controller.setStageSecundario(primaryStage);
 		            
 			  primaryStage.show();
+			  scene.getStylesheets().add("MiHojaEstilos.css");
 		      return controller.isOkClicked();
 		  } catch(Exception e) {
 			  e.printStackTrace();
@@ -278,6 +288,7 @@ public class Main extends Application {
 		            
 		            
 			  primaryStage.show();
+			  scene.getStylesheets().add("MiHojaEstilos.css");
 		  } catch(Exception e) {
 			  e.printStackTrace();
 		  }
@@ -298,6 +309,7 @@ public class Main extends Application {
 			  controller.setStageSecundario(primaryStage);
 		            
 			  primaryStage.show();
+			  scene.getStylesheets().add("MiHojaEstilos.css");
 		            
 			  return controller.isOkClicked();
 		  } catch(Exception e) {
@@ -322,6 +334,7 @@ public class Main extends Application {
 			  controller.setStageSecundario(primaryStage);
 		            
 			  primaryStage.show();
+			  scene.getStylesheets().add("MiHojaEstilos.css");
 		      return controller.isOkClicked();
 		  } catch(Exception e) {
 			  e.printStackTrace();
@@ -349,6 +362,7 @@ public class Main extends Application {
 			  controller.setStageSecundario(primaryStage);
 		            
 			  primaryStage.show();
+			  scene.getStylesheets().add("MiHojaEstilos.css");
 		            
 			  return controller.isOkClicked();
 		  } catch(Exception e) {
@@ -373,6 +387,7 @@ public class Main extends Application {
 			  controller.setStageSecundario(primaryStage);
 		            
 			  primaryStage.show();
+			  scene.getStylesheets().add("MiHojaEstilos.css");
 		      return controller.isOkClicked();
 		  } catch(Exception e) {
 			  e.printStackTrace();
@@ -405,6 +420,7 @@ public class Main extends Application {
 		            
 		            
 			  primaryStage.show();
+			  scene.getStylesheets().add("MiHojaEstilos.css");
 		  } catch(Exception e) {
 			  e.printStackTrace();
 		  }
@@ -425,6 +441,7 @@ public class Main extends Application {
 			  controller.setStageSecundario(primaryStage);
 		            
 			  primaryStage.show();
+			  scene.getStylesheets().add("MiHojaEstilos.css");
 		            
 			  return controller.isOkClicked();
 		  } catch(Exception e) {
@@ -449,6 +466,7 @@ public class Main extends Application {
 			  controller.setStageSecundario(primaryStage);
 		            
 			  primaryStage.show();
+			  scene.getStylesheets().add("MiHojaEstilos.css");
 		      return controller.isOkClicked();
 		  } catch(Exception e) {
 			  e.printStackTrace();
@@ -478,6 +496,7 @@ public class Main extends Application {
 		            
 		            
 			  primaryStage.show();
+			  scene.getStylesheets().add("MiHojaEstilos.css");
 		  } catch(Exception e) {
 			  e.printStackTrace();
 		  }
@@ -498,7 +517,7 @@ public class Main extends Application {
 			  controller.setStageSecundario(primaryStage);
 		            
 			  primaryStage.show();
-		            
+			  scene.getStylesheets().add("MiHojaEstilos.css");
 			  return controller.isOkClicked();
 		  } catch(Exception e) {
 			  e.printStackTrace();
@@ -522,6 +541,7 @@ public class Main extends Application {
 			  controller.setStageSecundario(primaryStage);
 		            
 			  primaryStage.show();
+			  scene.getStylesheets().add("MiHojaEstilos.css");
 		      return controller.isOkClicked();
 		  } catch(Exception e) {
 			  e.printStackTrace();
@@ -550,6 +570,7 @@ public class Main extends Application {
 		            
 		            
 			  primaryStage.show();
+			  scene.getStylesheets().add("MiHojaEstilos.css");
 		  } catch(Exception e) {
 			  e.printStackTrace();
 		  }

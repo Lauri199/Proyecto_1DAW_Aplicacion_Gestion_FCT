@@ -7,12 +7,12 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CMenuEmpresa">
    <children>
-      <TableView fx:id="Tabla" layoutX="77.0" layoutY="63.0" prefHeight="200.0" prefWidth="245.0">
+      <TableView fx:id="Tabla" layoutX="50.0" layoutY="72.0" prefHeight="200.0" prefWidth="300.0">
          <columns>
             <TableColumn fx:id="Num_Convenio" prefWidth="91.20001220703125" text="Num Convenio" />
-            <TableColumn fx:id="NIF" prefWidth="45.60003662109375" text="NIF" />
-            <TableColumn fx:id="Nombre_Empresa" prefWidth="108.79998779296875" text="Nombre Empresa" />
-            <TableColumn fx:id="Representante_Empresa" prefWidth="56.00006103515625" text="Representante" />
+            <TableColumn fx:id="NIF" prefWidth="87.199951171875" text="NIF" />
+            <TableColumn fx:id="Nombre_Empresa" prefWidth="126.40008544921875" text="Nombre Empresa" />
+            <TableColumn fx:id="Representante_Empresa" minWidth="0.0" prefWidth="0.0" text="Representante" />
             <TableColumn fx:id="Localidad" prefWidth="75.0" text="Localidad" />
             <TableColumn fx:id="Provincia" prefWidth="75.0" text="Provincia" />
             <TableColumn fx:id="Pais" prefWidth="75.0" text="Pais" />

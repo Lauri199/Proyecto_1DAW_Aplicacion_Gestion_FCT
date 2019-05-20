@@ -7,19 +7,19 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CMenuPracticas">
    <children>
-      <TableView fx:id="Tabla" layoutX="77.0" layoutY="62.0" prefHeight="200.0" prefWidth="245.0">
+      <TableView fx:id="Tabla" layoutX="50.0" layoutY="66.0" prefHeight="200.0" prefWidth="300.0">
          <columns>
             <TableColumn fx:id="Num_Convenio" prefWidth="91.20001220703125" text="Num Convenio" />
             <TableColumn fx:id="DNI_ALUM" prefWidth="79.20001220703125" text="DNI Alumo" />
-            <TableColumn fx:id="Fecha_Inicio" prefWidth="76.0" text="Fech Inicio" />
-            <TableColumn fx:id="Fecha_Terminacion" prefWidth="56.00006103515625" text="Fech Terminacion" />
-            <TableColumn fx:id="Fecha_Final" prefWidth="75.0" text="Fech Final" />
-            <TableColumn fx:id="Dias_Semana" prefWidth="75.0" text="Dias Semana" />
-            <TableColumn fx:id="Tipo_Horario" prefWidth="75.0" text="Tipo Horario" />
-            <TableColumn fx:id="Horas_al_dia" prefWidth="75.0" text="Horas al día" />
-            <TableColumn fx:id="Total_horas" prefWidth="75.0" text="Total de horas" />
-            <TableColumn fx:id="Hora_Inicio" prefWidth="75.0" text="Hora Inicio" />
-            <TableColumn fx:id="Hora_terminacion" prefWidth="75.0" text="Hora terminacion" />
+            <TableColumn fx:id="Fecha_Inicio" prefWidth="84.800048828125" text="Fech Inicio" />
+            <TableColumn fx:id="Fecha_Terminacion" prefWidth="106.39997863769531" text="Fech Terminacion" />
+            <TableColumn fx:id="Fecha_Final" prefWidth="68.79998779296875" text="Fech Final" />
+            <TableColumn fx:id="Dias_Semana" prefWidth="83.199951171875" text="Dias Semana" />
+            <TableColumn fx:id="Tipo_Horario" prefWidth="76.79998779296875" text="Tipo Horario" />
+            <TableColumn fx:id="Horas_al_dia" prefWidth="79.20001220703125" text="Horas al día" />
+            <TableColumn fx:id="Total_horas" prefWidth="87.99993896484375" text="Total de horas" />
+            <TableColumn fx:id="Hora_Inicio" prefWidth="74.4000244140625" text="Hora Inicio" />
+            <TableColumn fx:id="Hora_terminacion" prefWidth="112.0" text="Hora terminacion" />
          </columns>
       </TableView>
       <Button fx:id="Modificar" layoutX="167.0" layoutY="312.0" mnemonicParsing="false" onAction="#EditarPractica" text="Modificar" />

@@ -48,6 +48,7 @@ public class CMenuPrincipal {
         Scene scene = new Scene(ventanaDos);
         ventana.setScene(scene);
         ventana.show();
+        scene.getStylesheets().add("MiHojaEstilos.css");
 	}
 	
 	public void MenuEmpresa(ActionEvent event) throws IOException{
@@ -59,6 +60,7 @@ public class CMenuPrincipal {
         Scene scene = new Scene(ventanaDos);
         ventana.setScene(scene);
         ventana.show();
+        scene.getStylesheets().add("MiHojaEstilos.css");
 	}
 	
 	public void MenuTutores(ActionEvent event) throws IOException{
@@ -70,6 +72,7 @@ public class CMenuPrincipal {
         Scene scene = new Scene(ventanaDos);
         ventana.setScene(scene);
         ventana.show();
+        scene.getStylesheets().add("MiHojaEstilos.css");
 	}
 	
 	public void MenuCentro(ActionEvent event) throws IOException{
@@ -81,6 +84,7 @@ public class CMenuPrincipal {
         Scene scene = new Scene(ventanaDos);
         ventana.setScene(scene);
         ventana.show();
+        scene.getStylesheets().add("MiHojaEstilos.css");
 	}
 	
 	public void MenuPracticas(ActionEvent event) throws IOException{
@@ -92,6 +96,7 @@ public class CMenuPrincipal {
         Scene scene = new Scene(ventanaDos);
         ventana.setScene(scene);
         ventana.show();
+        scene.getStylesheets().add("MiHojaEstilos.css");
 	}
 	
 	
@@ -104,6 +109,7 @@ public class CMenuPrincipal {
         Scene scene = new Scene(ventanaDos);
         ventana.setScene(scene);
         ventana.show();
+        scene.getStylesheets().add("MiHojaEstilos.css");
 	}
 	
 	public void MenuAnexos(ActionEvent event) throws IOException{
@@ -114,6 +120,8 @@ public class CMenuPrincipal {
         ventana.setTitle("Venta Dos");
         Scene scene = new Scene(ventanaDos);
         ventana.setScene(scene);
+        scene.getStylesheets().add("MiHojaEstilos.css");
         ventana.show();
+        
 	}
 }

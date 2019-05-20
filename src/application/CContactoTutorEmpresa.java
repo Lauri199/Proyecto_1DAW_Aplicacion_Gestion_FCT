@@ -35,10 +35,6 @@ public class CContactoTutorEmpresa {
 	@FXML
 	private TextField Gmail;
 	
-	@FXML
-	ChoiceBox<String> NombreEmpresa;
-	
-	ObservableList<String> EmpresasList = FXCollections.observableArrayList("");
 	
 	
 	
@@ -116,21 +112,8 @@ public class CContactoTutorEmpresa {
 		
 		conexionbbdd = new TestConexion();
 		Tabla.setItems(conexionbbdd.ConsultaEmpresas());
-		
-		EmpresasList = conexionbbdd.ConsultaNombreEmpresas();
-		
-		NombreEmpresa.setItems(EmpresasList);
-		
 	}
     
-    @FXML
-	public void ActualizaTabla(){
-		conexionbbdd = new TestConexion();
-		String aux = NombreEmpresa.getSelectionModel().getSelectedItem();
-		System.out.println("se ha seleccionado  " + aux);
-		
-		Tabla.setItems(conexionbbdd.ConsultaEmpresasParaContactoTE(aux));
-	}
 
     public void setStageSecundario(Stage ventana) {
 		// TODO Auto-generated method stub
@@ -180,6 +163,7 @@ public class CContactoTutorEmpresa {
 		} catch (SQLException e) {
 			// TODO Bloque catch generado automáticamente
 			e.printStackTrace();
+			isInputValid();
 		}
 
     }
@@ -191,10 +175,11 @@ public class CContactoTutorEmpresa {
         alert.setContentText("Por favor!!! Seleccione una empresa de la tabla");
 
         alert.showAndWait();
+        isInputValid();
     }
 
     
-    private boolean isInputValid() {
+    private void isInputValid() {
         String errorMessage = "";
 
         if (DNI_TE.getText() == null || DNI_TE.getText().length() == 0) {
@@ -203,7 +188,7 @@ public class CContactoTutorEmpresa {
         if (Nombre.getText() == null || Nombre.getText().length() == 0) {
             errorMessage += "Nombre no válido!\n";
         }
-        if (Apellido.getText() == null || Apellido.getText().length() != 0) {
+        if (Apellido.getText() == null || Apellido.getText().length() == 0) {
             errorMessage += "Apellido no válido!\n";
         }
         
@@ -215,16 +200,15 @@ public class CContactoTutorEmpresa {
         }
         
         
-        if (errorMessage.length() == 0) {
-            return true;
-        } else {
+        if (errorMessage.length() != 0) {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Campos incorrectos!!");
             alert.setContentText("Por favor, corrija campos incorrectos");
+            alert.setContentText(errorMessage);
 
             alert.showAndWait();
-            return false;
+            
         }
     }
 

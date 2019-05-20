@@ -93,6 +93,8 @@ public class CMenuPracticas {
 		Hora_Inicio.setCellValueFactory(new PropertyValueFactory<Practicas,String>("hora_inicio"));
 		Hora_terminacion.setCellValueFactory(new PropertyValueFactory<Practicas,String>("hora_terminacion"));
 		
+		conexionbbdd = new TestConexion();
+		Tabla.setItems(conexionbbdd.ConsultaPracticas());
 	}
 	
 	public void setMain(Main ProgramaSecundario) {
@@ -109,7 +111,9 @@ public class CMenuPracticas {
         ventana.setTitle("Venta Dos");
         Scene scene = new Scene(ventanaDos);
         ventana.setScene(scene);
+        scene.getStylesheets().add("MiHojaEstilos.css");
         ventana.show();
+        
 	}
 		
 	
@@ -133,6 +137,7 @@ public class CMenuPracticas {
 	        CContactoModificarPractica cicloseleccionado = loader.getController();
 	        cicloseleccionado.setPractica(selectedPractica);
 	        ventana.setScene(scene);
+	        scene.getStylesheets().add("MiHojaEstilos.css");
 	        ventana.show();
         	
 		}

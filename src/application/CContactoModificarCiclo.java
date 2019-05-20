@@ -87,27 +87,6 @@ public class CContactoModificarCiclo {
     	return okClicked;
     }
 
-    
-    @FXML
-    private void handleOk() {
-    	if (isInputValid()) {
-            ciclo.setClave_ciclo(Clave_Ciclo.getText());
-            ciclo.setNom_ciclo(Nombre_Ciclo.getText());
-            ciclo.setFamilia_prof(Familia_Profesional.getText());
-            ciclo.setNum_cursos(Num_Cursos.getText());
-            ciclo.setPeriod_pract(Periodo_Practicas.getText());
-            /*
-            ciclo.setCapac_term(Capacidades_terminales.getText());
-            ciclo.setAct_form(Act_Activo_Formativas.getText());
-            ciclo.setCriterios_eva(Criterios_Evaluacion.getText());
-            */
-            ciclo.setPrograma_formativo(ProgramaFormativo.getText());
-            ciclo.setCod_centro(Cod_Centro.getText());
-
-            okClicked = true;
-            ventanaTres.close();
-        }
-    }
 
     @FXML
     private void handleCancel() {
@@ -122,12 +101,13 @@ public class CContactoModificarCiclo {
 		} catch (SQLException e) {
 			// TODO Bloque catch generado automáticamente
 			e.printStackTrace();
+			isInputValid();
 		}
 
     }
 
     
-    private boolean isInputValid() {
+    private void isInputValid() {
         String errorMessage = "";
 
         if (Clave_Ciclo.getText() == null || Clave_Ciclo.getText().length() == 0) {
@@ -136,7 +116,7 @@ public class CContactoModificarCiclo {
         if (Nombre_Ciclo.getText() == null || Nombre_Ciclo.getText().length() == 0) {
             errorMessage += "Nombre del ciclo no válido!\n";
         }
-        if (Familia_Profesional.getText() == null || Familia_Profesional.getText().length() != 9) {
+        if (Familia_Profesional.getText() == null || Familia_Profesional.getText().length() == 0) {
             errorMessage += "Familia profesional no válida!\n";
         }
         
@@ -147,7 +127,7 @@ public class CContactoModificarCiclo {
             errorMessage += "Periodo de practicas no válido!\n";
         }
         /*
-        if (Capacidades_terminales.getText() == null || Capacidades_terminales.getText().length() != 9) {
+        if (Capacidades_terminales.getText() == null || Capacidades_terminales.getText().length() == 0) {
             errorMessage += "Capacidades terminales no válidas!\n";
         }
         
@@ -158,21 +138,17 @@ public class CContactoModificarCiclo {
             errorMessage += "Criterios de evaluacion no válidos!\n";
         }
         */
-        if (ProgramaFormativo.getText() == null || ProgramaFormativo.getText().length() != 9) {
-            errorMessage += "Programa Formativo no válido!\n";
-        }
         
         
-        if (errorMessage.length() == 0) {
-            return true;
-        } else {
+        if (errorMessage.length() != 0){
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Campos incorrectos!!");
             alert.setContentText("Por favor, corrija campos incorrectos");
+            alert.setContentText(errorMessage);
 
             alert.showAndWait();
-            return false;
+            
         }
     }
 

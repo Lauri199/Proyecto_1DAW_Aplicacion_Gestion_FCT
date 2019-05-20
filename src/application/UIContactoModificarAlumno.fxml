@@ -75,8 +75,5 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <Button fx:id="Actualizar_TC" layoutX="26.0" layoutY="459.0" mnemonicParsing="false" onAction="#ActualizaTablaTutorCentro" text="Actualizar" />
-      <Button fx:id="Actualizar_TE" layoutX="451.0" layoutY="459.0" mnemonicParsing="false" onAction="#ActualizaTablaTutorEmpresa" text="Actualizar" />
-      <Button fx:id="ActualizarCiclo" layoutX="417.0" layoutY="499.0" mnemonicParsing="false" onAction="#ActualizaTablaCiclo" text="Actualizar" />
    </children>
 </AnchorPane>

@@ -68,7 +68,5 @@
             <TableColumn fx:id="DNI_TE" prefWidth="75.0" text="DNI Tutor Empresa" />
          </columns>
       </TableView>
-      <Button fx:id="Actualizar_Empresa" layoutX="33.0" layoutY="475.0" mnemonicParsing="false" onAction="#ActualizaTablaEmpresa" text="Actualizar" />
-      <Button fx:id="Actualizar_Alumno" layoutX="264.0" layoutY="475.0" mnemonicParsing="false" onAction="#ActualizaTablaAlumno" text="Actualizar" />
    </children>
 </AnchorPane>

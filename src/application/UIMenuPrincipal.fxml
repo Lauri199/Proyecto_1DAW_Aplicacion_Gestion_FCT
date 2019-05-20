@@ -11,7 +11,7 @@
          <graphic>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../daw1.AI-ROBOT-O7/Desktop/DAW1%20Laura/Proyecto/Iconos/icono-empresa-png-6.png" />
+                  <Image url="@../../../../../Desktop/DAW1/PROYECTO/ICONOS/icono-empresa-png-6.png" />
                </image>
             </ImageView>
          </graphic>

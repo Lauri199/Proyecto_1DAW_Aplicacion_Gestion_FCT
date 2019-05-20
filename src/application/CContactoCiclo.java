@@ -106,6 +106,7 @@ public class CContactoCiclo {
 		} catch (SQLException e) {
 			// TODO Bloque catch generado automáticamente
 			e.printStackTrace();
+			isInputValid();
 		}
 
     }
@@ -113,7 +114,7 @@ public class CContactoCiclo {
     
 
     
-    private boolean isInputValid() {
+    private void isInputValid() {
         String errorMessage = "";
 
         if (Clave_Ciclo.getText() == null || Clave_Ciclo.getText().length() == 0) {
@@ -133,7 +134,7 @@ public class CContactoCiclo {
             errorMessage += "Periodo de practicas no válido!\n";
         }
         /*
-        if (Capacidades_terminales.getText() == null || Capacidades_terminales.getText().length() != 9) {
+        if (Capacidades_terminales.getText() == null || Capacidades_terminales.getText().length() == 0) {
             errorMessage += "Capacidades terminales no válidas!\n";
         }
         
@@ -153,16 +154,15 @@ public class CContactoCiclo {
         }
         
         
-        if (errorMessage.length() == 0) {
-            return true;
-        } else {
+        if (errorMessage.length() != 0){
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Campos incorrectos!!");
             alert.setContentText("Por favor, corrija campos incorrectos");
+            alert.setContentText(errorMessage);
 
             alert.showAndWait();
-            return false;
+            
         }
     }
     

@@ -95,6 +95,9 @@ public class CMenuCentro {
 		Fax.setCellValueFactory(new PropertyValueFactory<Centro,String>("fax"));
 		DAT.setCellValueFactory(new PropertyValueFactory<Centro,String>("dat"));
 		
+		conexionbbdd = new TestConexion();
+		Tabla.setItems(conexionbbdd.ConsultaCentro());
+		
 	}
 	
 	public void setMain(Main ProgramaSecundario) {
@@ -111,7 +114,9 @@ public class CMenuCentro {
         ventana.setTitle("V2 Centro");
         Scene scene = new Scene(ventanaDos);
         ventana.setScene(scene);
+        scene.getStylesheets().add("MiHojaEstilos.css");
         ventana.show();
+        
 	}
 	
 	@FXML
@@ -133,6 +138,7 @@ public class CMenuCentro {
 	        CContactoModificarCentro centroseleccionado = loader.getController();
 	        centroseleccionado.setCentro(selectedCentro);
 	        ventana.setScene(scene);
+	        scene.getStylesheets().add("MiHojaEstilos.css");
 	        ventana.show();
         	
            // Tabla.setItems(this.ciclo.getClave_ciclo(), this.ciclo.getNom_ciclo(), this.ciclo.getFamilia_prof(), this.ciclo.getNum_cursos(), this.ciclo.getPeriod_pract(), this.ciclo.getCapac_term(), this.ciclo.getAct_form(), this.ciclo.getCriterios_eva(), this.ciclo.getPrograma_formativo(), this.ciclo.getCod_centro());

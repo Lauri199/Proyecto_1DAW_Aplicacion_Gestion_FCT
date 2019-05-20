@@ -71,14 +71,13 @@ public class TestConexion {
 	 * ANEXOS
 	 */
 	
-	public AnexoI ConsultaAnexoI() {
+	public AnexoI ConsultaAnexoI(String DNI_ALUMNO) {
 	
 		AnexoI aux = null;
 		
 		try {
 			Statement stmt = conexion.createStatement();
-			ResultSet rset = stmt.executeQuery("SELECT Empresa.Num_Convenio, Centro.Representante_Centro, Centro.NIF, Centro.NombreCentro, Centro.Cod_Centro, Centro.Ciudad, Centro.Provincia, Centro.Calle, Centro.Codigo_Postal, Centro.CIF, Centro.Telefono, Centro.Fax, Centro.DAT, Empresa.Representante_Empresa, Empresa.NIF, Empresa.Nombre_Empresa, Empresa.Localidad, Empresa.Provincia, Empresa.Pais, Empresa.Calle, Empresa.Codigo_Postal, Empresa.CIF, Empresa.Telefono, Empresa.Fax FROM " + esquema + ".Empresa, " + esquema + ".Centro, " + esquema + ".Ciclos, " + esquema + ".Cursan, " + esquema + ".Alumnos, " + esquema + ".Asignan WHERE Centro.Cod_Centro=Ciclos.Cod_Centro AND Ciclos.Clave_Ciclo=Cursan.Clave_Ciclo AND Cursan.DNI_ALUM=Alumnos.DNI_ALUM AND Alumnos.DNI_ALUM=Asignan.DNI_ALUM AND Asignan.Num_Convenio=Empresa.Num_Convenio AND Empresa.Num_Convenio='12345G'\r\n" + 
-					"" );
+			ResultSet rset = stmt.executeQuery("SELECT Empresa.Num_Convenio, Centro.Representante_Centro,  Centro.NIF, Centro.NombreCentro, Centro.Cod_Centro, Centro.Ciudad, Centro.Provincia, Centro.Calle, Centro.Codigo_Postal, Centro.CIF, Centro.Telefono, Centro.Fax, Centro.DAT, Empresa.Representante_Empresa, Empresa.NIF, Empresa.Nombre_Empresa, Empresa.Provincia, Empresa.Calle, Empresa.Codigo_Postal, Empresa.CIF, Empresa.Telefono, Empresa.Fax, Empresa.Localidad FROM " + esquema + ".Empresa, " + esquema + ".Centro, " + esquema + ".Ciclos, " + esquema + ".Cursan, " + esquema + ".Alumnos, " + esquema + ".Asignan WHERE Centro.Cod_Centro=Ciclos.Cod_Centro AND Ciclos.Clave_Ciclo=Cursan.Clave_Ciclo AND Cursan.DNI_ALUM=Alumnos.DNI_ALUM AND Alumnos.DNI_ALUM=Asignan.DNI_ALUM AND Asignan.Num_Convenio=Empresa.Num_Convenio AND Alumnos.DNI_ALUM='" + DNI_ALUMNO+ "'");
 			while(rset.next()) {
 				
 				String Num_Convenio = rset.getString(1);
@@ -94,20 +93,19 @@ public class TestConexion {
 				String CIF = rset.getString(10);
 				String Telefono = rset.getString(11);
 				String Fax = rset.getString(12);
-				String DAT = rset.getString(12);
-				String Representante_Empresa = rset.getString(13);
-				String Apellido_Representante_Empresa="";
-				String NIF_Empresa = rset.getString(14);
-				String Nombre_Empresa = rset.getString(15);
-				String Localidad = rset.getString(16);
-				String Provincia_Empresa = rset.getString(17);
-				String Pais = rset.getString(18);
-				String Calle_Empresa = rset.getString(19);
-				String Codigo_Postal_Empresa = rset.getString(20);
-				String CIF_Empresa = rset.getString(21);
-				String Telefono_Empresa = rset.getString(22);
-				String Fax_Empresa = rset.getString(23);
+				String DAT = rset.getString(13);
 				
+				String Representante_Empresa = rset.getString(14);
+				String Apellido_Representante_Empresa="";
+				String NIF_Empresa = rset.getString(15);
+				String Nombre_Empresa = rset.getString(16);
+				String Provincia_Empresa = rset.getString(17);
+				String Calle_Empresa = rset.getString(18);
+				String Codigo_Postal_Empresa = rset.getString(19);
+				String CIF_Empresa = rset.getString(20);
+				String Telefono_Empresa = rset.getString(21);
+				String Fax_Empresa = rset.getString(22);
+				String Localidad = rset.getString(23);
 	
 				DatosColegio auxDatosColegio = new DatosColegio(Representante_Centro, Apellidos, NIF, NombreCentro, Cod_Centro, Provincia, Calle, Codigo_Postal, CIF, Telefono, Fax, Ciudad, DAT);
 				DatosEmpresa auxDatosEmpresa = new DatosEmpresa(Representante_Empresa, Apellido_Representante_Empresa, NIF_Empresa, Nombre_Empresa, Num_Convenio, Provincia_Empresa, Calle_Empresa, Codigo_Postal_Empresa, CIF_Empresa, Telefono_Empresa, Fax_Empresa, Localidad);
@@ -126,67 +124,66 @@ public class TestConexion {
 		
 	}
 	
-	
-	public AnexoII ConsultaAnexoII() {
+	//public AnexoII ConsultaAnexoII(String DNI_ALUM
+	public AnexoII ConsultaAnexoII(String DNI_ALUMNO) {
 		
 		AnexoII aux = null;
 		
 		try {
 			Statement stmt = conexion.createStatement();
-			ResultSet rset = stmt.executeQuery("SELECT Ce.DAT, E.Num_Convenio, Ce.NombreCentro, E.Nombre_Empresa, Ci.Clave_Ciclo, Ci.Nombre_Ciclo, A.Fecha_Inicio, A.Fecha_Terminacion, A.Dias_Semana, A.Tipo_Horario, A.Horas_al_dia, a.Total_horas, A.Hora_Inicio, A.Hora_terminacion, E.Localidad, E.Calle, Ce.NIF, TE.Nombre, TE.Apellido, E.CiudadFirmaConvenio, E.FechaFirmaConvenio, Ce.Representante_Centro, E.Representante_Empresa, Ce.Cod_Centro, Ce.Provincia, E.NIF, Ce.Codigo_Postal, Ce.CIF, Ce.Telefono, Ce.Fax, Ce.Ciudad, E.Provincia, E.Codigo_Postal, E.CIF, E.Telefono, E.Fax, C.Curso, Ce.Calle, Alum.Nombre, Alum.Apellido, Alum.DNI_ALUM, TC.DNI_TC, TC.Nombre, TC.Apellido, TE.DNI_TE FROM "+ esquema + ".Empresa E, " + esquema + ".Centro Ce, " + esquema + ".Ciclos Ci, " + esquema + ".Cursan C, "+ esquema + ".Alumnos Alum, "+ esquema + ".Asignan A, "+ esquema + ".Tutor_Empresa TE, " + esquema + ".Tutor_Centro TC WHERE Ce.Cod_Centro=Ci.Cod_Centro AND Ci.Clave_Ciclo=C.Clave_Ciclo AND C.DNI_ALUM=Alum.DNI_ALUM AND Alum.DNI_ALUM=A.DNI_ALUM AND A.Num_Convenio=E.Num_Convenio AND TE.Num_Convenio=E.Num_Convenio AND TC.DNI_TC=Alum.DNI_TC AND E.Num_Convenio='12345G'");
+			ResultSet rset = stmt.executeQuery("SELECT E.Num_Convenio, Ce.Representante_Centro,  Ce.NIF, Ce.NombreCentro, Ce.Cod_Centro, Ce.Ciudad, Ce.Provincia, Ce.Calle, Ce.Codigo_Postal, Ce.CIF, Ce.Telefono, Ce.Fax, Ce.DAT, E.Representante_Empresa, E.NIF, E.Nombre_Empresa, E.Localidad, E.Provincia, E.Calle, E.Codigo_Postal, E.CIF, E.Telefono, E.Fax, C.Curso, Ci.Clave_Ciclo, Ci.Nombre_Ciclo, A.Fecha_Inicio, A.Fecha_Terminacion, A.Dias_Semana, A.Hora_Inicio, A.Hora_terminacion, A.Horas_al_dia, A.Total_horas, Alum.Nombre, Alum.Apellido, Alum.DNI_ALUM, TC.Nombre, TC.Apellido, TC.DNI_TC, TE.Nombre, TE.Apellido FROM " + esquema + ".Empresa E," + esquema + ". Centro Ce, " + esquema + ".Ciclos Ci, " + esquema + ".Cursan C, " + esquema + ".Alumnos Alum, " + esquema + ".Asignan A, " + esquema + ".Tutor_Empresa TE, " + esquema + ".Tutor_Centro TC WHERE Ce.Cod_Centro=Ci.Cod_Centro AND Ci.Clave_Ciclo=C.Clave_Ciclo AND C.DNI_ALUM=Alum.DNI_ALUM AND Alum.DNI_ALUM=A.DNI_ALUM AND A.Num_Convenio=E.Num_Convenio AND TE.Num_Convenio=E.Num_Convenio AND TC.DNI_TC=Alum.DNI_TC AND A.DNI_ALUM='" + DNI_ALUMNO + "'");
 			while(rset.next()) {
 				
 				SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 				
-				String DAT = rset.getString(1);
-				String Num_Convenio = rset.getString(2);
-				String NombreCentro = rset.getString(3);
-				String Nombre_Empresa = rset.getString(4);
-				String Clave_Ciclo = rset.getString(5);
-				String Nombre_Ciclo = rset.getString(6);
-				String FechaInicio = sdf.format(rset.getDate(7));
-				String Fecha_Terminacion = sdf.format(rset.getDate(8));
-				String Dias_Semana = rset.getString(9);
-				String Tipo_Horario = rset.getString(10);
-				int Horas_al_dia = rset.getInt(11);
-				int Total_horas = rset.getInt(12);
-				String Hora_Inicio = rset.getString(13);
-				String Hora_terminacion = rset.getString(14);
-				String horainiciotarde="";
-				String horafintarde="";
-				String Localidad = rset.getString(15);
-				String Calle_Empresa = rset.getString(16);
-				String NIF = rset.getString(17);
-				String Nombre_TE = rset.getString(18);
-				String Apellidos_TE = rset.getString(19);
-				String CiudadFirmaConvenio = rset.getString(20);
-				String FechaFirmaConvenio = rset.getString(21);
-				String Representante_Centro = rset.getString(22);
+				
+				String Num_Convenio = rset.getString(1);
+				String Representante_Centro = rset.getString(2);
 				String Apellidos = "";
-				String Representante_Empresa = rset.getString(23);
+				String NIF = rset.getString(3);
+				String NombreCentro = rset.getString(4);
+				String Cod_Centro = rset.getString(5);
+				String Ciudad = rset.getString(6);
+				String Provincia = rset.getString(7);
+				String Calle = rset.getString(8);
+				String Codigo_Postal = rset.getString(9);
+				String CIF = rset.getString(10);
+				String Telefono = rset.getString(11);
+				String Fax = rset.getString(12);
+				String DAT = rset.getString(13);
+				
+				String Representante_Empresa = rset.getString(14);
 				String Apellido_Representante_Empresa="";
-				String Cod_Centro = rset.getString(24);
-				String Provincia = rset.getString(25);
-				String NIF_Empresa = rset.getString(26);
-				String Codigo_Postal = rset.getString(27);
-				String CIF = rset.getString(28);
-				String Telefono = rset.getString(29);
-				String Fax = rset.getString(30);
-				String Ciudad = rset.getString(31);
-				String Provincia_Empresa = rset.getString(32);
-				String Codigo_Postal_Empresa = rset.getString(33);
-				String CIF_Empresa = rset.getString(34);
-				String Telefono_Empresa = rset.getString(35);
-				String Fax_Empresa = rset.getString(36);
-				String Curso = rset.getString(36);
-				String Calle = rset.getString(37);
-				String Nombre_Alum = rset.getString(38);
-				String Apellido_Alum = rset.getString(39);
-				String DNI_ALUM = rset.getString(40);
-				String DNI_TC = rset.getString(41);
-				String Nombre_TC = rset.getString(42);
-				String Apellido_TC = rset.getString(43);
-				String DNI_TE = rset.getString(44);
+				String NIF_Empresa = rset.getString(15);
+				String Nombre_Empresa = rset.getString(16);
+				String Localidad = rset.getString(17);
+				String Provincia_Empresa = rset.getString(18);
+				String Calle_Empresa = rset.getString(19);
+				String Codigo_Postal_Empresa = rset.getString(20);
+				String CIF_Empresa = rset.getString(21);
+				String Telefono_Empresa = rset.getString(22);
+				String Fax_Empresa = rset.getString(23);
+				
+				String Curso = rset.getString(24);
+				String Clave_Ciclo = rset.getString(25);
+				String Nombre_Ciclo = rset.getString(26);
+				String FechaInicio = sdf.format(rset.getDate(27));
+				String Fecha_Terminacion = sdf.format(rset.getDate(28));
+				String Dias_Semana = rset.getString(29);
+				String Hora_Inicio = rset.getString(30);
+				String horainiciotarde="";
+				String Hora_terminacion = rset.getString(31);
+				String horafintarde="";
+				int Horas_al_dia = rset.getInt(32);
+				int Total_horas = rset.getInt(33);
+				String Nombre_Alum = rset.getString(34);
+				String Apellido_Alum = rset.getString(35);
+				String DNI_ALUM = rset.getString(36);
+				String Nombre_TC = rset.getString(37);
+				String Apellido_TC = rset.getString(38);
+				String DNI_TC = rset.getString(39);
+				String Nombre_TE = rset.getString(40);
+				String Apellidos_TE = rset.getString(41);
 				
 				
 				DatosColegio auxDatosColegio = new DatosColegio(Representante_Centro, Apellidos, NIF, NombreCentro, Cod_Centro, Provincia, Calle, Codigo_Postal, CIF, Telefono, Fax, Ciudad, DAT);
@@ -196,6 +193,36 @@ public class TestConexion {
 				
 				aux = new AnexoII(auxDatosColegio, auxDatosEmpresa, auxDatosAlumnos);
 				
+			}
+			rset.close();
+			stmt.close();
+			
+		}catch (SQLException s){
+			s.printStackTrace();
+		}
+		return aux;
+		
+	}
+	
+	
+	public ObservableList<Practicas> ConsultaTablaAnexos(String DNI_ALUM) {
+		
+		ObservableList<Practicas> aux = FXCollections.observableArrayList();
+		
+		try {
+			Statement stmt = conexion.createStatement();
+			ResultSet rset = stmt.executeQuery("SELECT Alum.DNI_ALUM, Alum.Nombre, Alum.Apellido, E.Num_Convenio, E.Nombre_Empresa FROM " + esquema +".Asignan A, " + esquema + ".Alumnos Alum" + esquema + ".Empresa E WHERE A.Num_Convenio=E.Num_Convenio AND Alum.DNI_ALUM=A.DNI_ALUM");
+			while(rset.next()) {
+				
+				String DNI_ALUMNO = rset.getString(1);
+				String Nombre = rset.getString(2);
+				String Apellido = rset.getString(3);
+				String Num_Convenio = rset.getString(4);
+				String Nombre_Empresa = rset.getString(5);
+				
+				System.out.println(DNI_ALUMNO + ", " + Nombre + ", " +Apellido + ", " +Num_Convenio + ", " +Nombre_Empresa );
+				Practicas auxPracticas = new Practicas(DNI_ALUMNO, Nombre, Apellido, Num_Convenio, Nombre_Empresa, null, null, null, null, null, null);
+				aux.add(auxPracticas);
 			}
 			rset.close();
 			stmt.close();
@@ -572,37 +599,6 @@ public class TestConexion {
 		
 	}
 	
-	public ObservableList<TutorEmpresa> ConsultaTutorEmpresaSeleccionado(String nombreempresa) {
-		
-		ObservableList<TutorEmpresa> aux = FXCollections.observableArrayList();
-		
-		try {
-			Statement stmt = conexion.createStatement();
-			ResultSet rset = stmt.executeQuery("SELECT * FROM "+ esquema + ".Tutor_Empresa, " + esquema + ".Empresa WHERE Empresa.Num_Convenio = Tutor_Empresa.Num_Convenio AND Empresa.Nombre_Empresa = '" + nombreempresa +"'");
-			while(rset.next()) {
-				
-				String DNI_TE = rset.getString(1);
-				String Nombre = rset.getString(2);
-				String Apellido = rset.getString(3);
-				String Telefono = rset.getString(4);
-				String Gmail = rset.getString(5);
-				String Num_Convenio = rset.getString(6);
-				
-				
-				System.out.println(DNI_TE + ", " + Nombre + ", " +Apellido + ", " +Telefono + ", " +Gmail + ", " +Num_Convenio);
-				TutorEmpresa auxTC = new TutorEmpresa(DNI_TE, Nombre, Apellido, Telefono, Gmail, Num_Convenio );
-				aux.add(auxTC);
-			}
-			rset.close();
-			stmt.close();
-			
-		}catch (SQLException s){
-			s.printStackTrace();
-		}
-		return aux;
-		
-	}
-	
 	public ObservableList<Empresa> ConsultaEmpresasParaContactoTE(String nombreempresas) {
 		
 		ObservableList<Empresa> aux = FXCollections.observableArrayList();
@@ -681,26 +677,7 @@ public class TestConexion {
 		return num;
 	}
 	
-	public ObservableList<String> ConsultaNombreEmpresas() {
-		
-		ObservableList<String> aux = FXCollections.observableArrayList();
-		
-		try {
-			Statement stmt = conexion.createStatement();
-			ResultSet rset = stmt.executeQuery("SELECT * FROM "  + esquema + ".Empresa" );
-			while(rset.next()) {
-				aux.add(rset.getString(3));
-
-			}
-			rset.close();
-			stmt.close();
-			
-		}catch (SQLException s){
-			s.printStackTrace();
-		}
-		return aux;
-		
-	}
+	
 	
 	
 	/**

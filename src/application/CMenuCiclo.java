@@ -90,6 +90,9 @@ public class CMenuCiclo {
 		Programa_Formativo.setCellValueFactory(new PropertyValueFactory<Ciclo,String>("programa_formativo"));
 		Cod_Centro.setCellValueFactory(new PropertyValueFactory<Ciclo,String>("cod_centro"));
 		
+		conexionbbdd = new TestConexion();
+		Tabla.setItems(conexionbbdd.ConsultaCiclos());
+		
 	}
 	
 	public void setMain(Main ProgramaSecundario) {
@@ -106,7 +109,9 @@ public class CMenuCiclo {
         ventana.setTitle("Venta Dos");
         Scene scene = new Scene(ventanaDos);
         ventana.setScene(scene);
+        scene.getStylesheets().add("MiHojaEstilos.css");
         ventana.show();
+        
 	}
 		
 	
@@ -130,6 +135,7 @@ public class CMenuCiclo {
 	        CContactoModificarCiclo cicloseleccionado = loader.getController();
 	        cicloseleccionado.setCiclo(selectedCiclo);
 	        ventana.setScene(scene);
+	        scene.getStylesheets().add("MiHojaEstilos.css");
 	        ventana.show();
         	
            // Tabla.setItems(this.ciclo.getClave_ciclo(), this.ciclo.getNom_ciclo(), this.ciclo.getFamilia_prof(), this.ciclo.getNum_cursos(), this.ciclo.getPeriod_pract(), this.ciclo.getCapac_term(), this.ciclo.getAct_form(), this.ciclo.getCriterios_eva(), this.ciclo.getPrograma_formativo(), this.ciclo.getCod_centro());
@@ -159,10 +165,8 @@ public class CMenuCiclo {
 				Alert alert = new Alert(AlertType.INFORMATION);
 	        	ShowAlertErrorBorradoCiclo(alert);
 			}
-			//Tabla.setItems(conexionbbdd.BorrarCiclo(this.ciclo.getClave_ciclo(), this.ciclo.getNom_ciclo(), this.ciclo.getFamilia_prof(), this.ciclo.getNum_cursos(), this.ciclo.getPeriod_pract(), this.ciclo.getCapac_term(), this.ciclo.getAct_form(), this.ciclo.getCriterios_eva(), this.ciclo.getPrograma_formativo(), this.ciclo.getCod_centro()));
-        	
-           // Tabla.setItems(this.ciclo.getClave_ciclo(), this.ciclo.getNom_ciclo(), this.ciclo.getFamilia_prof(), this.ciclo.getNum_cursos(), this.ciclo.getPeriod_pract(), this.ciclo.getCapac_term(), this.ciclo.getAct_form(), this.ciclo.getCriterios_eva(), this.ciclo.getPrograma_formativo(), this.ciclo.getCod_centro());
-        }else
+			
+		}else
         {
         	// Nothing selected.
         	Alert alert = new Alert(AlertType.ERROR);

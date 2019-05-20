@@ -7,12 +7,12 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CMenuCiclo">
    <children>
-      <TableView fx:id="Tabla" layoutX="61.0" layoutY="52.0" prefHeight="200.0" prefWidth="278.0">
+      <TableView fx:id="Tabla" layoutX="50.0" layoutY="60.0" prefHeight="200.0" prefWidth="300.0">
          <columns>
             <TableColumn fx:id="Clave_Ciclo" prefWidth="75.0" text="Clave Ciclo" />
-            <TableColumn fx:id="Nombre" prefWidth="89.60003662109375" text="Nombre Ciclo" />
-            <TableColumn fx:id="Fam_Prof" prefWidth="115.19999694824219" text="Familia Profesional" />
-            <TableColumn fx:id="Num_Cursos" prefWidth="84.79998779296875" text="Num Cursos" />
+            <TableColumn fx:id="Nombre" prefWidth="108.79998779296875" text="Nombre Ciclo" />
+            <TableColumn fx:id="Fam_Prof" prefWidth="114.4000244140625" text="Familia Profesional" />
+            <TableColumn fx:id="Num_Cursos" prefWidth="67.2000732421875" text="Num Cursos" />
             <TableColumn fx:id="Period_Pract" prefWidth="72.800048828125" text="Period Pract" />
             <TableColumn fx:id="Cap_terminales" prefWidth="104.0" text="Capac terminales" />
             <TableColumn fx:id="Act_Form" prefWidth="131.99993896484375" text="Act Activo Formativas" />

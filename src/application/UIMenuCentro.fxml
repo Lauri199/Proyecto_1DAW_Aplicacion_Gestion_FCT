@@ -7,17 +7,17 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CMenuCentro">
    <children>
-      <TableView fx:id="Tabla" layoutX="87.0" layoutY="53.0" prefHeight="200.0" prefWidth="226.0">
+      <TableView fx:id="Tabla" layoutX="50.0" layoutY="72.0" prefHeight="200.0" prefWidth="300.0">
         <columns>
-          <TableColumn fx:id="Cod_Centro" prefWidth="75.0" text="Cod_Centro" />
-          <TableColumn fx:id="Representante_Centro" prefWidth="89.60003662109375" text="Representante" />
-            <TableColumn fx:id="NIF" prefWidth="60.79998779296875" text="NIF" />
-            <TableColumn fx:id="NombreCentro" prefWidth="75.0" text="NombreCentro" />
-            <TableColumn fx:id="Ciudad" prefWidth="75.0" text="Ciudad" />
-            <TableColumn fx:id="Provincia" prefWidth="75.0" text="Provincia" />
-            <TableColumn fx:id="Calle" prefWidth="75.0" text="Calle" />
-            <TableColumn fx:id="Codigo_Postal" prefWidth="75.0" text="CP" />
-            <TableColumn fx:id="CIF" prefWidth="75.0" text="CIF" />
+          <TableColumn fx:id="Cod_Centro" prefWidth="73.60003662109375" text="Cod_Centro" />
+          <TableColumn fx:id="Representante_Centro" prefWidth="120.0" text="Representante" />
+            <TableColumn fx:id="NombreCentro" prefWidth="105.5999755859375" text="NombreCentro" />
+            <TableColumn fx:id="NIF" minWidth="2.4000244140625" prefWidth="39.20001220703125" text="NIF" />
+            <TableColumn fx:id="Ciudad" prefWidth="60.7999267578125" text="Ciudad" />
+            <TableColumn fx:id="Provincia" prefWidth="68.0" text="Provincia" />
+            <TableColumn fx:id="Calle" prefWidth="85.5999755859375" text="Calle" />
+            <TableColumn fx:id="Codigo_Postal" prefWidth="63.20001220703125" text="CP" />
+            <TableColumn fx:id="CIF" prefWidth="64.0" text="CIF" />
             <TableColumn fx:id="Telefono" prefWidth="75.0" text="Telf" />
             <TableColumn fx:id="Fax" prefWidth="75.0" text="Fax" />
             <TableColumn fx:id="DAT" prefWidth="75.0" text="DAT" />

@@ -45,6 +45,5 @@
             <TableColumn fx:id="FechaFirmaConvenio" prefWidth="75.0" text="Fecha firma" />
          </columns>
       </TableView>
-      <Button fx:id="Actualizar" layoutX="319.0" layoutY="350.0" mnemonicParsing="false" onAction="#ActualizaTabla" text="Actualizar" />
    </children>
 </AnchorPane>

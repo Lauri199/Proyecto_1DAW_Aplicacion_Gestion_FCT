@@ -103,6 +103,8 @@ public class CMenuEmpresa {
 		CiudadFirmaConvenio.setCellValueFactory(new PropertyValueFactory<Empresa,String>("ciudad_firma_convenio"));
 		FechaFirmaConvenio.setCellValueFactory(new PropertyValueFactory<Empresa,String>("fecha_firma_convenio"));
 		
+		conexionbbdd = new TestConexion();
+		Tabla.setItems(conexionbbdd.ConsultaEmpresas());
 	}
 	
 	public void setMain(Main ProgramaSecundario) {
@@ -119,7 +121,9 @@ public class CMenuEmpresa {
         ventana.setTitle("Venta Dos");
         Scene scene = new Scene(ventanaDos);
         ventana.setScene(scene);
+        scene.getStylesheets().add("MiHojaEstilos.css");
         ventana.show();
+        
 	}
 	
 	@FXML
@@ -141,6 +145,7 @@ public class CMenuEmpresa {
 	        CContactoModificarEmpresa empresaseleccionada = loader.getController();
 	        empresaseleccionada.setEmpresa(selectedEmpresa);
 	        ventana.setScene(scene);
+	        scene.getStylesheets().add("MiHojaEstilos.css");
 	        ventana.show();
         }
         else

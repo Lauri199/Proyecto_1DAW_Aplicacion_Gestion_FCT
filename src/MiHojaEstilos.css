@@ -1,0 +1,130 @@
+.root{
+    -fx-font-family: "Verdana";
+    -fx-background-color: #DDFB9A;
+}
+
+.background {
+    -fx-background-color: #DDFB9A;
+}
+
+.label {
+    -fx-font-size: 11pt;
+    -fx-text-fill: #000000;
+    -fx-opacity: 0.8;
+}
+
+.label-bright {
+    -fx-font-size: 10pt;
+    -fx-text-fill: #000000;
+    -fx-opacity: 1;
+}
+
+.label-header {
+    -fx-font-size: 32pt;
+    -fx-text-fill: #000000;
+    -fx-opacity: 1;
+}
+
+.table-view {
+    -fx-base: white;
+    -fx-control-inner-background: #F4FB5C;
+    -fx-background-color: #CDE134;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-border-width: 0 0 1 0;
+    -fx-background-color: transparent;
+    -fx-border-color: 
+        transparent
+        transparent
+        derive(-fx-base, 80%) 
+        transparent;
+}
+
+.table-view .column-header .label {
+    -fx-font-size: 10pt;
+    -fx-text-fill: #000000;
+    -fx-alignment: center-left;
+    -fx-opacity: 1;
+    -fx-font-weight: normal;
+    -fx-font-size: 11pt;
+}
+
+.table-view:focused .table-row-cell:filled:focused:selected {
+    -fx-background-color: -fx-focus-color;
+}
+
+.split-pane:horizontal > .split-pane-divider {
+    -fx-border-color: transparent white transparent white;
+    -fx-background-color: transparent, derive(white,20%);
+}
+
+
+
+.menu-bar {
+    -fx-background-color: derive(white,20%);
+}
+
+.context-menu {
+    -fx-background-color: derive(white,50%);
+}
+
+.menu-bar .label {
+    -fx-font-size: 10pt;
+    -fx-text-fill: #000000;
+    -fx-opacity: 0.9;
+}
+
+.menu .left-container {
+    -fx-background-color: #000000;
+}
+
+.text-field {
+    -fx-font-size: 13pt;
+}
+
+.button {   
+    -fx-border-color: #A3CA51;
+    -fx-border-width: 2;
+    -fx-background-radius: 0;
+    -fx-background-color: #DDFE9A;
+    -fx-font-size: 11pt;
+    -fx-text-fill: #000000;
+}
+
+.button:hover {
+    -fx-background-color: #A3CA51;
+}
+
+.button:pressed, .button:default:hover:pressed {
+  -fx-background-color: #A3CA51;
+  -fx-text-fill: #1d1d1d;
+}
+
+.button:focused {
+    -fx-border-color: #60CB37, #60CB37;
+    -fx-border-width: 1, 1;
+    -fx-border-style: solid;
+    -fx-border-radius: 0, 0;
+}
+
+.button:disabled, .button:default:disabled {
+    -fx-opacity: 0.4;
+    -fx-background-color: #A3CA51;
+    -fx-text-fill: #1d1d1d;
+}
+
+.button:default {
+    -fx-background-color: -fx-focus-color;
+    -fx-text-fill: #1d1d1d;
+}
+
+.button:default:hover {
+    -fx-background-color: derive(-fx-focus-color,30%);
+}

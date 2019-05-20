@@ -106,12 +106,13 @@ public class CContactoModificarEmpresa {
 		} catch (SQLException e) {
 			// TODO Bloque catch generado automáticamente
 			e.printStackTrace();
+			isInputValid();
 		}
 
     }
 
     
-    private boolean isInputValid() {
+    private void isInputValid() {
         String errorMessage = "";
 
         if (Num_Convenio.getText() == null || Num_Convenio.getText().length() == 0) {
@@ -120,7 +121,7 @@ public class CContactoModificarEmpresa {
         if (NIF.getText() == null || NIF.getText().length() == 0) {
             errorMessage += "NIF no válido!\n";
         }
-        if (Nombre_Empresa.getText() == null || Nombre_Empresa.getText().length() != 0) {
+        if (Nombre_Empresa.getText() == null || Nombre_Empresa.getText().length() == 0) {
             errorMessage += "Nombre de la Empresa no válido!\n";
         }
         
@@ -130,7 +131,7 @@ public class CContactoModificarEmpresa {
         if (Localidad.getText() == null || Localidad.getText().length() == 0) {
             errorMessage += "Localidad no válida!\n";
         }
-        if (Provincia.getText() == null || Provincia.getText().length() != 0) {
+        if (Provincia.getText() == null || Provincia.getText().length() == 0) {
             errorMessage += "Provincia no válida!\n";
         }
         
@@ -140,10 +141,10 @@ public class CContactoModificarEmpresa {
         if (Calle.getText() == null || Calle.getText().length() == 0) {
             errorMessage += "Calle no válida!\n";
         }
-        if (Codigo_postal.getText() == null || Codigo_postal.getText().length() != 0) {
+        if (Codigo_postal.getText() == null || Codigo_postal.getText().length() == 0) {
             errorMessage += "Codigo postal no válido!\n";
         }
-        if (CIF.getText() == null || CIF.getText().length() != 0) {
+        if (CIF.getText() == null || CIF.getText().length() == 0) {
             errorMessage += "CIF no válido!\n";
         }
         
@@ -153,24 +154,23 @@ public class CContactoModificarEmpresa {
         if (Fax.getText() == null || Fax.getText().length() == 0) {
             errorMessage += "Fax no válido!\n";
         }
-        if (CiudadFirmaConvenio.getText() == null || CiudadFirmaConvenio.getText().length() != 0) {
+        if (CiudadFirmaConvenio.getText() == null || CiudadFirmaConvenio.getText().length() == 0) {
             errorMessage += "Ciudad de la firma del convenio no válida!\n";
         }
-        if (FechaFirmaConvenio.getText() == null || FechaFirmaConvenio.getText().length() != 0) {
+        if (FechaFirmaConvenio.getText() == null || FechaFirmaConvenio.getText().length() == 0) {
             errorMessage += "Fecha de la firma del convenio no válida!\n";
         }
         
         
-        if (errorMessage.length() == 0) {
-            return true;
-        } else {
+        if (errorMessage.length() != 0) {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Campos incorrectos!!");
             alert.setContentText("Por favor, corrija campos incorrectos");
+            alert.setContentText(errorMessage);
 
             alert.showAndWait();
-            return false;
+            
         }
     }
 

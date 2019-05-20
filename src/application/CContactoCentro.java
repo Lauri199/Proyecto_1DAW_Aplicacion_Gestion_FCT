@@ -99,12 +99,13 @@ public class CContactoCentro {
 		} catch (SQLException e) {
 			// TODO Bloque catch generado automáticamente
 			e.printStackTrace();
+			isInputValid();
 		}
 
     }
 
     
-    private boolean isInputValid() {
+    private void isInputValid() {
         String errorMessage = "";
 
         if (Cod_Centro.getText() == null || Cod_Centro.getText().length() == 0) {
@@ -113,7 +114,7 @@ public class CContactoCentro {
         if (Representante_Centro.getText() == null || Representante_Centro.getText().length() == 0) {
             errorMessage += "Representante del centro no válido!\n";
         }
-        if (NIF.getText() == null || NIF.getText().length() != 9) {
+        if (NIF.getText() == null || NIF.getText().length() == 0) {
             errorMessage += "NIF no válido!\n";
         }
         
@@ -124,7 +125,7 @@ public class CContactoCentro {
             errorMessage += "Ciudad no válida!\n";
         }
         
-        if (Provincia.getText() == null || Provincia.getText().length() != 9) {
+        if (Provincia.getText() == null || Provincia.getText().length() == 0) {
             errorMessage += "Provincia no válida!\n";
         }
         
@@ -135,7 +136,7 @@ public class CContactoCentro {
             errorMessage += "Codigo postal no válido!\n";
         }
         
-        if (CIF.getText() == null || CIF.getText().length() != 9) {
+        if (CIF.getText() == null || CIF.getText().length() == 0) {
             errorMessage += "CIF no válido!\n";
         }
         if (Telefono.getText() == null || Telefono.getText().length() == 0) {
@@ -145,21 +146,20 @@ public class CContactoCentro {
             errorMessage += "Fax no válido!\n";
         }
         
-        if (DAT.getText() == null || DAT.getText().length() != 9) {
+        if (DAT.getText() == null || DAT.getText().length() == 0) {
             errorMessage += "DAT no válido!\n";
         }
         
         
-        if (errorMessage.length() == 0) {
-            return true;
-        } else {
+        if (errorMessage.length() != 0){
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Campos incorrectos!!");
             alert.setContentText("Por favor, corrija campos incorrectos");
+            alert.setContentText(errorMessage);
 
             alert.showAndWait();
-            return false;
+            
         }
     }
 

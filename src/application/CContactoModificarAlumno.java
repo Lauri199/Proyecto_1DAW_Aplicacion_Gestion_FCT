@@ -220,7 +220,7 @@ public class CContactoModificarAlumno {
     		Ciclo selectedCiclo = Tabla_Ciclo.getSelectionModel().getSelectedItem();
     		TutorEmpresa selectedTE = Tabla_TE.getSelectionModel().getSelectedItem();
     		TutorCentro selectedTC = Tabla_TC.getSelectionModel().getSelectedItem();
-    		if (selectedCiclo != null) {
+    		if (selectedCiclo != null && selectedTC != null && selectedTE != null) {
     			conexionbbdd.ModificarAlumno(DNI_ALUM.getText(), Nombre.getText(), Apellido.getText(), Tiempo_Empleado.getText(), selectedTC.dni, selectedTE.dni);
     			conexionbbdd.ModificarCursan(selectedCiclo.clave_ciclo, DNI_ALUM.getText(), Curso.getText());
     		}else {
@@ -231,6 +231,7 @@ public class CContactoModificarAlumno {
 		} catch (SQLException e) {
 			// TODO Bloque catch generado automáticamente
 			e.printStackTrace();
+			isInputValid();
 		}
 
     }
@@ -244,7 +245,7 @@ public class CContactoModificarAlumno {
     }
 
     
-    private boolean isInputValid() {
+    private void isInputValid() {
         String errorMessage = "";
 
         if (DNI_ALUM.getText() == null || DNI_ALUM.getText().length() == 0) {
@@ -253,7 +254,7 @@ public class CContactoModificarAlumno {
         if (Nombre.getText() == null || Nombre.getText().length() == 0) {
             errorMessage += "Nombre del alumno no válido!\n";
         }
-        if (Apellido.getText() == null || Apellido.getText().length() != 0) {
+        if (Apellido.getText() == null || Apellido.getText().length() == 0) {
             errorMessage += "Apellido  del alumno no válida!\n";
         }
         
@@ -263,16 +264,15 @@ public class CContactoModificarAlumno {
         
         
         
-        if (errorMessage.length() == 0) {
-            return true;
-        } else {
+        if (errorMessage.length() != 0){
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Campos incorrectos!!");
             alert.setContentText("Por favor, corrija campos incorrectos");
+            alert.setContentText(errorMessage);
 
             alert.showAndWait();
-            return false;
+            
         }
     }
 

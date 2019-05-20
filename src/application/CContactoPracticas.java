@@ -93,8 +93,7 @@ public class CContactoPracticas {
 	@FXML
 	private TableColumn<Empresa,String> FechaFirmaConvenio;
 	
-	@FXML
-	private Button Actualizar_Empresa;
+	
 	
 	
 	@FXML
@@ -118,8 +117,7 @@ public class CContactoPracticas {
 	@FXML
 	private TableColumn<Alumno,String> DNI_TE;
 	
-	@FXML
-	private Button Actualizar_Alumno;
+	
 
 	
 	TestConexion conexionbbdd;
@@ -155,19 +153,14 @@ public class CContactoPracticas {
 		DNI_TC.setCellValueFactory(new PropertyValueFactory<Alumno,String>("dni_tc"));
 		DNI_TE.setCellValueFactory(new PropertyValueFactory<Alumno,String>("dni_te"));
 		
-	}
-    
-    @FXML
-	public void ActualizaTablaEmpresa(){
 		conexionbbdd = new TestConexion();
 		Tabla_Empresa.setItems(conexionbbdd.ConsultaEmpresas());
+		
+		Tabla_Alum.setItems(conexionbbdd.ConsultaAlumno());
+		
 	}
     
-    @FXML
-	public void ActualizaTablaAlumno(){
-		conexionbbdd = new TestConexion();
-		Tabla_Alum.setItems(conexionbbdd.ConsultaAlumno());
-	}
+    
 
     public void setStageSecundario(Stage ventana) {
 		// TODO Auto-generated method stub
@@ -225,6 +218,7 @@ public class CContactoPracticas {
 		} catch (SQLException e) {
 			// TODO Bloque catch generado automáticamente
 			e.printStackTrace();
+			isInputValid();
 		}
 
     }
@@ -232,8 +226,8 @@ public class CContactoPracticas {
     private void ShowAlertNoSelectionEmpresa(Alert alert){
 
         alert.setTitle("No Seleccionado");
-        alert.setHeaderText("Empresa no seleccionada");
-        alert.setContentText("Por favor!!! Seleccione un ciclo de la tabla");
+        alert.setHeaderText("Practica no seleccionada");
+        alert.setContentText("Por favor!!! Seleccione un elemento de la tabla");
 
         alert.showAndWait();
     }
@@ -241,7 +235,7 @@ public class CContactoPracticas {
     
 
     
-    private boolean isInputValid() {
+    private void isInputValid() {
         String errorMessage = "";
 
         if (Num_Convenio.getText() == null || Num_Convenio .getText().length() == 0) {
@@ -285,16 +279,14 @@ public class CContactoPracticas {
         }
         
         
-        if (errorMessage.length() == 0) {
-            return true;
-        } else {
+        if (errorMessage.length() != 0){
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Campos incorrectos!!");
             alert.setContentText("Por favor, corrija campos incorrectos");
+            alert.setContentText(errorMessage);
 
             alert.showAndWait();
-            return false;
         }
     }
     

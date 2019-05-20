@@ -108,13 +108,10 @@ public class CContactoModificarTutorEmpresa {
 		CiudadFirmaConvenio.setCellValueFactory(new PropertyValueFactory<Empresa,String>("ciudad_firma_convenio"));
 		FechaFirmaConvenio.setCellValueFactory(new PropertyValueFactory<Empresa,String>("fecha_firma_convenio"));
 		
-	}
-    
-    @FXML
-	public void ActualizaTabla(){
 		conexionbbdd = new TestConexion();
 		Tabla.setItems(conexionbbdd.ConsultaEmpresas());
 	}
+    
     
 
     public void setStageSecundario(Stage ventana) {
@@ -162,6 +159,7 @@ public class CContactoModificarTutorEmpresa {
 		} catch (SQLException e) {
 			// TODO Bloque catch generado automáticamente
 			e.printStackTrace();
+			isInputValid();
 		}
 
     }
@@ -175,7 +173,7 @@ public class CContactoModificarTutorEmpresa {
     }
 
     
-    private boolean isInputValid() {
+    private void isInputValid() {
         String errorMessage = "";
 
         if (DNI_TE.getText() == null || DNI_TE.getText().length() == 0) {
@@ -184,7 +182,7 @@ public class CContactoModificarTutorEmpresa {
         if (Nombre.getText() == null || Nombre.getText().length() == 0) {
             errorMessage += "Nombre no válido!\n";
         }
-        if (Apellido.getText() == null || Apellido.getText().length() != 0) {
+        if (Apellido.getText() == null || Apellido.getText().length() == 0) {
             errorMessage += "Apellido no válido!\n";
         }
         
@@ -196,16 +194,15 @@ public class CContactoModificarTutorEmpresa {
         }
         
         
-        if (errorMessage.length() == 0) {
-            return true;
-        } else {
+        if (errorMessage.length() != 0){
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Campos incorrectos!!");
             alert.setContentText("Por favor, corrija campos incorrectos");
+            alert.setContentText(errorMessage);
 
             alert.showAndWait();
-            return false;
+            
         }
     }
 

@@ -74,9 +74,7 @@ public class CMenuTutorCentroyEmpresa {
 	private TableColumn<TutorEmpresa,String> Num_Convenio_TE;
 
 	@FXML
-	ChoiceBox<String> NombreEmpresa;
-	
-	ObservableList<String> EmpresasList = FXCollections.observableArrayList("");
+	private Button Actualizar_TE;
 	
 	@FXML
 	private Button Borrar_TE;
@@ -121,9 +119,6 @@ private ObservableList<TutorEmpresa> data2 = FXCollections.observableArrayList()
 		Tabla_TC.setItems(conexionbbdd.ConsultaTutorCentro());
 		Tabla_TE.setItems(conexionbbdd.ConsultaTodosTutorEmpresa());
 		
-		EmpresasList = conexionbbdd.ConsultaNombreEmpresas();
-		
-		NombreEmpresa.setItems(EmpresasList);
 	}
 	
 	public void setMain(Main ProgramaSecundario) {
@@ -140,7 +135,9 @@ private ObservableList<TutorEmpresa> data2 = FXCollections.observableArrayList()
         ventana.setTitle("Venta Dos");
         Scene scene = new Scene(ventanaDos);
         ventana.setScene(scene);
+        scene.getStylesheets().add("MiHojaEstilos.css");
         ventana.show();
+        
 	}
 		
 	
@@ -164,6 +161,7 @@ private ObservableList<TutorEmpresa> data2 = FXCollections.observableArrayList()
 	        CContactoModificarTutorCentro tutorcentroseleccionado = loader.getController();
 	        tutorcentroseleccionado.setTutorCentro(selectedTC);
 	        ventana.setScene(scene);
+	        scene.getStylesheets().add("MiHojaEstilos.css");
 	        ventana.show();
         }
         else
@@ -210,6 +208,7 @@ private ObservableList<TutorEmpresa> data2 = FXCollections.observableArrayList()
         ventana.setTitle("Venta Dos");
         Scene scene = new Scene(ventanaDos);
         ventana.setScene(scene);
+        scene.getStylesheets().add("MiHojaEstilos.css");
         ventana.show();
 	}
 		
@@ -217,10 +216,7 @@ private ObservableList<TutorEmpresa> data2 = FXCollections.observableArrayList()
 	@FXML
 	public void ActualizaTablaTutorEmpresa(){
 		conexionbbdd = new TestConexion();
-		String aux = NombreEmpresa.getSelectionModel().getSelectedItem();
-		System.out.println("se ha seleccionado  " + aux);
-		
-		Tabla_TE.setItems(conexionbbdd.ConsultaTutorEmpresaSeleccionado(aux));
+		Tabla_TE.setItems(conexionbbdd.ConsultaTodosTutorEmpresa());
 	}
 	
 	
@@ -237,6 +233,7 @@ private ObservableList<TutorEmpresa> data2 = FXCollections.observableArrayList()
 	        CContactoModificarTutorEmpresa tutorcentroseleccionado = loader.getController();
 	        tutorcentroseleccionado.setTutorEmpresa(selectedTE);
 	        ventana.setScene(scene);
+	        scene.getStylesheets().add("MiHojaEstilos.css");
 	        ventana.show();
         }
         else

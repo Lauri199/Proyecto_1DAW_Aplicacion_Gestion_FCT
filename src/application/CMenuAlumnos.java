@@ -72,6 +72,9 @@ public class CMenuAlumnos {
 		DNI_TC.setCellValueFactory(new PropertyValueFactory<Alumno,String>("dni_tc"));
 		DNI_TE.setCellValueFactory(new PropertyValueFactory<Alumno,String>("dni_te"));
 		
+		conexionbbdd = new TestConexion();
+		Tabla.setItems(conexionbbdd.ConsultaAlumno());
+		
 	}
 	
 	public void setMain(Main ProgramaSecundario) {
@@ -88,7 +91,9 @@ public class CMenuAlumnos {
         ventana.setTitle("Venta Dos");
         Scene scene = new Scene(ventanaDos);
         ventana.setScene(scene);
+        scene.getStylesheets().add("MiHojaEstilos.css");
         ventana.show();
+        
 	}
 		
 	
@@ -112,6 +117,7 @@ public class CMenuAlumnos {
 	        CContactoModificarAlumno alumnoseleccionado = loader.getController();
 	        alumnoseleccionado.setAlumno(selectedAlumno);
 	        ventana.setScene(scene);
+	        scene.getStylesheets().add("MiHojaEstilos.css");
 	        ventana.show();
         	
         }
