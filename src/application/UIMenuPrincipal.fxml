@@ -11,7 +11,7 @@
          <graphic>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../Desktop/DAW1/PROYECTO/ICONOS/icono-empresa-png-6.png" />
+                  <Image url="@../icono-empresa-png-6.png" />
                </image>
             </ImageView>
          </graphic>
@@ -20,7 +20,7 @@
          <graphic>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../daw1.AI-ROBOT-O7/Desktop/DAW1%20Laura/Proyecto/Iconos/Escuela.png" />
+                  <Image url="@../Centro.png" />
                </image>
             </ImageView>
          </graphic>
@@ -29,7 +29,7 @@
          <graphic>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../daw1.AI-ROBOT-O7/Desktop/DAW1%20Laura/Proyecto/Iconos/Tutor.png" />
+                  <Image url="@../Tutor.png" />
                </image>
             </ImageView>
          </graphic>
@@ -38,7 +38,7 @@
          <graphic>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../daw1.AI-ROBOT-O7/Desktop/DAW1%20Laura/Proyecto/Iconos/Alumno.png" />
+                  <Image url="@../Alumno.png" />
                </image>
             </ImageView>
          </graphic>
@@ -46,24 +46,24 @@
       <Button fx:id="Practicas" alignment="BOTTOM_CENTER" contentDisplay="RIGHT" layoutX="300.0" layoutY="400.0" mnemonicParsing="false" onAction="#MenuPracticas" prefHeight="200.0" prefWidth="300.0" text="Practicas" />
       <ImageView fitHeight="89.0" fitWidth="89.0" layoutX="308.0" layoutY="455.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../daw1.AI-ROBOT-O7/Desktop/DAW1%20Laura/Proyecto/Iconos/icono-empresa-png-6.png" />
+            <Image url="@../icono-empresa-png-6.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="95.0" fitWidth="89.0" layoutX="495.0" layoutY="455.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../daw1.AI-ROBOT-O7/Desktop/DAW1%20Laura/Proyecto/Iconos/Alumno.png" />
+            <Image url="@../Alumno.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="89.0" fitWidth="92.0" layoutX="406.0" layoutY="455.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../daw1.AI-ROBOT-O7/Desktop/DAW1%20Laura/Proyecto/Iconos/dosFlechas.png" />
+            <Image url="@../dosFlechas.png" />
          </image>
       </ImageView>
       <Button fx:id="Ciclo" layoutY="399.0" mnemonicParsing="false" onAction="#MenuCiclo" prefHeight="200.0" prefWidth="300.0" text="Ciclos">
          <graphic>
             <ImageView fitHeight="125.0" fitWidth="170.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../daw1.AI-ROBOT-O7/Desktop/DAW1%20Laura/Proyecto/Iconos/Ciclo2.png" />
+                  <Image url="@../Ciclo2.png" />
                </image>
             </ImageView>
          </graphic>
